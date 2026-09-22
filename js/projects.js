@@ -97,125 +97,125 @@ const PROJECTS = [
 ];
 
 // ============================================
-// IMAGE / VISUAL THEMES
+// WARM ESPRESSO & AMBER IMAGE / VISUAL THEMES
 // ============================================
 const IMAGE_THEMES = {
 
-  // Machine Learning: Animated Pipeline Flow
+  // Machine Learning: Animated Pipeline Flow (Warm Amber & Tangerine)
   ml: {
-    bg: 'linear-gradient(135deg, #090a1a 0%, #111430 50%, #0a1f3a 100%)',
+    bg: 'linear-gradient(135deg, #181310 0%, #241B16 50%, #1F150F 100%)',
     icon: `
       <div class="ml-pipeline-flow" style="width:100%;max-width:320px;padding:0.5rem;font-family:var(--font-mono);font-size:0.65rem;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;color:#22d3ee;font-weight:600;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;color:#FBBF24;font-weight:700;">
           <span>&#x1F4F0; News Input (Telugu / EN)</span>
           <span style="color:#a3e635;font-size:0.6rem;">&#x25CF; Active ML</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:4px;text-align:center;align-items:center;">
-          <div style="background:rgba(99,102,241,0.18);border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:4px 2px;color:#f1f5f9;">OCR / Text</div>
-          <div style="color:#6366f1;font-size:0.75rem;">&rarr;</div>
-          <div style="background:rgba(99,102,241,0.18);border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:4px 2px;color:#f1f5f9;">NLP (TF-IDF)</div>
-          <div style="color:#6366f1;font-size:0.75rem;">&rarr;</div>
-          <div style="background:rgba(34,211,238,0.2);border:1px solid rgba(34,211,238,0.4);border-radius:4px;padding:4px 2px;color:#22d3ee;font-weight:700;">Classifier</div>
+          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:4px 2px;color:#FFFBEB;">OCR / Text</div>
+          <div style="color:#F97316;font-size:0.8rem;font-weight:bold;">&rarr;</div>
+          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:4px 2px;color:#FFFBEB;">NLP (TF-IDF)</div>
+          <div style="color:#F97316;font-size:0.8rem;font-weight:bold;">&rarr;</div>
+          <div style="background:rgba(251,191,36,0.22);border:1px solid rgba(251,191,36,0.45);border-radius:4px;padding:4px 2px;color:#FBBF24;font-weight:700;">Classifier</div>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:4px 8px;background:rgba(5,5,16,0.6);border-radius:4px;border:1px solid rgba(255,255,255,0.06);">
-          <span style="color:#94a3b8;">Output Confidence:</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:5px 8px;background:rgba(18,15,13,0.85);border-radius:4px;border:1px solid rgba(245,158,11,0.2);">
+          <span style="color:#A89F91;">Classification Output:</span>
           <span style="color:#22c55e;font-weight:bold;">98.4% Real / Fake</span>
         </div>
       </div>`,
   },
 
-  // Interactive Live Calculator Preview
+  // Interactive Live Calculator Preview (Warm Mocha & Amber Keys)
   calc: {
-    bg: 'linear-gradient(135deg, #090915 0%, #150e28 50%, #0a1728 100%)',
+    bg: 'linear-gradient(135deg, #161210 0%, #261D17 50%, #1A130E 100%)',
     icon: `
-      <div class="mini-calculator" style="width:100%;max-width:210px;margin:0 auto;background:rgba(5,5,16,0.9);border:1px solid rgba(99,102,241,0.3);border-radius:10px;padding:8px;box-shadow:0 8px 24px rgba(0,0,0,0.5);" onclick="event.stopPropagation();">
-        <div id="mini-calc-display" style="background:#090a16;border:1px solid rgba(99,102,241,0.2);border-radius:6px;padding:4px 8px;text-align:right;font-family:monospace;font-size:1.1rem;color:#22d3ee;min-height:28px;margin-bottom:6px;overflow:hidden;">0</div>
+      <div class="mini-calculator" style="width:100%;max-width:210px;margin:0 auto;background:rgba(18,15,13,0.92);border:1px solid rgba(245,158,11,0.35);border-radius:10px;padding:8px;box-shadow:0 8px 24px rgba(0,0,0,0.6);" onclick="event.stopPropagation();">
+        <div id="mini-calc-display" style="background:#130F0D;border:1px solid rgba(245,158,11,0.25);border-radius:6px;padding:4px 8px;text-align:right;font-family:monospace;font-size:1.1rem;color:#FBBF24;min-height:28px;margin-bottom:6px;overflow:hidden;">0</div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-family:monospace;">
-          <button type="button" onclick="miniCalcClear()" style="grid-column:span 2;background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">C</button>
-          <button type="button" onclick="miniCalcOp('/')" style="background:rgba(99,102,241,0.2);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">&divide;</button>
-          <button type="button" onclick="miniCalcOp('*')" style="background:rgba(99,102,241,0.2);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">&times;</button>
+          <button type="button" onclick="miniCalcClear()" style="grid-column:span 2;background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.35);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">C</button>
+          <button type="button" onclick="miniCalcOp('/')" style="background:rgba(245,158,11,0.18);color:#FBBF24;border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">&divide;</button>
+          <button type="button" onclick="miniCalcOp('*')" style="background:rgba(245,158,11,0.18);color:#FBBF24;border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">&times;</button>
           
-          <button type="button" onclick="miniCalcNum('7')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">7</button>
-          <button type="button" onclick="miniCalcNum('8')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">8</button>
-          <button type="button" onclick="miniCalcNum('9')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">9</button>
-          <button type="button" onclick="miniCalcOp('-')" style="background:rgba(99,102,241,0.2);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">-</button>
+          <button type="button" onclick="miniCalcNum('7')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">7</button>
+          <button type="button" onclick="miniCalcNum('8')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">8</button>
+          <button type="button" onclick="miniCalcNum('9')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">9</button>
+          <button type="button" onclick="miniCalcOp('-')" style="background:rgba(245,158,11,0.18);color:#FBBF24;border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">-</button>
           
-          <button type="button" onclick="miniCalcNum('4')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">4</button>
-          <button type="button" onclick="miniCalcNum('5')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">5</button>
-          <button type="button" onclick="miniCalcNum('6')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">6</button>
-          <button type="button" onclick="miniCalcOp('+')" style="background:rgba(99,102,241,0.2);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">+</button>
+          <button type="button" onclick="miniCalcNum('4')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">4</button>
+          <button type="button" onclick="miniCalcNum('5')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">5</button>
+          <button type="button" onclick="miniCalcNum('6')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">6</button>
+          <button type="button" onclick="miniCalcOp('+')" style="background:rgba(245,158,11,0.18);color:#FBBF24;border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">+</button>
           
-          <button type="button" onclick="miniCalcNum('1')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">1</button>
-          <button type="button" onclick="miniCalcNum('2')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">2</button>
-          <button type="button" onclick="miniCalcNum('3')" style="background:rgba(255,255,255,0.05);color:#f1f5f9;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">3</button>
-          <button type="button" onclick="miniCalcEval()" style="background:linear-gradient(135deg, #6366f1, #22d3ee);color:#fff;border:none;border-radius:4px;padding:3px 0;font-size:0.75rem;font-weight:bold;cursor:pointer;">=</button>
+          <button type="button" onclick="miniCalcNum('1')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">1</button>
+          <button type="button" onclick="miniCalcNum('2')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">2</button>
+          <button type="button" onclick="miniCalcNum('3')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">3</button>
+          <button type="button" onclick="miniCalcEval()" style="background:linear-gradient(135deg, #F59E0B, #F97316);color:#120F0D;border:none;border-radius:4px;padding:3px 0;font-size:0.75rem;font-weight:bold;cursor:pointer;">=</button>
         </div>
       </div>`,
   },
 
-  // Portfolio
+  // Portfolio Preview
   portfolio: {
-    bg: 'linear-gradient(135deg, #050510 0%, #0a0a1e 50%, #100a1a 100%)',
+    bg: 'linear-gradient(135deg, #14100D 0%, #221A15 50%, #1A130F 100%)',
     icon: `
-      <div style="font-family:monospace;color:#6366f1;font-size:0.75rem;line-height:1.5;text-align:left;padding:1rem">
-        <div><span style="color:#22d3ee">&lt;</span><span style="color:#818cf8">div</span>
-          <span style="color:#f1f5f9"> class=</span><span style="color:#22d3ee">"hero"</span>
-          <span style="color:#22d3ee">&gt;</span></div>
+      <div style="font-family:monospace;color:#FBBF24;font-size:0.75rem;line-height:1.5;text-align:left;padding:1rem">
+        <div><span style="color:#F97316">&lt;</span><span style="color:#FDE68A">div</span>
+          <span style="color:#FFFBEB"> class=</span><span style="color:#FBBF24">"hero"</span>
+          <span style="color:#F97316">&gt;</span></div>
         <div style="padding-left:1rem">
-          <span style="color:#22d3ee">&lt;</span><span style="color:#818cf8">h1</span>
-          <span style="color:#22d3ee">&gt;</span>Prudhvi<span style="color:#22d3ee">&lt;/</span><span style="color:#818cf8">h1</span><span style="color:#22d3ee">&gt;</span>
+          <span style="color:#F97316">&lt;</span><span style="color:#FDE68A">h1</span>
+          <span style="color:#F97316">&gt;</span>Prudhvi<span style="color:#F97316">&lt;/</span><span style="color:#FDE68A">h1</span><span style="color:#F97316">&gt;</span>
         </div>
-        <div><span style="color:#22d3ee">&lt;/</span><span style="color:#818cf8">div</span><span style="color:#22d3ee">&gt;</span></div>
+        <div><span style="color:#F97316">&lt;/</span><span style="color:#FDE68A">div</span><span style="color:#F97316">&gt;</span></div>
       </div>`,
   },
 
-  // Full-Stack
+  // Full-Stack App
   fullstack: {
-    bg: 'linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a2840 100%)',
+    bg: 'linear-gradient(135deg, #18120F 0%, #251B15 50%, #1C1410 100%)',
     icon: `
       <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="72">
-        <rect x="5" y="5" width="90" height="50" rx="4" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-        <rect x="5" y="5" width="90" height="12" rx="4" fill="#6366f1" opacity="0.2"/>
+        <rect x="5" y="5" width="90" height="50" rx="4" stroke="#F59E0B" stroke-width="1.5" opacity="0.6"/>
+        <rect x="5" y="5" width="90" height="12" rx="4" fill="#F59E0B" opacity="0.2"/>
         <circle cx="12" cy="11" r="2" fill="#ef4444" opacity="0.8"/>
-        <circle cx="19" cy="11" r="2" fill="#eab308" opacity="0.8"/>
+        <circle cx="19" cy="11" r="2" fill="#FBBF24" opacity="0.8"/>
         <circle cx="26" cy="11" r="2" fill="#22c55e" opacity="0.8"/>
-        <text x="10" y="30" fill="#22d3ee" font-size="7" font-family="monospace">React + Node.js</text>
-        <text x="10" y="40" fill="#94a3b8" font-size="6" font-family="monospace">Express + MySQL</text>
-        <text x="10" y="50" fill="#6366f1" font-size="6" font-family="monospace">REST API + Auth</text>
+        <text x="10" y="30" fill="#FBBF24" font-size="7" font-family="monospace">React + Node.js</text>
+        <text x="10" y="40" fill="#A89F91" font-size="6" font-family="monospace">Express + MySQL</text>
+        <text x="10" y="50" fill="#F97316" font-size="6" font-family="monospace">REST API + Auth</text>
       </svg>`,
   },
 
   // Student Management System
   sms: {
-    bg: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%)',
+    bg: 'linear-gradient(135deg, #16120E 0%, #231B15 50%, #1B140F 100%)',
     icon: `
       <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="96">
-        <rect x="10" y="10" width="80" height="60" rx="4" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-        <rect x="10" y="10" width="80" height="10" fill="#6366f1" opacity="0.2"/>
-        <text x="15" y="18" fill="#f1f5f9" font-size="6" font-family="monospace">Students [CRUD]</text>
-        <line x1="10" y1="28" x2="90" y2="28" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
-        <text x="15" y="38" fill="#94a3b8" font-size="5" font-family="monospace">STU001 | B.Tech AIDS</text>
-        <text x="15" y="48" fill="#94a3b8" font-size="5" font-family="monospace">STU002 | MySQL DB</text>
-        <text x="15" y="58" fill="#94a3b8" font-size="5" font-family="monospace">STU003 | JDBC Driver</text>
+        <rect x="10" y="10" width="80" height="60" rx="4" stroke="#F59E0B" stroke-width="1.5" opacity="0.6"/>
+        <rect x="10" y="10" width="80" height="10" fill="#F59E0B" opacity="0.2"/>
+        <text x="15" y="18" fill="#FFFBEB" font-size="6" font-family="monospace">Students [CRUD]</text>
+        <line x1="10" y1="28" x2="90" y2="28" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+        <text x="15" y="38" fill="#A89F91" font-size="5" font-family="monospace">STU001 | B.Tech AIDS</text>
+        <text x="15" y="48" fill="#A89F91" font-size="5" font-family="monospace">STU002 | MySQL DB</text>
+        <text x="15" y="58" fill="#A89F91" font-size="5" font-family="monospace">STU003 | JDBC Driver</text>
       </svg>`,
   },
 
   // Task / Todo
   todo: {
-    bg: 'linear-gradient(135deg, #0f1923 0%, #162032 50%, #0a1628 100%)',
+    bg: 'linear-gradient(135deg, #17130F 0%, #241C16 50%, #1A130E 100%)',
     icon: `
-      <div style="font-size:0.75rem;color:#f1f5f9;font-family:monospace">
+      <div style="font-size:0.75rem;color:#FFFBEB;font-family:monospace">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
           <span style="color:#22c55e;font-size:1rem">&#10003;</span>
-          <span style="color:#94a3b8">Responsive UI</span>
+          <span style="color:#A89F91">Responsive UI</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
           <span style="color:#22c55e;font-size:1rem">&#10003;</span>
-          <span style="color:#94a3b8">Create & Edit Tasks</span>
+          <span style="color:#A89F91">Create & Edit Tasks</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;opacity:0.8;">
-          <span style="color:#6366f1;font-size:1rem">&#9675;</span>
-          <span style="color:#f1f5f9">Filter & Organize</span>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;opacity:0.85;">
+          <span style="color:#F59E0B;font-size:1rem">&#9675;</span>
+          <span style="color:#FFFBEB">Filter & Organize</span>
         </div>
       </div>`,
   },
@@ -286,7 +286,7 @@ function githubSVG() {
     '1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605' +
     '-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225' +
     '-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23' +
-    '.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23' +
+    '.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23' +
     '.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225' +
     '0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22' +
     '0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57' +
@@ -429,8 +429,8 @@ function renderProjects() {
     if (typeof gsap !== 'undefined') {
       gsap.fromTo(
         '#projects-grid .project-card',
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, stagger: 0.08, duration: 0.5, ease: 'power2.out' }
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.08, duration: 0.45, ease: 'power2.out' }
       );
     } else {
       grid.querySelectorAll('.project-card').forEach(function(card) {

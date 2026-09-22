@@ -1,4 +1,4 @@
-﻿/**
+/**
  * animations.js
  * Prudhvi Dilip Kumar — Premium Full-Stack Developer Portfolio
  *
@@ -431,7 +431,7 @@ function initCardTilt() {
       const shine = card.querySelector('.card-shine');
       if (shine) {
         shine.style.background =
-          `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08) 0%, transparent 60%)`;
+          `radial-gradient(circle at ${x}px ${y}px, rgba(245, 158, 11, 0.15) 0%, transparent 60%)`;
       }
     });
 

@@ -3,26 +3,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ============================================
-  // 1. LENIS SMOOTH SCROLL
+  // 1. LENIS SMOOTH SCROLL (SINGLE RAF LOOP FIX)
   // ============================================
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-    smoothTouch: false,
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1.5,
   });
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // Connect Lenis to GSAP ScrollTrigger if available
+  // Connect Lenis to GSAP ScrollTrigger correctly without duplicate RAF
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
     gsap.ticker.lagSmoothing(0);
+  } else {
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
   }
 
   // ============================================
@@ -30,24 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   const navbar   = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
+  const backToTop = document.getElementById('back-to-top');
 
-  // Scroll behavior: shrink nav + back-to-top visibility
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('nav-scrolled');
+  // Scroll behavior: shrink nav + back-to-top visibility via Lenis scroll
+  lenis.on('scroll', (e) => {
+    const scrollY = e.scroll;
+    if (scrollY > 40) {
+      navbar?.classList.add('nav-scrolled');
     } else {
-      navbar.classList.remove('nav-scrolled');
+      navbar?.classList.remove('nav-scrolled');
     }
 
-    // Back to top visibility toggle
-    const backToTop = document.getElementById('back-to-top');
     if (backToTop) {
-      backToTop.classList.toggle('visible', window.scrollY > 500);
+      backToTop.classList.toggle('visible', scrollY > 400);
     }
   });
 
   // Active nav link based on scroll position using IntersectionObserver
-  const sections       = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id]');
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -59,27 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.35 });
+  sections.forEach(s => sectionObserver.observe(s));
 
-  sections.forEach(section => sectionObserver.observe(section));
-
-  // Smooth scroll on desktop nav link click
+  // Smooth scroll on nav link click
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         e.preventDefault();
         const target = document.querySelector(href);
-        if (target) lenis.scrollTo(target, { offset: -80, duration: 1.5 });
-        // Close mobile menu if open (safety call)
+        if (target) {
+          lenis.scrollTo(target, { offset: -70, duration: 1.2 });
+        }
         closeMobileMenu();
       }
     });
   });
 
   // Back to top button click
-  document.getElementById('back-to-top')?.addEventListener('click', () => {
-    lenis.scrollTo(0, { duration: 1.5 });
+  backToTop?.addEventListener('click', () => {
+    lenis.scrollTo(0, { duration: 1.2 });
   });
 
   // ============================================
@@ -89,38 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu    = document.getElementById('mobile-menu');
   const mobileOverlay = document.getElementById('mobile-overlay');
 
-  /**
-   * Opens the mobile slide-out nav menu.
-   * Locks body scroll while menu is open.
-   */
   function openMobileMenu() {
     hamburger?.classList.add('open');
+    hamburger?.setAttribute('aria-expanded', 'true');
     mobileMenu?.classList.add('open');
     mobileOverlay?.classList.add('visible');
     document.body.style.overflow = 'hidden';
   }
 
-  /**
-   * Closes the mobile slide-out nav menu.
-   * Restores body scroll.
-   */
   function closeMobileMenu() {
     hamburger?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
     mobileMenu?.classList.remove('open');
     mobileOverlay?.classList.remove('visible');
     document.body.style.overflow = '';
   }
 
-  // Toggle hamburger
   hamburger?.addEventListener('click', () => {
-    if (hamburger.classList.contains('open')) closeMobileMenu();
-    else openMobileMenu();
+    if (hamburger.classList.contains('open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   });
 
-  // Clicking the backdrop closes the menu
   mobileOverlay?.addEventListener('click', closeMobileMenu);
 
-  // Mobile nav links: close menu then smooth-scroll to target
   document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -128,25 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const target = document.querySelector(href);
         closeMobileMenu();
-        // Small delay lets the menu slide out before scrolling
         setTimeout(() => {
-          if (target) lenis.scrollTo(target, { offset: -80, duration: 1.5 });
-        }, 300);
+          if (target) lenis.scrollTo(target, { offset: -70, duration: 1.2 });
+        }, 200);
       }
     });
   });
 
   // ============================================
-  // 4. CUSTOM CURSOR  (desktop / hover devices only)
+  // 4. CUSTOM CURSOR (DESKTOP ONLY)
   // ============================================
   const dot  = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
 
-  if (dot && ring && window.matchMedia('(hover: hover)').matches) {
-    let mouseX = 0, mouseY = 0;
-    let ringX  = 0, ringY  = 0;
+  if (dot && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX  = mouseX;
+    let ringY  = mouseY;
 
-    // Dot tracks the mouse instantly
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -154,54 +153,42 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.style.top  = mouseY + 'px';
     });
 
-    // Ring follows with a lerp lag for a trailing effect
-    function animateCursor() {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
       ring.style.left = ringX + 'px';
       ring.style.top  = ringY + 'px';
-      requestAnimationFrame(animateCursor);
+      requestAnimationFrame(renderCursor);
     }
-    animateCursor();
+    requestAnimationFrame(renderCursor);
 
-    // Scale-up cursor on interactive elements
-    const hoverTargets = document.querySelectorAll('a, button, [data-tilt], .project-card');
-    hoverTargets.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        dot.classList.add('cursor-hover');
-        ring.classList.add('cursor-hover');
+    // Hover reactions
+    const attachHoverStates = () => {
+      document.querySelectorAll('a, button, [data-tilt], .project-card, .skill-card, input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          dot.classList.add('cursor-hover');
+          ring.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+          dot.classList.remove('cursor-hover');
+          ring.classList.remove('cursor-hover');
+        });
       });
-      el.addEventListener('mouseleave', () => {
-        dot.classList.remove('cursor-hover');
-        ring.classList.remove('cursor-hover');
-      });
-    });
-
-    // Hide cursor when it leaves the viewport
-    document.addEventListener('mouseleave', () => {
-      dot.style.opacity  = '0';
-      ring.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      dot.style.opacity  = '1';
-      ring.style.opacity = '1';
-    });
+    };
+    attachHoverStates();
   }
 
   // ============================================
   // 5. CONTACT FORM
   // ============================================
   const form = document.getElementById('contact-form');
-
   if (form) {
-    // Submit handler
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const btn          = form.querySelector('[type="submit"]');
       const originalHTML = btn.innerHTML;
 
-      // --- Client-side validation ---
       let valid = true;
 
       form.querySelectorAll('[required]').forEach(input => {
@@ -228,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!valid) return;
 
-      // --- Simulate async send ---
-      btn.innerHTML = '<span class="spinner"></span> Sending...';
+      // Simulate async send
+      btn.innerHTML = 'Sending...';
       btn.disabled  = true;
 
       setTimeout(() => {
@@ -238,36 +225,31 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.style.color      = '#fff';
         form.reset();
 
-        // Clear all has-value classes after reset
         form.querySelectorAll('input, textarea').forEach(el => {
           el.classList.remove('has-value');
         });
 
-        // Restore button after 3 s
         setTimeout(() => {
           btn.innerHTML        = originalHTML;
           btn.style.background = '';
           btn.style.color      = '';
           btn.disabled         = false;
         }, 3000);
-      }, 1500);
+      }, 1200);
     });
 
-    // Per-field live validation clear
     form.querySelectorAll('input, textarea').forEach(input => {
       input.addEventListener('input', () => {
         const errorEl = input.parentElement.querySelector('.form-error');
         if (errorEl) errorEl.textContent = '';
         input.classList.remove('error');
-
-        // Floating label helper class
         input.classList.toggle('has-value', input.value.length > 0);
       });
     });
   }
 
   // ============================================
-  // 6. GITHUB SECTION CODE-RAIN ANIMATION
+  // 6. GITHUB SECTION AMBER CODE-RAIN ANIMATION
   // ============================================
   const codeCanvas = document.getElementById('code-rain-canvas');
   if (codeCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -281,10 +263,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let drops = Array(columns).fill(1);
 
     function drawCodeRain() {
-      ctx.fillStyle = 'rgba(5, 5, 16, 0.08)';
+      ctx.fillStyle = 'rgba(18, 15, 13, 0.08)';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.fillStyle = 'rgba(99, 102, 241, 0.35)';
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.35)'; // Amber gold characters
       ctx.font = `${fontSize}px JetBrains Mono, monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -298,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    let rainInterval = setInterval(drawCodeRain, 45);
+    setInterval(drawCodeRain, 45);
 
     window.addEventListener('resize', () => {
       width = codeCanvas.width = codeCanvas.offsetWidth || window.innerWidth;
@@ -316,4 +298,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
