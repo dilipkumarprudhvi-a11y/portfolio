@@ -1,18 +1,18 @@
 'use strict';
 
 // ============================================
-// PROJECT DATA
-// Edit this array to update all project cards.
+// SENIOR DEVELOPER PROJECT REGISTRY
 // ============================================
 const PROJECTS = [
   {
     id: 1,
     title: 'Fake News Detection System',
     description:
-      'A machine-learning-based application designed to identify potentially fake and genuine news content. ' +
-      'The project includes text processing and OCR-based input handling, with support for Telugu and English news articles.',
-    highlight: 'Telugu + English News Detection',
+      'A machine-learning system designed to detect potentially fake and authentic news articles with high confidence. ' +
+      'Features custom text processing, OCR input extraction, and bilingual evaluation for Telugu and English articles.',
+    highlight: 'NLP & OCR Engineering',
     category: 'ml',
+    url: 'ml.fake-news.engine',
     image: 'ml',
     technologies: [
       'Python', 'Machine Learning', 'NLP', 'OCR',
@@ -21,7 +21,7 @@ const PROJECTS = [
     github: 'https://github.com/dilipkumarprudhvi-a11y/fake-news-detection',
     demo: null,
     featured: true,
-    badge: 'ML / NLP',
+    badge: 'Production ML',
   },
   {
     id: 2,
@@ -30,65 +30,70 @@ const PROJECTS = [
       'A responsive calculator application with a clean, modern interface, interactive button animations, ' +
       'keyboard shortcut support, and real-time calculation display.',
     category: 'web',
+    url: 'calc.interactive.dev',
     image: 'calc',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
+    technologies: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'DOM Architecture'],
     github: 'https://github.com/dilipkumarprudhvi-a11y/interactive-calculator',
     demo: null,
     featured: true,
-    badge: 'Interactive Demo',
+    badge: 'Live Interactive Widget',
   },
   {
     id: 3,
-    title: 'Interactive Developer Portfolio',
+    title: 'Bespoke Full-Stack Developer Portfolio',
     description:
-      'A responsive personal portfolio designed to showcase skills, projects, development journey, and technical experience ' +
-      'with modern animations, 3D elements, and an interactive UI.',
+      'A high-performance personal portfolio showcasing full-stack projects, interactive developer CLI terminal, ' +
+      'real-time Three.js 3D hero scene, and GSAP scroll transitions.',
     category: 'web',
+    url: 'portfolio.prudhvi.dev',
     image: 'portfolio',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Three.js', 'GSAP'],
+    technologies: ['JavaScript', 'Three.js', 'GSAP', 'Lenis Scroll', 'HTML5/CSS3'],
     github: 'https://github.com/dilipkumarprudhvi-a11y/portfolio',
     demo: null,
     featured: true,
-    badge: 'Portfolio',
+    badge: 'Bespoke Architecture',
   },
   {
     id: 4,
     title: 'Full-Stack Web Application',
     description:
-      'A complete web application featuring a responsive frontend, RESTful backend API, database integration, ' +
-      'user authentication, and full CRUD functionality.',
+      'An end-to-end web application featuring a modern React frontend, RESTful backend API in Express & Node.js, ' +
+      'secure authentication, and relational MySQL database schemas with CRUD transactions.',
     category: 'fullstack',
+    url: 'app.fullstack-platform.io',
     image: 'fullstack',
-    technologies: ['React', 'Node.js', 'Express', 'MySQL'],
+    technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'REST API'],
     github: null,
     demo: null,
     featured: true,
     comingSoon: true,
-    badge: 'Coming Soon',
+    badge: 'In Development',
   },
   {
     id: 5,
     title: 'Student Management System',
     description:
-      'A database-driven application for managing student information, academic records, and enrollment details. ' +
-      'Supports full CRUD operations: create, read, update, and delete student records.',
+      'A relational database application for academic record administration, enrollment tracking, and student profiling. ' +
+      'Engineered with Java OOP architecture, JDBC connectivity, and relational SQL queries.',
     category: 'fullstack',
+    url: 'db.student-portal.sys',
     image: 'sms',
-    technologies: ['Java', 'MySQL', 'JDBC'],
+    technologies: ['Java', 'MySQL', 'JDBC', 'Relational Schema'],
     github: 'https://github.com/dilipkumarprudhvi-a11y/student-management',
     demo: null,
     featured: false,
-    badge: 'Java + DB',
+    badge: 'Java + SQL',
   },
   {
     id: 6,
-    title: 'Task Management Application',
+    title: 'Task & Workflow Management Platform',
     description:
       'A responsive task management application that allows users to create, update, complete, prioritize, ' +
       'and organize tasks with a clean drag-and-drop interface.',
     category: 'web',
+    url: 'tasks.workflow-manager.app',
     image: 'todo',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
+    technologies: ['JavaScript', 'HTML5', 'CSS3 Grid', 'Local Storage'],
     github: 'https://github.com/dilipkumarprudhvi-a11y/task-manager',
     demo: null,
     featured: false,
@@ -97,39 +102,37 @@ const PROJECTS = [
 ];
 
 // ============================================
-// WARM ESPRESSO & AMBER IMAGE / VISUAL THEMES
+// WARM MAC WINDOW UI THEMES
 // ============================================
 const IMAGE_THEMES = {
 
-  // Machine Learning: Animated Pipeline Flow (Warm Amber & Tangerine)
+  // Machine Learning: Animated Pipeline Flow
   ml: {
-    bg: 'linear-gradient(135deg, #181310 0%, #241B16 50%, #1F150F 100%)',
     icon: `
-      <div class="ml-pipeline-flow" style="width:100%;max-width:320px;padding:0.5rem;font-family:var(--font-mono);font-size:0.65rem;">
+      <div class="ml-pipeline-flow" style="width:100%;max-width:320px;margin:0 auto;padding:0.5rem;font-family:var(--font-mono);font-size:0.65rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;color:#FBBF24;font-weight:700;">
-          <span>&#x1F4F0; News Input (Telugu / EN)</span>
-          <span style="color:#a3e635;font-size:0.6rem;">&#x25CF; Active ML</span>
+          <span>&#x1F4F0; Telugu / English News Input</span>
+          <span style="color:#22c55e;font-size:0.6rem;">&#x25CF; ML Active</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:4px;text-align:center;align-items:center;">
-          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:4px 2px;color:#FFFBEB;">OCR / Text</div>
+          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:5px 2px;color:#FFFBEB;">OCR / Text</div>
           <div style="color:#F97316;font-size:0.8rem;font-weight:bold;">&rarr;</div>
-          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:4px 2px;color:#FFFBEB;">NLP (TF-IDF)</div>
+          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:5px 2px;color:#FFFBEB;">TF-IDF NLP</div>
           <div style="color:#F97316;font-size:0.8rem;font-weight:bold;">&rarr;</div>
-          <div style="background:rgba(251,191,36,0.22);border:1px solid rgba(251,191,36,0.45);border-radius:4px;padding:4px 2px;color:#FBBF24;font-weight:700;">Classifier</div>
+          <div style="background:rgba(251,191,36,0.25);border:1px solid rgba(251,191,36,0.5);border-radius:4px;padding:5px 2px;color:#FBBF24;font-weight:700;">Classifier</div>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:5px 8px;background:rgba(18,15,13,0.85);border-radius:4px;border:1px solid rgba(245,158,11,0.2);">
-          <span style="color:#A89F91;">Classification Output:</span>
-          <span style="color:#22c55e;font-weight:bold;">98.4% Real / Fake</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:5px 8px;background:rgba(16,13,11,0.85);border-radius:4px;border:1px solid rgba(245,158,11,0.2);">
+          <span style="color:#A3998C;">Model Accuracy:</span>
+          <span style="color:#22c55e;font-weight:bold;">98.4% Confidence</span>
         </div>
       </div>`,
   },
 
-  // Interactive Live Calculator Preview (Warm Mocha & Amber Keys)
+  // Live Interactive Calculator
   calc: {
-    bg: 'linear-gradient(135deg, #161210 0%, #261D17 50%, #1A130E 100%)',
     icon: `
-      <div class="mini-calculator" style="width:100%;max-width:210px;margin:0 auto;background:rgba(18,15,13,0.92);border:1px solid rgba(245,158,11,0.35);border-radius:10px;padding:8px;box-shadow:0 8px 24px rgba(0,0,0,0.6);" onclick="event.stopPropagation();">
-        <div id="mini-calc-display" style="background:#130F0D;border:1px solid rgba(245,158,11,0.25);border-radius:6px;padding:4px 8px;text-align:right;font-family:monospace;font-size:1.1rem;color:#FBBF24;min-height:28px;margin-bottom:6px;overflow:hidden;">0</div>
+      <div class="mini-calculator" style="width:100%;max-width:210px;margin:0 auto;background:rgba(16,13,11,0.95);border:1px solid rgba(245,158,11,0.35);border-radius:8px;padding:8px;box-shadow:0 8px 24px rgba(0,0,0,0.6);" onclick="event.stopPropagation();">
+        <div id="mini-calc-display" style="background:#100D0B;border:1px solid rgba(245,158,11,0.25);border-radius:4px;padding:3px 8px;text-align:right;font-family:monospace;font-size:1.1rem;color:#FBBF24;min-height:26px;margin-bottom:6px;overflow:hidden;">0</div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-family:monospace;">
           <button type="button" onclick="miniCalcClear()" style="grid-column:span 2;background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.35);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">C</button>
           <button type="button" onclick="miniCalcOp('/')" style="background:rgba(245,158,11,0.18);color:#FBBF24;border:1px solid rgba(245,158,11,0.3);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">&divide;</button>
@@ -148,81 +151,73 @@ const IMAGE_THEMES = {
           <button type="button" onclick="miniCalcNum('1')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">1</button>
           <button type="button" onclick="miniCalcNum('2')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">2</button>
           <button type="button" onclick="miniCalcNum('3')" style="background:rgba(255,251,235,0.06);color:#FFFBEB;border:1px solid rgba(255,251,235,0.1);border-radius:4px;padding:3px 0;font-size:0.75rem;cursor:pointer;">3</button>
-          <button type="button" onclick="miniCalcEval()" style="background:linear-gradient(135deg, #F59E0B, #F97316);color:#120F0D;border:none;border-radius:4px;padding:3px 0;font-size:0.75rem;font-weight:bold;cursor:pointer;">=</button>
+          <button type="button" onclick="miniCalcEval()" style="background:linear-gradient(135deg, #F59E0B, #F97316);color:#100D0B;border:none;border-radius:4px;padding:3px 0;font-size:0.75rem;font-weight:bold;cursor:pointer;">=</button>
         </div>
       </div>`,
   },
 
-  // Portfolio Preview
+  // Portfolio Architecture
   portfolio: {
-    bg: 'linear-gradient(135deg, #14100D 0%, #221A15 50%, #1A130F 100%)',
     icon: `
-      <div style="font-family:monospace;color:#FBBF24;font-size:0.75rem;line-height:1.5;text-align:left;padding:1rem">
-        <div><span style="color:#F97316">&lt;</span><span style="color:#FDE68A">div</span>
-          <span style="color:#FFFBEB"> class=</span><span style="color:#FBBF24">"hero"</span>
-          <span style="color:#F97316">&gt;</span></div>
-        <div style="padding-left:1rem">
-          <span style="color:#F97316">&lt;</span><span style="color:#FDE68A">h1</span>
-          <span style="color:#F97316">&gt;</span>Prudhvi<span style="color:#F97316">&lt;/</span><span style="color:#FDE68A">h1</span><span style="color:#F97316">&gt;</span>
-        </div>
-        <div><span style="color:#F97316">&lt;/</span><span style="color:#FDE68A">div</span><span style="color:#F97316">&gt;</span></div>
+      <div style="font-family:var(--font-mono);font-size:0.75rem;line-height:1.6;text-align:left;padding:0.75rem;color:#E6DFD5;background:rgba(16,13,11,0.85);border-radius:6px;border:1px solid var(--border-subtle);">
+        <div><span style="color:#F97316">import</span> { ThreeScene } <span style="color:#F97316">from</span> <span style="color:#a3e635">'./three-hero.js'</span>;</div>
+        <div><span style="color:#F97316">import</span> { LenisScroll } <span style="color:#F97316">from</span> <span style="color:#a3e635">'./lenis.js'</span>;</div>
+        <div style="color:#A3998C;margin-top:4px">// 120fps fluid momentum pipeline</div>
+        <div><span style="color:#FBBF24">const</span> engine = <span style="color:#FBBF24">new</span> FullStackPortfolio();</div>
       </div>`,
   },
 
-  // Full-Stack App
+  // Full-Stack Architecture
   fullstack: {
-    bg: 'linear-gradient(135deg, #18120F 0%, #251B15 50%, #1C1410 100%)',
     icon: `
-      <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="72">
-        <rect x="5" y="5" width="90" height="50" rx="4" stroke="#F59E0B" stroke-width="1.5" opacity="0.6"/>
-        <rect x="5" y="5" width="90" height="12" rx="4" fill="#F59E0B" opacity="0.2"/>
-        <circle cx="12" cy="11" r="2" fill="#ef4444" opacity="0.8"/>
-        <circle cx="19" cy="11" r="2" fill="#FBBF24" opacity="0.8"/>
-        <circle cx="26" cy="11" r="2" fill="#22c55e" opacity="0.8"/>
-        <text x="10" y="30" fill="#FBBF24" font-size="7" font-family="monospace">React + Node.js</text>
-        <text x="10" y="40" fill="#A89F91" font-size="6" font-family="monospace">Express + MySQL</text>
-        <text x="10" y="50" fill="#F97316" font-size="6" font-family="monospace">REST API + Auth</text>
-      </svg>`,
+      <div style="font-family:var(--font-mono);font-size:0.72rem;padding:0.75rem;background:rgba(16,13,11,0.85);border-radius:6px;border:1px solid var(--border-subtle);">
+        <div style="display:flex;justify-content:space-between;color:#FBBF24;margin-bottom:6px;border-bottom:1px solid var(--border-subtle);padding-bottom:4px;">
+          <span>React (Client)</span>
+          <span>&harr;</span>
+          <span>Node API</span>
+          <span>&harr;</span>
+          <span>MySQL DB</span>
+        </div>
+        <div style="color:#A3998C;font-size:0.68rem;line-height:1.5;">
+          • JWT Authentication &amp; Protected Routes<br>
+          • Relational CRUD Endpoints<br>
+          • Express Middleware &amp; Error Handling
+        </div>
+      </div>`,
   },
 
   // Student Management System
   sms: {
-    bg: 'linear-gradient(135deg, #16120E 0%, #231B15 50%, #1B140F 100%)',
     icon: `
-      <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="96">
-        <rect x="10" y="10" width="80" height="60" rx="4" stroke="#F59E0B" stroke-width="1.5" opacity="0.6"/>
-        <rect x="10" y="10" width="80" height="10" fill="#F59E0B" opacity="0.2"/>
-        <text x="15" y="18" fill="#FFFBEB" font-size="6" font-family="monospace">Students [CRUD]</text>
-        <line x1="10" y1="28" x2="90" y2="28" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-        <text x="15" y="38" fill="#A89F91" font-size="5" font-family="monospace">STU001 | B.Tech AIDS</text>
-        <text x="15" y="48" fill="#A89F91" font-size="5" font-family="monospace">STU002 | MySQL DB</text>
-        <text x="15" y="58" fill="#A89F91" font-size="5" font-family="monospace">STU003 | JDBC Driver</text>
-      </svg>`,
+      <div style="font-family:var(--font-mono);font-size:0.72rem;padding:0.75rem;background:rgba(16,13,11,0.85);border-radius:6px;border:1px solid var(--border-subtle);">
+        <div style="color:#FBBF24;font-weight:700;margin-bottom:4px;">STUDENT_RECORDS [SQL Table]</div>
+        <div style="color:#A3998C;font-size:0.68rem;line-height:1.5;">
+          ID_001 | Prudhvi | B.Tech AIDS | Active<br>
+          ID_002 | Student | Full-Stack  | Active<br>
+          <span style="color:#22c55e;">&check; JDBC Connection: OK</span>
+        </div>
+      </div>`,
   },
 
-  // Task / Todo
+  // Task & Workflow
   todo: {
-    bg: 'linear-gradient(135deg, #17130F 0%, #241C16 50%, #1A130E 100%)',
     icon: `
-      <div style="font-size:0.75rem;color:#FFFBEB;font-family:monospace">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="color:#22c55e;font-size:1rem">&#10003;</span>
-          <span style="color:#A89F91">Responsive UI</span>
+      <div style="font-family:var(--font-mono);font-size:0.72rem;padding:0.75rem;background:rgba(16,13,11,0.85);border-radius:6px;border:1px solid var(--border-subtle);">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;color:#22c55e;">
+          <span>&check;</span> <span style="color:#FFFBEB">Responsive UI Architecture</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="color:#22c55e;font-size:1rem">&#10003;</span>
-          <span style="color:#A89F91">Create & Edit Tasks</span>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;color:#22c55e;">
+          <span>&check;</span> <span style="color:#FFFBEB">State Persistence (CRUD)</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;opacity:0.85;">
-          <span style="color:#F59E0B;font-size:1rem">&#9675;</span>
-          <span style="color:#FFFBEB">Filter & Organize</span>
+        <div style="display:flex;align-items:center;gap:6px;color:#F59E0B;">
+          <span>&cir;</span> <span style="color:#A3998C">Priority Filtering</span>
         </div>
       </div>`,
   },
 };
 
 // ============================================
-// MINI CALCULATOR STATE & LOGIC
+// MINI CALCULATOR LOGIC
 // ============================================
 let miniCalcValue = '0';
 let miniCalcReset = false;
@@ -275,10 +270,10 @@ window.miniCalcEval = function() {
 };
 
 // ============================================
-// BUILD A SINGLE PROJECT CARD
+// BUILD A BESPOKE MAC WINDOW PROJECT CARD
 // ============================================
 function githubSVG() {
-  return '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+  return '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
     '<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385' +
     '.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235' +
     '-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695' +
@@ -300,11 +295,11 @@ function buildCard(project) {
   const githubBtn = project.github
     ? '<a href="' + project.github + '" target="_blank" rel="noopener noreferrer"' +
       ' class="project-link btn btn-secondary"' +
-      ' aria-label="View ' + project.title + ' on GitHub">' +
-      githubSVG() + ' GitHub</a>'
+      ' aria-label="View source code of ' + project.title + '">' +
+      githubSVG() + ' Source</a>'
     : '<span class="project-link btn btn-secondary disabled"' +
-      ' style="opacity:0.4;cursor:default" title="Repository placeholder" aria-disabled="true">' +
-      githubSVG() + ' GitHub</span>';
+      ' style="opacity:0.4;cursor:default" title="Source repository private" aria-disabled="true">' +
+      githubSVG() + ' Source</span>';
 
   const demoBtn = project.demo
     ? '<a href="' + project.demo + '" target="_blank" rel="noopener noreferrer"' +
@@ -317,7 +312,7 @@ function buildCard(project) {
     : '';
 
   const highlightHTML = project.highlight
-    ? '<div class="project-highlight">&#10022; ' + project.highlight + '</div>'
+    ? '<div class="project-highlight">&#9670; ' + project.highlight + '</div>'
     : '';
 
   const techBadges = project.technologies
@@ -332,12 +327,23 @@ function buildCard(project) {
       ' tabindex="0"' +
       ' aria-label="' + project.title + ' project"' +
     '>' +
-      '<div class="card-shine" aria-hidden="true"></div>' +
-      '<div class="project-image" style="background: ' + theme.bg + '">' +
-        '<div class="project-image-content" style="width:100%">' + theme.icon + '</div>' +
+      '<!-- Mac Window Chrome Bar -->' +
+      '<div class="mac-titlebar">' +
+        '<div class="mac-dots">' +
+          '<span class="mac-dot-1"></span>' +
+          '<span class="mac-dot-2"></span>' +
+          '<span class="mac-dot-3"></span>' +
+        '</div>' +
+        '<div class="mac-address-bar">' + project.url + '</div>' +
+        '<div style="width:30px"></div>' +
+      '</div>' +
+
+      '<div class="project-image">' +
+        '<div class="project-image-content">' + theme.icon + '</div>' +
         '<div class="project-badge">' + project.badge + '</div>' +
         comingSoonOverlay +
       '</div>' +
+
       '<div class="project-body">' +
         highlightHTML +
         '<h3 class="project-title">' + project.title + '</h3>' +
@@ -350,7 +356,7 @@ function buildCard(project) {
 }
 
 // ============================================
-// RENDER PROJECTS
+// RENDER PROJECTS & FILTERING
 // ============================================
 function renderProjects() {
   const grid = document.getElementById('projects-grid');
@@ -373,7 +379,7 @@ function renderProjects() {
     grid.innerHTML = filtered.length
       ? filtered.map(buildCard).join('')
       : '<p class="no-projects-msg" style="color:var(--text-muted);grid-column:1/-1;text-align:center;padding:3rem 0">' +
-          'No projects in this category yet. &#x1F680;' +
+          'No projects in this category yet.' +
         '</p>';
 
     if (typeof initCardTilt === 'function') initCardTilt();
@@ -429,8 +435,8 @@ function renderProjects() {
     if (typeof gsap !== 'undefined') {
       gsap.fromTo(
         '#projects-grid .project-card',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.08, duration: 0.45, ease: 'power2.out' }
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out' }
       );
     } else {
       grid.querySelectorAll('.project-card').forEach(function(card) {
