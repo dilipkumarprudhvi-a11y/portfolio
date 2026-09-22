@@ -1,136 +1,160 @@
 /**
  * animations.js
- * Prudhvi Dilip Kumar — Premium Full-Stack Developer Portfolio
+ * Prudhvi Dilip Kumar — Senior Full-Stack Developer Portfolio
  *
- * Handles all GSAP animations, scroll reveals, counters,
- * typewriter effect, and interactive micro-interactions.
- *
- * Dependencies: GSAP 3.x + ScrollTrigger plugin (loaded via CDN in HTML)
+ * Ultra-Smooth 120fps Animation & Motion Suite
+ * Powered by GSAP 3.x + ScrollTrigger Plugin
  */
 
-/* =========================================================
-   ENTRY POINT — wait for DOM to be fully parsed
-   ========================================================= */
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
-  initAnimations();
+  initMotionSuite();
 });
 
-/* =========================================================
-   MAIN INIT
-   ========================================================= */
-function initAnimations() {
+function initMotionSuite() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP or ScrollTrigger not loaded. Running fallback styles.');
+    document.body.classList.add('loaded');
+    return;
+  }
 
-  // ── 1. Register GSAP plugins ─────────────────────────────
   gsap.registerPlugin(ScrollTrigger);
 
-  // ── 2. Respect user's motion preference globally ─────────
-  const prefersReducedMotion =
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ── 3. Kick off loading screen ───────────────────────────
+  // 1. Kick off Loading Screen & Hero Entrance
   initLoadingScreen(prefersReducedMotion);
 
-  // ── 4. Scroll-driven effects ─────────────────────────────
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      el.textContent = el.dataset.target + (el.dataset.suffix || '+');
+    });
+    document.querySelectorAll('.skill-bar-fill').forEach(el => {
+      el.style.width = el.dataset.level + '%';
+    });
+    return;
+  }
+
+  // 2. Scroll-Driven Reveal Animations
   initScrollReveals();
-  initParallaxHero();
-  initScrollProgressBar();
+  initTimelineProgressDraw();
+  initTerminalAutoType();
 
-  // ── 5. Counter & bar animations ──────────────────────────
-  initCounters();
-  initSkillBars();
+  // 3. Stat Counters & Skill Bars
+  initExponentialCounters();
+  initSkillBarsWithGlow();
 
-  // ── 6. Interactive effects ────────────────────────────────
-  initCardTilt();
-  initMagneticButtons();
+  // 4. Interactive Micro-Interactions
+  init3DCardSpotlight();
+  initMagneticElements();
   initSkillsFilter();
-
-  // ── 7. Decorative / ambient animations ───────────────────
-  initOrbitAnimation(prefersReducedMotion);
-  animateCodeSymbols();
-
-} // end initAnimations
+}
 
 /* =========================================================
-   LOADING SCREEN
+   1. LOADING SCREEN & CINEMATIC HERO ENTRANCE
    ========================================================= */
 function initLoadingScreen(prefersReducedMotion) {
   const loader    = document.getElementById('loading-screen');
   const loaderBar = document.querySelector('.loader-bar');
 
-  // If loading screen markup is absent, go straight to hero
   if (!loader || !loaderBar) {
-    animateHeroEntrance();
+    document.body.classList.add('loaded');
+    animateCinematicHero();
     return;
   }
 
-  // Fast-track animation for users who prefer reduced motion
-  const duration = prefersReducedMotion ? 0.1 : 2;
+  const duration = prefersReducedMotion ? 0.05 : 1.2;
 
   gsap.to(loaderBar, {
     width: '100%',
-    duration,
+    duration: duration,
     ease: 'power2.inOut',
     onComplete: () => {
       gsap.to(loader, {
         opacity: 0,
-        y: -50,
-        duration: prefersReducedMotion ? 0 : 0.8,
-        ease: 'power2.inOut',
+        y: -30,
+        duration: prefersReducedMotion ? 0 : 0.6,
+        ease: 'power3.inOut',
         onComplete: () => {
           loader.style.display = 'none';
           document.body.classList.add('loaded');
-          animateHeroEntrance();
+          animateCinematicHero();
         }
       });
     }
   });
 }
 
-/* =========================================================
-   HERO ENTRANCE
-   ========================================================= */
-function animateHeroEntrance() {
-  // Guard — elements may not exist on every page variant
-  const heroElements = [
-    '.hero-pre', '.hero-name', '.hero-title',
-    '.hero-subtitle', '.hero-description',
-    '.hero-ctas .btn', '.scroll-indicator'
-  ].filter(sel => document.querySelector(sel));
+function animateCinematicHero() {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  if (heroElements.length === 0) return;
+  // Staggered blur-fade entrance
+  tl.fromTo('.availability-badge', 
+    { opacity: 0, y: 20, filter: 'blur(8px)' }, 
+    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 }
+  );
 
-  const tl = gsap.timeline();
+  tl.fromTo('.hero-pre', 
+    { opacity: 0, y: 25, filter: 'blur(6px)' }, 
+    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 }, 
+    '-=0.3'
+  );
 
-  if (document.querySelector('.hero-pre')) {
-    tl.from('.hero-pre', { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' });
-  }
-  if (document.querySelector('.hero-name')) {
-    tl.from('.hero-name', { opacity: 0, y: 50, duration: 0.9, ease: 'power3.out' }, '-=0.3');
-  }
-  if (document.querySelector('.hero-title')) {
-    tl.from('.hero-title', { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' }, '-=0.4');
-  }
-  if (document.querySelector('.hero-subtitle')) {
-    tl.from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.3');
-  }
-  if (document.querySelector('.hero-description')) {
-    tl.from('.hero-description', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.3');
-  }
-  if (document.querySelector('.hero-ctas .btn')) {
-    tl.from('.hero-ctas .btn', {
-      opacity: 0, y: 20, stagger: 0.15, duration: 0.6, ease: 'power3.out'
-    }, '-=0.2');
-  }
-  if (document.querySelector('.scroll-indicator')) {
-    tl.from('.scroll-indicator', { opacity: 0, duration: 0.5 }, '-=0.2');
-  }
+  tl.fromTo('.hero-name', 
+    { opacity: 0, y: 40, filter: 'blur(12px)', scale: 0.96 }, 
+    { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, duration: 0.8 }, 
+    '-=0.3'
+  );
 
-  // Kick off typewriter after entrance completes
+  tl.fromTo('.hero-title', 
+    { opacity: 0, y: 25, filter: 'blur(6px)' }, 
+    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 }, 
+    '-=0.4'
+  );
+
+  tl.fromTo('.hero-subtitle', 
+    { opacity: 0, y: 20 }, 
+    { opacity: 1, y: 0, duration: 0.5 }, 
+    '-=0.3'
+  );
+
+  tl.fromTo('.hero-description', 
+    { opacity: 0, y: 20 }, 
+    { opacity: 1, y: 0, duration: 0.5 }, 
+    '-=0.3'
+  );
+
+  tl.fromTo('.hero-ctas .btn, .hero-ctas .copy-btn', 
+    { opacity: 0, y: 20, scale: 0.95 }, 
+    { opacity: 1, y: 0, scale: 1, stagger: 0.1, duration: 0.5 }, 
+    '-=0.2'
+  );
+
+  tl.fromTo('.hero-badge', 
+    { opacity: 0, y: 15, scale: 0.9 }, 
+    { opacity: 1, y: 0, scale: 1, stagger: 0.05, duration: 0.4 }, 
+    '-=0.2'
+  );
+
+  tl.fromTo('.hero-canvas-wrap', 
+    { opacity: 0, scale: 0.85 }, 
+    { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, 
+    '-=1.0'
+  );
+
+  tl.fromTo('.scroll-indicator', 
+    { opacity: 0 }, 
+    { opacity: 1, duration: 0.6 }, 
+    '-=0.3'
+  );
+
+  // Start typewriter effect
   tl.call(startTypewriter);
 }
 
 /* =========================================================
-   TYPEWRITER EFFECT
+   2. TYPEWRITER EFFECT
    ========================================================= */
 function startTypewriter() {
   const el = document.querySelector('.typewriter-text');
@@ -138,10 +162,10 @@ function startTypewriter() {
 
   const words = [
     'Full-Stack Developer',
-    'Frontend Engineer',
-    'Backend Developer',
-    'Problem Solver',
-    'Web Application Builder'
+    'Software Engineer',
+    'Backend API Architect',
+    'React & Node Builder',
+    'Problem Solver'
   ];
 
   let wordIndex  = 0;
@@ -159,15 +183,15 @@ function startTypewriter() {
       charIndex++;
     }
 
-    let speed = isDeleting ? 50 : 100;
+    let speed = isDeleting ? 40 : 85;
 
     if (!isDeleting && charIndex === currentWord.length) {
-      speed      = 2000; // pause at full word
+      speed      = 2200; // Pause at full word
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex  = (wordIndex + 1) % words.length;
-      speed      = 500;  // brief pause before next word
+      speed      = 400;  // Pause before next word
     }
 
     setTimeout(type, speed);
@@ -177,183 +201,220 @@ function startTypewriter() {
 }
 
 /* =========================================================
-   SCROLL REVEAL ANIMATIONS
+   3. SCROLL REVEAL STAGGERS
    ========================================================= */
 function initScrollReveals() {
+  // Section Headers
+  gsap.utils.toArray('.section-header').forEach(header => {
+    gsap.fromTo(header,
+      { opacity: 0, y: 40, filter: 'blur(8px)' },
+      {
+        opacity: 1, y: 0, filter: 'blur(0px)',
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: header,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+          once: true
+        }
+      }
+    );
+  });
 
-  // ── Section headings ────────────────────────────────────
-  gsap.utils.toArray('.section-tag, .section-title, .section-subtitle').forEach(el => {
-    gsap.from(el, {
+  // About Bento Cards
+  gsap.fromTo('.about-bento-grid > div',
+    { opacity: 0, y: 45, scale: 0.97 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.75,
+      stagger: 0.15,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: el,
+        trigger: '.about-bento-grid',
+        start: 'top 80%',
+        once: true
+      }
+    }
+  );
+
+  // Skill Cards
+  gsap.fromTo('.skill-card',
+    { opacity: 0, y: 35, scale: 0.95 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.55,
+      stagger: 0.04,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.skills-grid',
         start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      opacity: 0,
-      y: 40,
+        once: true
+      }
+    }
+  );
+
+  // Education Cards
+  gsap.fromTo('.edu-card',
+    { opacity: 0, y: 40, scale: 0.96 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.7,
+      stagger: 0.15,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.education-grid',
+        start: 'top 85%',
+        once: true
+      }
+    }
+  );
+
+  // GitHub Bento Card
+  gsap.fromTo('.github-bento-card',
+    { opacity: 0, y: 40, scale: 0.96 },
+    {
+      opacity: 1, y: 0, scale: 1,
       duration: 0.8,
-      ease: 'power3.out'
-    });
-  });
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.github-section',
+        start: 'top 85%',
+        once: true
+      }
+    }
+  );
 
-  // ── About section — slide in from sides ─────────────────
-  if (document.querySelector('.about-text')) {
-    gsap.from('.about-text', {
-      scrollTrigger: { trigger: '#about', start: 'top 70%' },
-      opacity: 0,
-      x: -60,
-      duration: 1,
-      ease: 'power3.out'
-    });
-  }
+  // Contact Grid
+  gsap.fromTo('.contact-grid > div',
+    { opacity: 0, y: 40 },
+    {
+      opacity: 1, y: 0,
+      duration: 0.75,
+      stagger: 0.15,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.contact-section',
+        start: 'top 85%',
+        once: true
+      }
+    }
+  );
 
-  if (document.querySelector('.about-visual')) {
-    gsap.from('.about-visual', {
-      scrollTrigger: { trigger: '#about', start: 'top 70%' },
-      opacity: 0,
-      x: 60,
-      duration: 1,
-      ease: 'power3.out'
-    });
-  }
-
-  // ── Stat cards stagger ───────────────────────────────────
-  if (document.querySelector('.stat-card')) {
-    gsap.from('.stat-card', {
-      scrollTrigger: { trigger: '#stats', start: 'top 80%' },
-      opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-  }
-
-  // ── Skill cards — pop up with scale ─────────────────────
-  if (document.querySelector('.skill-card')) {
-    gsap.from('.skill-card', {
-      scrollTrigger: { trigger: '#skills', start: 'top 80%' },
-      opacity: 0,
-      y: 50,
-      scale: 0.9,
-      stagger: 0.05,
-      duration: 0.6,
-      ease: 'power3.out'
+  // Scroll Progress Bar
+  const progressBar = document.querySelector('.scroll-progress-bar');
+  if (progressBar) {
+    gsap.to(progressBar, {
+      scaleX: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3
+      }
     });
   }
+}
 
-  // ── Project cards stagger ────────────────────────────────
-  if (document.querySelector('.project-card')) {
-    gsap.from('.project-card', {
-      scrollTrigger: { trigger: '#projects', start: 'top 80%' },
-      opacity: 0,
-      y: 60,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-  }
+/* =========================================================
+   4. PROGRESSIVE TIMELINE LINE DRAW
+   ========================================================= */
+function initTimelineProgressDraw() {
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
 
-  // ── Timeline items — alternate left / right ──────────────
-  gsap.utils.toArray('.timeline-item').forEach((item) => {
-    const isLeft  = item.dataset.side === 'left';
-    const content = item.querySelector('.timeline-content');
+  const items = gsap.utils.toArray('.timeline-item');
+
+  items.forEach((item, index) => {
     const dot     = item.querySelector('.timeline-dot');
+    const content = item.querySelector('.timeline-content');
+    const side    = item.dataset.side || 'left';
+    const xOffset = side === 'left' ? -35 : 35;
 
-    if (content) {
-      gsap.from(content, {
-        scrollTrigger: { trigger: item, start: 'top 80%' },
-        opacity: 0,
-        x: isLeft ? -60 : 60,
-        duration: 0.9,
-        ease: 'power3.out'
-      });
-    }
+    // Reveal item content
+    gsap.fromTo(content,
+      { opacity: 0, x: xOffset, filter: 'blur(6px)' },
+      {
+        opacity: 1, x: 0, filter: 'blur(0px)',
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
 
+    // Pulse dot when reached
     if (dot) {
-      gsap.from(dot, {
-        scrollTrigger: { trigger: item, start: 'top 80%' },
-        scale: 0,
-        duration: 0.5,
-        ease: 'back.out(2)'
-      });
+      gsap.fromTo(dot,
+        { scale: 0, opacity: 0 },
+        {
+          scale: 1, opacity: 1,
+          duration: 0.5,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            once: true,
+            onEnter: () => dot.classList.add('active')
+          }
+        }
+      );
     }
   });
-
-  // ── Education cards ──────────────────────────────────────
-  if (document.querySelector('.edu-card')) {
-    gsap.from('.edu-card', {
-      scrollTrigger: { trigger: '#education', start: 'top 80%' },
-      opacity: 0,
-      y: 40,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-  }
-
-  // ── Contact section ──────────────────────────────────────
-  if (document.querySelector('.contact-form')) {
-    gsap.from('.contact-form', {
-      scrollTrigger: { trigger: '#contact', start: 'top 75%' },
-      opacity: 0,
-      x: 60,
-      duration: 1,
-      ease: 'power3.out'
-    });
-  }
-
-  if (document.querySelector('.contact-info')) {
-    gsap.from('.contact-info', {
-      scrollTrigger: { trigger: '#contact', start: 'top 75%' },
-      opacity: 0,
-      x: -60,
-      duration: 1,
-      ease: 'power3.out'
-    });
-  }
 }
 
 /* =========================================================
-   PARALLAX — HERO CONTENT DRIFTS ON SCROLL
+   5. TERMINAL AUTO-TYPE ON SCROLL
    ========================================================= */
-function initParallaxHero() {
-  if (!document.querySelector('.hero-content')) return;
+function initTerminalAutoType() {
+  const terminal = document.getElementById('interactive-terminal');
+  if (!terminal) return;
 
-  gsap.to('.hero-content', {
-    scrollTrigger: {
-      trigger: '#home',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1
-    },
-    y: 100,
-    opacity: 0.5
+  let hasTyped = false;
+
+  ScrollTrigger.create({
+    trigger: terminal,
+    start: 'top 75%',
+    once: true,
+    onEnter: () => {
+      if (hasTyped) return;
+      hasTyped = true;
+
+      // Small delay then type 'bio' command
+      setTimeout(() => {
+        const input = document.getElementById('terminal-input');
+        if (!input) return;
+
+        const cmd = 'bio';
+        let i = 0;
+
+        function simulateTyping() {
+          if (i < cmd.length) {
+            input.value += cmd.charAt(i);
+            i++;
+            setTimeout(simulateTyping, 120);
+          } else {
+            setTimeout(() => {
+              if (typeof window.runTermCmd === 'function') {
+                window.runTermCmd('bio');
+              }
+            }, 300);
+          }
+        }
+        simulateTyping();
+      }, 600);
+    }
   });
 }
 
 /* =========================================================
-   SCROLL PROGRESS BAR (thin line at top of page)
+   6. EXPONENTIALLY EASED NUMBER COUNTERS
    ========================================================= */
-function initScrollProgressBar() {
-  if (!document.querySelector('.scroll-progress-bar')) return;
-
-  gsap.to('.scroll-progress-bar', {
-    scaleX: 1,
-    scrollTrigger: {
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 0.3
-    },
-    transformOrigin: 'left center'
-  });
-}
-
-/* =========================================================
-   ANIMATED COUNTERS
-   ========================================================= */
-function initCounters() {
+function initExponentialCounters() {
   const counters = document.querySelectorAll('.stat-number');
   if (!counters.length) return;
 
@@ -363,45 +424,50 @@ function initCounters() {
 
     ScrollTrigger.create({
       trigger: counter,
-      start: 'top 80%',
+      start: 'top 85%',
       once: true,
       onEnter: () => {
-        let current     = 0;
-        const increment = target / 60; // spread over ~60 ticks at 16ms ≈ 1 s
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.8,
+          ease: 'power3.out',
+          onUpdate: () => {
+            counter.textContent = Math.floor(obj.val) + suffix;
+          },
+          onComplete: () => {
+            counter.textContent = target + suffix;
+            gsap.fromTo(counter, 
+              { scale: 1.1 }, 
+              { scale: 1, duration: 0.3, ease: 'power1.out' }
+            );
           }
-          counter.textContent = Math.floor(current) + suffix;
-        }, 16);
+        });
       }
     });
   });
 }
 
 /* =========================================================
-   SKILL BAR FILL ANIMATIONS
+   7. SKILL BARS WITH GLOWING HEAD
    ========================================================= */
-function initSkillBars() {
+function initSkillBarsWithGlow() {
   const bars = document.querySelectorAll('.skill-bar');
   if (!bars.length) return;
 
   bars.forEach(bar => {
-    const level = bar.dataset.level || 80;
-    const fill  = bar.querySelector('.skill-bar-fill');
+    const fill = bar.querySelector('.skill-bar-fill');
     if (!fill) return;
+    const level = fill.dataset.level || 80;
 
     ScrollTrigger.create({
       trigger: bar,
-      start: 'top 85%',
+      start: 'top 90%',
       once: true,
       onEnter: () => {
         gsap.to(fill, {
           width: level + '%',
-          duration: 1.5,
+          duration: 1.4,
           ease: 'power2.out'
         });
       }
@@ -410,59 +476,83 @@ function initSkillBars() {
 }
 
 /* =========================================================
-   3-D CARD TILT EFFECT
+   8. 3D PROXIMITY SPOTLIGHT & CARD TILT
    ========================================================= */
-function initCardTilt() {
+function init3DCardSpotlight() {
+  if (window.matchMedia('(hover: none)').matches) return;
+
   document.querySelectorAll('[data-tilt]').forEach(card => {
+    let bounds;
 
-    card.addEventListener('mousemove', (e) => {
-      const rect    = card.getBoundingClientRect();
-      const x       = e.clientX - rect.left;
-      const y       = e.clientY - rect.top;
-      const centerX = rect.width  / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) *  12;
+    function onMouseEnter() {
+      bounds = card.getBoundingClientRect();
+      card.style.willChange = 'transform';
+    }
 
-      card.style.transform  = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-      card.style.transition = 'transform 0.1s ease';
+    function onMouseMove(e) {
+      if (!bounds) bounds = card.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
+      const y = e.clientY - bounds.top;
+      const centerX = bounds.width / 2;
+      const centerY = bounds.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -9;
+      const rotateY = ((x - centerX) / centerX) *  9;
 
-      // Move the shine highlight to follow cursor
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+
       const shine = card.querySelector('.card-shine');
       if (shine) {
-        shine.style.background =
-          `radial-gradient(circle at ${x}px ${y}px, rgba(245, 158, 11, 0.15) 0%, transparent 60%)`;
+        shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(245, 158, 11, 0.16) 0%, transparent 60%)`;
       }
-    });
+    }
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform  = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-      card.style.transition = 'transform 0.5s ease';
-    });
+    function onMouseLeave() {
+      card.style.transform  = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+      const shine = card.querySelector('.card-shine');
+      if (shine) shine.style.background = 'transparent';
+      setTimeout(() => { card.style.transition = ''; card.style.willChange = 'auto'; }, 400);
+    }
+
+    card.addEventListener('mouseenter', onMouseEnter);
+    card.addEventListener('mousemove', onMouseMove);
+    card.addEventListener('mouseleave', onMouseLeave);
   });
 }
 
 /* =========================================================
-   MAGNETIC BUTTONS
+   9. MAGNETIC BUTTONS (SPRING PHYSICS)
    ========================================================= */
-function initMagneticButtons() {
-  document.querySelectorAll('.magnetic-btn').forEach(btn => {
+function initMagneticElements() {
+  if (window.matchMedia('(hover: none)').matches) return;
 
+  document.querySelectorAll('.magnetic-btn, .term-btn, .copy-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect();
-      const x    = e.clientX - rect.left - rect.width  / 2;
-      const y    = e.clientY - rect.top  - rect.height / 2;
-      gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power2.out' });
+      const x = e.clientX - (rect.left + rect.width / 2);
+      const y = e.clientY - (rect.top + rect.height / 2);
+
+      gsap.to(btn, {
+        x: x * 0.28,
+        y: y * 0.28,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
     });
 
     btn.addEventListener('mouseleave', () => {
-      gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' });
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1.2, 0.4)'
+      });
     });
   });
 }
 
 /* =========================================================
-   SKILLS FILTER (All / Frontend / Backend / Tools …)
+   10. SKILLS FILTER INTERACTION
    ========================================================= */
 function initSkillsFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -471,87 +561,37 @@ function initSkillsFilter() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
 
       const filter = btn.dataset.filter;
 
       skillCards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        gsap.to(card, {
-          opacity: match ? 1 : 0.2,
-          scale:   match ? 1 : 0.95,
-          duration: 0.3
-        });
-        card.style.pointerEvents = match ? 'auto' : 'none';
+        const category = card.dataset.category;
+        const matches  = filter === 'all' || category === filter;
+
+        if (matches) {
+          gsap.to(card, {
+            display: 'block',
+            opacity: 1,
+            scale: 1,
+            duration: 0.35,
+            ease: 'power2.out'
+          });
+        } else {
+          gsap.to(card, {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.25,
+            ease: 'power2.in',
+            onComplete: () => { card.style.display = 'none'; }
+          });
+        }
       });
-    });
-  });
-}
-
-/* =========================================================
-   ORBIT ANIMATION (Exploring / About decorative rings)
-   ========================================================= */
-function initOrbitAnimation(prefersReducedMotion) {
-  const orbit1 = document.querySelector('.orbit-1');
-  const orbit2 = document.querySelector('.orbit-2');
-  if (!orbit1 || !orbit2) return;
-  if (prefersReducedMotion) return;
-
-  // Rotate the orbit rings
-  gsap.to(orbit1, {
-    rotation: 360,
-    duration: 20,
-    repeat: -1,
-    ease: 'none',
-    transformOrigin: 'center center'
-  });
-
-  gsap.to(orbit2, {
-    rotation: -360,
-    duration: 30,
-    repeat: -1,
-    ease: 'none',
-    transformOrigin: 'center center'
-  });
-
-  // Counter-rotate items so their labels stay upright
-  document.querySelectorAll('.orbit-1 .orbit-item').forEach(item => {
-    gsap.to(item, {
-      rotation: -360,
-      duration: 20,
-      repeat: -1,
-      ease: 'none',
-      transformOrigin: 'center center'
-    });
-  });
-
-  document.querySelectorAll('.orbit-2 .orbit-item').forEach(item => {
-    gsap.to(item, {
-      rotation: 360,
-      duration: 30,
-      repeat: -1,
-      ease: 'none',
-      transformOrigin: 'center center'
-    });
-  });
-}
-
-/* =========================================================
-   FLOATING CODE SYMBOLS (About section ambient decoration)
-   ========================================================= */
-function animateCodeSymbols() {
-  document.querySelectorAll('.code-symbol').forEach((sym, i) => {
-    gsap.to(sym, {
-      y:        -20 + Math.random() * 40,
-      x:        -10 + Math.random() * 20,
-      rotation: -15 + Math.random() * 30,
-      duration:   2 + Math.random() * 2,
-      repeat:  -1,
-      yoyo:   true,
-      ease:   'sine.inOut',
-      delay:   i * 0.3
     });
   });
 }
