@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. LENIS SMOOTH SCROLL (SINGLE RAF PIPELINE)
   // ============================================
   const lenis = new Lenis({
-    duration: 1.1,
+    duration: 1.15,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // 2. NAVIGATION & BACK TO TOP
   // ============================================
-  const navbar   = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navbar    = document.getElementById('navbar');
+  const navLinks  = document.querySelectorAll('.nav-link');
   const backToTop = document.getElementById('back-to-top');
 
   lenis.on('scroll', (e) => {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          lenis.scrollTo(target, { offset: -70, duration: 1.2 });
+          lenis.scrollTo(target, { offset: -90, duration: 1.2 });
         }
         closeMobileMenu();
       }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 3. MOBILE MENU
+  // 3. MOBILE DRAWER MENU
   // ============================================
   const hamburger     = document.getElementById('hamburger');
   const mobileMenu    = document.getElementById('mobile-menu');
@@ -92,21 +92,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMobileMenu() {
     hamburger?.classList.add('open');
     hamburger?.setAttribute('aria-expanded', 'true');
-    mobileMenu?.classList.add('open');
-    mobileOverlay?.classList.add('visible');
+    mobileMenu?.classList.add('active');
+    mobileOverlay?.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
     hamburger?.classList.remove('open');
     hamburger?.setAttribute('aria-expanded', 'false');
-    mobileMenu?.classList.remove('open');
-    mobileOverlay?.classList.remove('visible');
+    mobileMenu?.classList.remove('active');
+    mobileOverlay?.classList.remove('active');
     document.body.style.overflow = '';
   }
 
   hamburger?.addEventListener('click', () => {
-    if (hamburger.classList.contains('open')) {
+    if (mobileMenu?.classList.contains('active')) {
       closeMobileMenu();
     } else {
       openMobileMenu();
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 5. CUSTOM CURSOR
+  // 5. CUSTOM CURSOR TRACKING
   // ============================================
   const dot  = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
@@ -169,15 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function renderCursor() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
       ring.style.left = ringX + 'px';
       ring.style.top  = ringY + 'px';
       requestAnimationFrame(renderCursor);
     }
     requestAnimationFrame(renderCursor);
 
-    document.querySelectorAll('a, button, [data-tilt], .project-card, .skill-card, input, textarea, .term-btn').forEach(el => {
+    document.querySelectorAll('a, button, [data-tilt], .exhibition-card, .toolkit-card, input, textarea, .term-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
         dot.classList.add('cursor-hover');
         ring.classList.add('cursor-hover');
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 6. CONTACT FORM
+  // 6. CONTACT FORM VALIDATION
   // ============================================
   const form = document.getElementById('contact-form');
   if (form) {
@@ -225,11 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!valid) return;
 
-      btn.innerHTML = 'Sending...';
+      btn.innerHTML = 'Transmitting...';
       btn.disabled  = true;
 
       setTimeout(() => {
-        btn.innerHTML        = '&#10003; Message Sent!';
+        btn.innerHTML        = '&#10003; Transmission Sent!';
         btn.style.background = '#22c55e';
         btn.style.color      = '#fff';
         form.reset();
@@ -252,13 +252,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorEl = input.parentElement.querySelector('.form-error');
         if (errorEl) errorEl.textContent = '';
         input.classList.remove('error');
-        input.classList.toggle('has-value', input.value.length > 0);
       });
     });
   }
 
   // ============================================
-  // 7. KEYBOARD ACCESSIBILITY - ESC closes menu
+  // 7. KEYBOARD ACCESSIBILITY
   // ============================================
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileMenu();
@@ -290,13 +289,13 @@ const TERMINAL_COMMANDS = {
     <div>2. <span style="color:var(--accent-light)">Modern Interactive Calculator</span> — Responsive JS calculator with real-time math engine.</div>
     <div>3. <span style="color:var(--accent-light)">Developer Portfolio</span> — Three.js 3D hero scene with GSAP animations.</div>
     <div>4. <span style="color:var(--accent-light)">Full-Stack Web App</span> — React + Node + Express + MySQL.</div>
-    <div style="color:var(--text-muted);margin-top:4px">Type 'projects' or scroll to Section 03 to test live demos!</div>
+    <div style="color:var(--text-muted);margin-top:4px">Explore the Exhibition section to test live demos!</div>
   `,
   contact: () => `
     <div><strong>Get In Touch:</strong></div>
     <div>• Email: <a href="mailto:dilipkumarprudhvi@gmail.com" style="color:var(--accent-light);text-decoration:underline">dilipkumarprudhvi@gmail.com</a></div>
     <div>• GitHub: <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" style="color:var(--accent-light);text-decoration:underline">github.com/dilipkumarprudhvi-a11y</a></div>
-    <div>• Location: Open to remote & on-site Full-Stack roles</div>
+    <div>• Status: Open to Full-Stack Engineering roles</div>
   `,
 };
 

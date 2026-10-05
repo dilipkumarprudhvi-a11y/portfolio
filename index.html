@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- ═══════════════ SEO ═══════════════ -->
+  <!-- ═══════════════ SEO & CANONICAL ═══════════════ -->
   <title>Prudhvi Dilip Kumar — Full-Stack Developer &amp; Software Builder</title>
-  <meta name="description" content="Portfolio of Prudhvi Dilip Kumar, a Full-Stack Developer specializing in modern web applications, backend systems, APIs, databases, and machine learning." />
+  <meta name="description" content="Portfolio of Prudhvi Dilip Kumar, a Full-Stack Developer specializing in modern web applications, scalable backend systems, APIs, databases, and machine learning." />
   <meta name="keywords" content="Prudhvi Dilip Kumar, Full-Stack Developer, Software Engineer, React, Node.js, JavaScript, Python, MySQL, Portfolio, dilipkumarprudhvi-a11y" />
   <meta name="author" content="Prudhvi Dilip Kumar" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -55,183 +55,199 @@
   }
   </script>
 
-  <!-- ═══════════════ Fonts ═══════════════ -->
+  <!-- ═══════════════ Typography ═══════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- ═══════════════ Stylesheet ═══════════════ -->
-  <link rel="stylesheet" href="css/style.css?v=3.0" />
+  <!-- ═══════════════ Stylesheet (Versioned) ═══════════════ -->
+  <link rel="stylesheet" href="css/style.css?v=4.0" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 </head>
 <body>
 
+  <!-- ═══════════════ PHYSICAL GRAIN OVERLAY ═══════════════ -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
   <!-- ═══════════════ LOADING SCREEN ═══════════════ -->
   <div id="loading-screen" role="status" aria-label="Loading portfolio">
     <div class="loader-content">
-      <div class="loader-logo">PDK</div>
+      <div class="loader-logo">PDK<span class="logo-dot">.</span></div>
       <div class="loader-bar-wrap" aria-hidden="true">
         <div class="loader-bar"></div>
       </div>
-      <p class="loader-text">Loading workspace...</p>
+      <p class="loader-text">Initializing Creative Exhibition...</p>
     </div>
   </div>
 
-  <!-- ═══════════════ CUSTOM CURSOR ═══════════════ -->
+  <!-- ═══════════════ CUSTOM INTERACTIVE CURSOR ═══════════════ -->
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-  <!-- ═══════════════ SCROLL PROGRESS ═══════════════ -->
+  <!-- ═══════════════ SCROLL PROGRESS BAR ═══════════════ -->
   <div class="scroll-progress-bar" aria-hidden="true"></div>
 
-  <!-- ═══════════════ NAVIGATION ═══════════════ -->
-  <header>
-    <nav id="navbar" role="navigation" aria-label="Main navigation">
-      <div class="nav-container">
+  <!-- ═══════════════ FLOATING FROSTED PILL NAVIGATION ═══════════════ -->
+  <header class="studio-header">
+    <nav id="navbar" class="floating-pill-nav" role="navigation" aria-label="Main navigation">
+      
+      <a href="#home" class="nav-brand" aria-label="Prudhvi Dilip Kumar">
+        <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
+      </a>
 
-        <a href="#home" class="nav-logo" aria-label="Prudhvi Dilip Kumar">
-          <span class="logo-text">PDK</span>
-          <span class="logo-dot">.</span>
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About &amp; CLI</a></li>
+        <li><a href="#projects" class="nav-link">Exhibition</a></li>
+        <li><a href="#skills" class="nav-link">Toolkit</a></li>
+        <li><a href="#journey" class="nav-link">Roadmap</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="assets/resume.pdf" download class="btn-pill-resume" aria-label="Download Resume PDF">
+          <span>Resume</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
-
-        <ul class="nav-links" role="list">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About &amp; CLI</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#journey" class="nav-link">Journey</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-
-        <div class="nav-actions">
-          <a href="assets/resume.pdf" download class="btn btn-outline nav-cta">
-            <span>Resume</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          </a>
-          <button id="hamburger" class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-            <span class="ham-line"></span>
-            <span class="ham-line"></span>
-            <span class="ham-line"></span>
-          </button>
-        </div>
-
+        <button id="hamburger" class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
       </div>
+
     </nav>
 
+    <!-- Mobile Drawer Overlay -->
     <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true"></div>
     <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
       <nav aria-label="Mobile navigation links">
+        <div class="mobile-brand">PDK<span class="brand-dot">.</span></div>
         <ul role="list">
           <li><a href="#home" class="mobile-nav-link">01. Home</a></li>
-          <li><a href="#about" class="mobile-nav-link">02. About &amp; Terminal</a></li>
-          <li><a href="#skills" class="mobile-nav-link">03. Tech Stack</a></li>
-          <li><a href="#projects" class="mobile-nav-link">04. Selected Works</a></li>
+          <li><a href="#about" class="mobile-nav-link">02. Profile &amp; CLI</a></li>
+          <li><a href="#projects" class="mobile-nav-link">03. Selected Works</a></li>
+          <li><a href="#skills" class="mobile-nav-link">04. Engineering Stack</a></li>
           <li><a href="#journey" class="mobile-nav-link">05. Experience Journey</a></li>
           <li><a href="#education" class="mobile-nav-link">06. Education</a></li>
           <li><a href="#contact" class="mobile-nav-link">07. Contact</a></li>
         </ul>
-        <a href="assets/resume.pdf" download class="btn btn-primary mobile-resume-btn" style="margin-top:2rem">Download Resume PDF</a>
+        <a href="assets/resume.pdf" download class="btn btn-primary mobile-resume-btn" style="margin-top:2.5rem;width:100%;justify-content:center;">
+          <span>Download Resume PDF</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ═══════════════ HERO SECTION ═══════════════ -->
+    <!-- ═══════════════ EDITORIAL HERO SECTION ═══════════════ -->
     <section id="home" class="hero-section" aria-label="Introduction">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      
       <div class="hero-container">
 
         <div class="hero-content">
-          <!-- Availability Badge -->
-          <div class="availability-badge">
-            <span class="pulse-dot"></span>
-            <span>Available for Full-Stack Roles &amp; Projects</span>
+          <!-- Availability Badge (Creative Mints Style) -->
+          <div class="hero-status-pill">
+            <span class="pulse-amber-dot"></span>
+            <span>AVAILABLE FOR FULL-STACK ROLES &amp; PROJECTS</span>
           </div>
 
-          <p class="hero-pre">Hi, I'm</p>
-          <h1 class="hero-name gradient-text">Prudhvi Dilip Kumar</h1>
+          <!-- High-Impact Kinetic Headline -->
+          <h1 class="hero-headline">
+            <span class="headline-line">ENGINEERING</span>
+            <span class="headline-line gradient-amber-text">MODERN SYSTEMS</span>
+            <span class="headline-line">&amp; WEB EXPERIENCES</span>
+          </h1>
 
-          <div class="hero-title" aria-live="polite">
-            <span class="typewriter-text"></span><span class="cursor-blink" aria-hidden="true">|</span>
+          <!-- Typewriter Sub-Label -->
+          <div class="hero-meta-subtitle" aria-live="polite">
+            <span class="meta-label">DISCIPLINE:</span>
+            <span class="typewriter-text"></span><span class="cursor-blink" aria-hidden="true">_</span>
           </div>
 
-          <p class="hero-subtitle">Building modern, scalable, and interactive software experiences.</p>
-
-          <p class="hero-description">
-            I engineer responsive web applications from clean frontend interfaces to robust backend architectures, databases, REST APIs, and real-world functionality.
+          <!-- Editorial Description -->
+          <p class="hero-editorial-desc">
+            I am <strong>Prudhvi Dilip Kumar</strong> — a Full-Stack Developer bridging scalable backend architectures, relational databases, and high-performance interactive client experiences.
           </p>
 
-          <div class="hero-ctas" role="group" aria-label="Call to action buttons">
+          <!-- Primary Actions -->
+          <div class="hero-actions-bar" role="group" aria-label="Call to action buttons">
             <a href="#projects" class="btn btn-primary magnetic-btn">
-              <span>View Projects</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>Explore Selected Works</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
-            <a href="#contact" class="btn btn-secondary magnetic-btn">Get In Touch</a>
+            <a href="#contact" class="btn btn-secondary magnetic-btn">Initiate Contact</a>
             <button id="copy-email-btn" class="btn btn-ghost copy-btn" title="Copy email address" aria-label="Copy email address">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               <span id="copy-btn-text">Copy Email</span>
             </button>
           </div>
 
-          <div class="hero-badges" aria-label="Primary technical stack">
-            <span class="hero-badge">React</span>
-            <span class="hero-badge">Node.js</span>
-            <span class="hero-badge">Express.js</span>
-            <span class="hero-badge">Python</span>
-            <span class="hero-badge">MySQL</span>
-            <span class="hero-badge">REST APIs</span>
+          <!-- Minimalist Telemetry Bar -->
+          <div class="hero-metrics-ribbon" aria-label="Key developer metrics">
+            <div class="ribbon-item"><strong>06+</strong> Production Builds</div>
+            <div class="ribbon-dot">•</div>
+            <div class="ribbon-item"><strong>10+</strong> Technologies</div>
+            <div class="ribbon-dot">•</div>
+            <div class="ribbon-item"><strong>Full-Stack</strong> Focus</div>
+            <div class="ribbon-dot">•</div>
+            <div class="ribbon-item"><strong>Hyderabad</strong>, IN</div>
           </div>
         </div>
 
+        <!-- 3D Three.js Interactive Hero Canvas -->
         <div class="hero-canvas-wrap" aria-hidden="true">
           <canvas id="hero-canvas"></canvas>
           <div class="hero-canvas-fallback">
-            <div class="fallback-shape"></div>
+            <div class="fallback-mesh-sphere"></div>
           </div>
         </div>
 
       </div>
 
-      <div class="scroll-indicator" aria-hidden="true">
-        <span class="scroll-text">Scroll to explore</span>
-        <div class="scroll-arrow">
-          <span></span><span></span><span></span>
+      <div class="scroll-explore-indicator" aria-hidden="true">
+        <span class="explore-text">SCROLL TO EXPLORE EXHIBITION</span>
+        <div class="explore-mouse">
+          <div class="mouse-wheel"></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ ABOUT & INTERACTIVE TERMINAL ═══════════════ -->
-    <section id="about" class="section" aria-labelledby="about-heading">
+    <!-- ═══════════════ ABOUT & INTERACTIVE CONSOLE ═══════════════ -->
+    <section id="about" class="section about-section" aria-labelledby="about-heading">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">01 / Engineering Profile</span>
-          <h2 id="about-heading" class="section-title">About Me &amp; Developer Console</h2>
-          <p class="section-subtitle">A look into my engineering background, technical passions, and interactive CLI.</p>
+          <span class="section-tag">[ 01 / ENGINEERING PROFILE ]</span>
+          <h2 id="about-heading" class="section-title">Architecting with Precision &amp; Intent</h2>
+          <p class="section-subtitle">A look into my engineering background, development philosophy, and interactive studio CLI.</p>
         </div>
 
         <div class="about-bento-grid">
 
-          <!-- Left Bento: Biography -->
-          <div class="about-card glass">
-            <h3 class="bento-heading">Full-Stack Developer with a Passion for Craft</h3>
+          <!-- Left Bento: Biography & Mindset -->
+          <div class="about-card glass" data-tilt>
+            <div class="bento-badge">FULL-STACK PHILOSOPHY</div>
+            <h3 class="bento-heading">Engineering Digital Products from Core to Edge</h3>
             <p class="about-paragraph">
-              I am an aspiring <strong>Full-Stack Developer</strong> dedicated to building complete, performant digital solutions from database schemas to interactive client interfaces.
+              I am a dedicated <strong>Full-Stack Developer</strong> driven by building complete, performant digital solutions from database schemas to interactive client interfaces.
             </p>
             <p class="about-paragraph">
               Currently pursuing my <strong>B.Tech in Artificial Intelligence &amp; Data Science</strong>, I combine modern web engineering principles with algorithmic problem-solving to build real-world software.
             </p>
             <p class="about-paragraph">
-              My engineering approach prioritizes <strong>clean code, performance optimization, and intuitive user experiences</strong>.
+              My engineering approach prioritizes <strong>clean code, performance optimization, and intuitive user experiences</strong> with zero bloat.
             </p>
 
             <div class="about-chips" aria-label="Key engineering domains">
               <span class="chip">Frontend Architecture</span>
-              <span class="chip">Backend REST APIs</span>
+              <span class="chip">RESTful Backend APIs</span>
               <span class="chip">Database Design (SQL)</span>
-              <span class="chip">Machine Learning &amp; NLP</span>
-              <span class="chip">System Performance</span>
+              <span class="chip">NLP &amp; Machine Learning</span>
+              <span class="chip">120fps Micro-Interactions</span>
             </div>
           </div>
 
@@ -244,15 +260,16 @@
                 <span class="dot dot-green"></span>
               </div>
               <div class="terminal-title">prudhvi@workspace: ~</div>
-              <div class="terminal-badge">Interactive CLI</div>
+              <div class="terminal-badge">STUDIO CLI</div>
             </div>
+            
             <div class="terminal-body" id="terminal-output">
-              <div class="term-line welcome-line">Type a command or click a quick-action button below:</div>
+              <div class="term-line welcome-line">Type a command or click a quick-action shortcut below:</div>
               <div class="term-line prompt-line"><span class="term-prompt">pdk&gt;</span> <span class="term-text">help</span></div>
               <div class="term-response">Available commands: <span class="cmd-highlight">bio</span>, <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">contact</span>, <span class="cmd-highlight">clear</span></div>
             </div>
             
-            <!-- Quick Command Buttons for Mobile & Desktop -->
+            <!-- Quick Command Shortcuts -->
             <div class="terminal-quick-btns" aria-label="Terminal command shortcuts">
               <button class="term-btn" onclick="runTermCmd('bio')">bio</button>
               <button class="term-btn" onclick="runTermCmd('skills')">skills</button>
@@ -272,280 +289,152 @@
       </div>
     </section>
 
-    <!-- ═══════════════ STATS METRICS ═══════════════ -->
-    <section id="stats" class="stats-section" aria-labelledby="stats-heading">
-      <div class="section-container">
-        <h2 id="stats-heading" class="sr-only">Developer Statistics</h2>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number" data-target="10" data-suffix="+" aria-label="10 plus technologies learned">0+</div>
-            <div class="stat-label">Technologies Mastered</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-target="6" data-suffix="+" aria-label="6 plus projects built">0+</div>
-            <div class="stat-label">Production Projects Built</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-target="100" data-suffix="+" aria-label="100 plus coding sessions">0+</div>
-            <div class="stat-label">Coding &amp; Build Sessions</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-target="1" data-suffix="+" aria-label="1 plus years learning">0+</div>
-            <div class="stat-label">Years of Development</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════ CURATED TECH STACK ═══════════════ -->
-    <section id="skills" class="section" aria-labelledby="skills-heading">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">02 / Technical Toolkit</span>
-          <h2 id="skills-heading" class="section-title">Engineering Stack &amp; Skills</h2>
-          <p class="section-subtitle">A clean, production-grade toolkit of modern languages, frameworks, and databases.</p>
-        </div>
-
-        <div class="skills-filter" role="group" aria-label="Filter skills by category">
-          <button class="filter-btn active" data-filter="all" aria-pressed="true">All Stack</button>
-          <button class="filter-btn" data-filter="frontend" aria-pressed="false">Frontend</button>
-          <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend</button>
-          <button class="filter-btn" data-filter="programming" aria-pressed="false">Languages</button>
-          <button class="filter-btn" data-filter="databases" aria-pressed="false">Databases</button>
-          <button class="filter-btn" data-filter="tools" aria-pressed="false">Tools</button>
-        </div>
-
-        <div class="skills-grid" role="list" aria-label="Skills list">
-
-          <!-- Frontend -->
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">UI/UX</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">HTML5 &amp; Semantic Web</h3>
-            <p class="skill-desc">Accessible DOM architecture, SEO standards, and semantic document structures.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="90"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">CSS3</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">CSS3 &amp; Modern Styling</h3>
-            <p class="skill-desc">Flexbox, CSS Grid, Custom Properties, keyframe animations, and mobile-first design.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="85"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">JS</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">JavaScript (ES6+)</h3>
-            <p class="skill-desc">Async/Await, Promises, Closures, DOM manipulation, and modern modular architecture.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="82"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">REACT</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">React.js</h3>
-            <p class="skill-desc">Component hierarchy, custom hooks, state management, and modern SPA development.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="70"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">RESPONSIVE</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">Responsive Web Design</h3>
-            <p class="skill-desc">Fluid typography, responsive breakpoints, cross-browser compatibility, and touch events.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="88"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="frontend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">UI/UX</span>
-              <span class="skill-category-badge">Frontend</span>
-            </div>
-            <h3 class="skill-name">UI/UX Design Systems</h3>
-            <p class="skill-desc">Visual hierarchy, micro-interactions, color theory, and user-centric ergonomics.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="75"></div></div>
-          </div>
-
-          <!-- Backend -->
-          <div class="skill-card" data-category="backend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">NODE</span>
-              <span class="skill-category-badge">Backend</span>
-            </div>
-            <h3 class="skill-name">Node.js Runtime</h3>
-            <p class="skill-desc">Asynchronous event-driven server runtime for scalable backend services.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="68"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="backend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">EXPRESS</span>
-              <span class="skill-category-badge">Backend</span>
-            </div>
-            <h3 class="skill-name">Express.js Framework</h3>
-            <p class="skill-desc">Middleware architecture, route handlers, error management, and server endpoints.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="65"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="backend" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">API</span>
-              <span class="skill-category-badge">Backend</span>
-            </div>
-            <h3 class="skill-name">RESTful API Architecture</h3>
-            <p class="skill-desc">Designing, documenting, securing, and integrating scalable JSON REST APIs.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="70"></div></div>
-          </div>
-
-          <!-- Languages -->
-          <div class="skill-card" data-category="programming" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">PY</span>
-              <span class="skill-category-badge">Language</span>
-            </div>
-            <h3 class="skill-name">Python</h3>
-            <p class="skill-desc">Data processing, machine learning models, text processing, NLP, and scripting.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="78"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="programming" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">JAVA</span>
-              <span class="skill-category-badge">Language</span>
-            </div>
-            <h3 class="skill-name">Java &amp; OOP</h3>
-            <p class="skill-desc">Object-oriented programming, data structures, algorithms, and JDBC integrations.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="72"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="programming" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">C</span>
-              <span class="skill-category-badge">Language</span>
-            </div>
-            <h3 class="skill-name">C Programming</h3>
-            <p class="skill-desc">Core systems programming, memory pointers, and foundational algorithms.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="65"></div></div>
-          </div>
-
-          <!-- Databases -->
-          <div class="skill-card" data-category="databases" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">SQL</span>
-              <span class="skill-category-badge">Database</span>
-            </div>
-            <h3 class="skill-name">MySQL &amp; Relational SQL</h3>
-            <p class="skill-desc">Relational schema design, normalization, joins, indexing, and transactional integrity.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="75"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="databases" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">SCHEMA</span>
-              <span class="skill-category-badge">Database</span>
-            </div>
-            <h3 class="skill-name">Database Design &amp; CRUD</h3>
-            <p class="skill-desc">Entity-relationship modeling, data migrations, and full CRUD query architectures.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="70"></div></div>
-          </div>
-
-          <!-- Tools -->
-          <div class="skill-card" data-category="tools" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">GIT</span>
-              <span class="skill-category-badge">DevOps</span>
-            </div>
-            <h3 class="skill-name">Git &amp; GitHub</h3>
-            <p class="skill-desc">Version control, branching workflows, pull requests, and CI/CD repository management.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="80"></div></div>
-          </div>
-
-          <div class="skill-card" data-category="tools" data-tilt role="listitem" tabindex="0">
-            <div class="card-shine" aria-hidden="true"></div>
-            <div class="skill-icon-header">
-              <span class="skill-code-badge">DEV</span>
-              <span class="skill-category-badge">Tools</span>
-            </div>
-            <h3 class="skill-name">VS Code &amp; Google Colab</h3>
-            <p class="skill-desc">Full development workspace, debugging, Jupyter notebooks, and terminal tooling.</p>
-            <div class="skill-bar"><div class="skill-bar-fill" data-level="88"></div></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════ SELECTED PROJECTS (MAC BROWSER FRAMES) ═══════════════ -->
+    <!-- ═══════════════ SELECTED WORKS EXHIBITION ═══════════════ -->
     <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
       <div class="section-container">
+        
         <div class="section-header">
-          <span class="section-tag">03 / Selected Works</span>
-          <h2 id="projects-heading" class="section-title">Featured Projects &amp; Demos</h2>
-          <p class="section-subtitle">Real-world full-stack applications, machine learning workflows, and interactive software.</p>
+          <span class="section-tag">[ 02 / EXHIBITION SHOWCASE ]</span>
+          <h2 id="projects-heading" class="section-title">Selected Works &amp; Systems</h2>
+          <p class="section-subtitle">A curated collection of machine learning pipelines, interactive tools, and full-stack software.</p>
         </div>
 
-        <div class="skills-filter" role="group" aria-label="Filter projects by category">
-          <button class="project-filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+        <!-- Filter Navigation -->
+        <div class="exhibition-filters" role="group" aria-label="Filter projects by category">
+          <button class="project-filter-btn active" data-filter="all" aria-pressed="true">All Works</button>
           <button class="project-filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
           <button class="project-filter-btn" data-filter="web" aria-pressed="false">Frontend &amp; Web</button>
-          <button class="project-filter-btn" data-filter="fullstack" aria-pressed="false">Full-Stack &amp; DB</button>
+          <button class="project-filter-btn" data-filter="fullstack" aria-pressed="false">Full-Stack &amp; SQL</button>
         </div>
 
-        <div id="projects-grid" class="projects-grid" role="list" aria-label="Projects"></div>
+        <!-- Dynamic Exhibition Cards Grid -->
+        <div id="projects-grid" class="exhibition-grid" role="list" aria-label="Projects Exhibition"></div>
 
-        <div class="projects-more-wrap" style="text-align:center;margin-top:3rem">
+        <div class="projects-more-wrap">
           <button id="show-more-btn" class="btn btn-secondary magnetic-btn" aria-expanded="false">
-            Show More Projects
+            Show All Projects &darr;
           </button>
         </div>
 
       </div>
     </section>
 
-    <!-- ═══════════════ DEVELOPMENT JOURNEY ═══════════════ -->
+    <!-- ═══════════════ TECHNICAL TOOLKIT BENTO ═══════════════ -->
+    <section id="skills" class="section toolkit-section" aria-labelledby="skills-heading">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">[ 03 / CAPABILITIES &amp; STACK ]</span>
+          <h2 id="skills-heading" class="section-title">Engineering Stack &amp; Toolkit</h2>
+          <p class="section-subtitle">A production-grade toolkit structured across modern frontend architecture, backend systems, and data engineering.</p>
+        </div>
+
+        <!-- Categorized Toolkit Bento Grid (Creative Mints Design) -->
+        <div class="toolkit-bento-grid">
+
+          <!-- 1. Frontend Architecture -->
+          <div class="toolkit-card glass" data-tilt>
+            <div class="toolkit-icon-header">
+              <span class="toolkit-category-tag">FRONTEND ARCHITECTURE</span>
+              <span class="toolkit-count">5 Modules</span>
+            </div>
+            <h3 class="toolkit-title">Client-Side Architecture</h3>
+            <p class="toolkit-desc">Engineering accessible, performant, and fluid web experiences with modern standards.</p>
+            <div class="toolkit-items">
+              <div class="toolkit-pill"><span class="pill-dot"></span> React.js &amp; SPAs</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> JavaScript (ES6+ Modern)</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Semantic HTML5 &amp; SEO</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> CSS3 Grid &amp; Flexbox</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> UI/UX Design Systems</div>
+            </div>
+          </div>
+
+          <!-- 2. Backend & APIs -->
+          <div class="toolkit-card glass" data-tilt>
+            <div class="toolkit-icon-header">
+              <span class="toolkit-category-tag">BACKEND &amp; APIS</span>
+              <span class="toolkit-count">4 Modules</span>
+            </div>
+            <h3 class="toolkit-title">Server &amp; Services</h3>
+            <p class="toolkit-desc">Constructing modular RESTful microservices, routing layers, and secure auth controllers.</p>
+            <div class="toolkit-items">
+              <div class="toolkit-pill"><span class="pill-dot"></span> Node.js Runtime</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Express.js Framework</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> RESTful API Design</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Middleware &amp; Auth (JWT)</div>
+            </div>
+          </div>
+
+          <!-- 3. Languages -->
+          <div class="toolkit-card glass" data-tilt>
+            <div class="toolkit-icon-header">
+              <span class="toolkit-category-tag">LANGUAGES</span>
+              <span class="toolkit-count">3 Languages</span>
+            </div>
+            <h3 class="toolkit-title">Programming Languages</h3>
+            <p class="toolkit-desc">Algorithmic foundations and computational engineering across high-level and system syntaxes.</p>
+            <div class="toolkit-items">
+              <div class="toolkit-pill"><span class="pill-dot"></span> Python (ML &amp; Scripting)</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Java (OOP &amp; JDBC)</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> C (Core Memory &amp; Logic)</div>
+            </div>
+          </div>
+
+          <!-- 4. Databases & Storage -->
+          <div class="toolkit-card glass" data-tilt>
+            <div class="toolkit-icon-header">
+              <span class="toolkit-category-tag">DATABASE ARCHITECTURE</span>
+              <span class="toolkit-count">3 Systems</span>
+            </div>
+            <h3 class="toolkit-title">Relational Data &amp; SQL</h3>
+            <p class="toolkit-desc">Designing normalized database schemas, index tuning, and transactional CRUD logic.</p>
+            <div class="toolkit-items">
+              <div class="toolkit-pill"><span class="pill-dot"></span> MySQL Relational DB</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Relational Schema Design</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Complex CRUD &amp; Joins</div>
+            </div>
+          </div>
+
+          <!-- 5. Developer Tooling -->
+          <div class="toolkit-card glass" data-tilt>
+            <div class="toolkit-icon-header">
+              <span class="toolkit-category-tag">DEVELOPER TOOLING</span>
+              <span class="toolkit-count">4 Tools</span>
+            </div>
+            <h3 class="toolkit-title">Workflow &amp; Tooling</h3>
+            <p class="toolkit-desc">Streamlining delivery through version control, terminal discipline, and debugger tooling.</p>
+            <div class="toolkit-items">
+              <div class="toolkit-pill"><span class="pill-dot"></span> Git &amp; GitHub Cadence</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> VS Code Environment</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Linux / Bash CLI</div>
+              <div class="toolkit-pill"><span class="pill-dot"></span> Google Colab Notebooks</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE ROADMAP ═══════════════ -->
     <section id="journey" class="section journey-section" aria-labelledby="journey-heading">
       <div class="section-container">
+        
         <div class="section-header">
-          <span class="section-tag">04 / Experience Roadmap</span>
-          <h2 id="journey-heading" class="section-title">My Development Journey</h2>
-          <p class="section-subtitle">A progressive timeline from foundational engineering to building full-stack software.</p>
+          <span class="section-tag">[ 04 / CHRONOLOGY ]</span>
+          <h2 id="journey-heading" class="section-title">Development Roadmap</h2>
+          <p class="section-subtitle">A progressive trajectory from foundational engineering to building full-stack software.</p>
         </div>
 
         <div class="timeline" role="list">
+          <div class="timeline-line-progress" id="timeline-progress-bar" aria-hidden="true"></div>
 
           <div class="timeline-item" data-side="left" role="listitem">
             <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="timeline-content glass">
+            <div class="timeline-content glass" data-tilt>
               <span class="timeline-year">2021 – 2024</span>
               <h3>Diploma in Engineering</h3>
-              <p>Built rigorous engineering foundations in mathematics, algorithmic logic, and computing fundamentals.</p>
+              <p>Constructed rigorous engineering foundations in applied mathematics, algorithmic logic, and computing principles.</p>
               <div class="timeline-tags">
                 <span>Engineering Principles</span>
                 <span>Mathematics</span>
@@ -556,10 +445,10 @@
 
           <div class="timeline-item" data-side="right" role="listitem">
             <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass">
+            <div class="timeline-content glass" data-tilt>
               <span class="timeline-year">2024 – Present</span>
               <h3>B.Tech — AI &amp; Data Science</h3>
-              <p>Pursuing Bachelor of Technology in Artificial Intelligence and Data Science. Studying algorithms, system architecture, data structures, and software engineering.</p>
+              <p>Pursuing Bachelor of Technology in Artificial Intelligence and Data Science. Studying data structures, system architecture, and machine learning algorithms.</p>
               <div class="timeline-tags">
                 <span>Artificial Intelligence</span>
                 <span>Data Science</span>
@@ -571,10 +460,10 @@
 
           <div class="timeline-item" data-side="left" role="listitem">
             <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass">
+            <div class="timeline-content glass" data-tilt>
               <span class="timeline-year">2024 – Present</span>
               <h3>Full-Stack Engineering &amp; Modern Web</h3>
-              <p>Deepening practical mastery of end-to-end web architecture: React, Node.js, Express, MySQL relational databases, and RESTful API ecosystems.</p>
+              <p>Mastering practical end-to-end web architecture: React, Node.js, Express, relational MySQL databases, and RESTful API ecosystems.</p>
               <div class="timeline-tags">
                 <span>React.js</span>
                 <span>Node.js</span>
@@ -586,10 +475,10 @@
 
           <div class="timeline-item" data-side="right" role="listitem">
             <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass">
+            <div class="timeline-content glass" data-tilt>
               <span class="timeline-year">2024 – Present</span>
-              <h3>Bespoke Projects &amp; GitHub Builds</h3>
-              <p>Shipping functional software solutions: ML Fake News Detection, Modern Calculator, Portfolio Architecture, and database-driven management applications.</p>
+              <h3>Production Builds &amp; Open Source</h3>
+              <p>Shipping real-world software solutions: ML Fake News Detection, Modern Calculator, Portfolio Architecture, and database management systems.</p>
               <div class="timeline-tags">
                 <span>Production Projects</span>
                 <span>GitHub Cadence</span>
@@ -600,10 +489,10 @@
 
           <div class="timeline-item" data-side="left" role="listitem">
             <div class="timeline-dot future" aria-hidden="true"></div>
-            <div class="timeline-content glass future-card">
+            <div class="timeline-content glass future-card" data-tilt>
               <span class="timeline-year">Future 🎯</span>
               <h3>Full-Stack Software Engineer</h3>
-              <p>Goal: Contribute to high-impact production engineering teams, build scalable user-centric web products, and continue continuous technical growth.</p>
+              <p>Contributing to high-impact production engineering teams, building scalable user-centric web products, and solving complex problems.</p>
               <div class="timeline-tags">
                 <span>Full-Stack Engineer</span>
                 <span>Scalable Systems</span>
@@ -616,18 +505,19 @@
       </div>
     </section>
 
-    <!-- ═══════════════ EDUCATION ═══════════════ -->
-    <section id="education" class="section" aria-labelledby="education-heading">
+    <!-- ═══════════════ EDUCATION SECTION ═══════════════ -->
+    <section id="education" class="section education-section" aria-labelledby="education-heading">
       <div class="section-container">
+        
         <div class="section-header">
-          <span class="section-tag">05 / Academic Foundation</span>
-          <h2 id="education-heading" class="section-title">Education</h2>
-          <p class="section-subtitle">Academic degrees and technical foundations supporting my development journey.</p>
+          <span class="section-tag">[ 05 / ACADEMIC FOUNDATION ]</span>
+          <h2 id="education-heading" class="section-title">Education &amp; Degrees</h2>
+          <p class="section-subtitle">Academic degrees and engineering foundations supporting my development journey.</p>
         </div>
 
         <div class="education-grid">
 
-          <article class="edu-card glass" aria-label="Diploma education">
+          <article class="edu-card glass" data-tilt aria-label="Diploma education">
             <div class="edu-badge">Completed</div>
             <h3 class="edu-degree">Diploma in Engineering</h3>
             <p class="edu-branch">Technical Engineering</p>
@@ -641,7 +531,7 @@
             </div>
           </article>
 
-          <article class="edu-card glass current-edu" aria-label="B.Tech education currently pursuing">
+          <article class="edu-card glass current-edu" data-tilt aria-label="B.Tech education currently pursuing">
             <div class="edu-badge current-badge">Currently Pursuing</div>
             <h3 class="edu-degree">B.Tech in Artificial Intelligence &amp; Data Science</h3>
             <p class="edu-branch">Computer Science / AI &amp; DS</p>
@@ -663,19 +553,19 @@
     <!-- ═══════════════ GITHUB ENGINEERING SPOTLIGHT ═══════════════ -->
     <section id="github" class="github-section" aria-labelledby="github-heading">
       <div class="section-container">
-        <div class="github-bento-card glass">
+        <div class="github-bento-card glass" data-tilt>
           <div class="github-bento-header">
             <div class="github-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div>
-              <span class="section-tag" style="margin:0 0 4px">Open Source &amp; Code</span>
-              <h2 id="github-heading" class="section-title" style="margin:0">Building, Learning, &amp; Shipping</h2>
+              <span class="section-tag" style="margin:0 0 4px">[ OPEN SOURCE CADENCE ]</span>
+              <h2 id="github-heading" class="section-title" style="margin:0">Public Code &amp; Repositories</h2>
             </div>
           </div>
           
           <p class="github-desc">
-            I believe that true engineering competence is built through consistent coding and hands-on project creation. Check out my GitHub repositories to inspect my commit history and code quality.
+            I believe that true engineering competence is demonstrated through shipping code and clear commit history. Check out my GitHub profile to inspect repositories, architectural decisions, and project structures.
           </p>
 
           <div class="github-stats-row">
@@ -685,40 +575,42 @@
           </div>
 
           <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn">
-            <span>Explore My GitHub Profile</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Explore dilipkumarprudhvi-a11y on GitHub</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <!-- ═══════════════ CONTACT SECTION ═══════════════ -->
     <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
       <div class="section-container">
+        
         <div class="section-header">
-          <span class="section-tag">06 / Let's Connect</span>
-          <h2 id="contact-heading" class="section-title">Let's Build Something Great</h2>
-          <p class="section-subtitle">Have a project in mind, an internship opportunity, or want to discuss full-stack software development? Feel free to reach out.</p>
+          <span class="section-tag">[ 06 / INITIATE CONTACT ]</span>
+          <h2 id="contact-heading" class="section-title">Let's Build Something Exceptional</h2>
+          <p class="section-subtitle">Open to full-stack software engineering opportunities, product collaborations, and technical challenges.</p>
         </div>
 
         <div class="contact-grid">
 
           <div class="contact-info">
-            <h3 class="contact-info-heading">Direct Channels</h3>
-            <p class="contact-info-sub">Reach out directly via email or connect with me on social platforms.</p>
+            <h3 class="contact-info-heading">Direct Transmission</h3>
+            <p class="contact-info-sub">Reach out directly via email or connect with me across professional platforms.</p>
 
             <div class="contact-items">
-              <div class="contact-item glass">
+              
+              <div class="contact-item glass" data-tilt>
                 <div class="contact-item-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <div>
-                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-label">Direct Email</div>
                   <a href="mailto:dilipkumarprudhvi@gmail.com" class="contact-item-value">dilipkumarprudhvi@gmail.com</a>
                 </div>
               </div>
 
-              <div class="contact-item glass">
+              <div class="contact-item glass" data-tilt>
                 <div class="contact-item-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 </div>
@@ -728,19 +620,20 @@
                 </div>
               </div>
 
-              <div class="contact-item glass">
+              <div class="contact-item glass" data-tilt>
                 <div class="contact-item-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </div>
                 <div>
                   <div class="contact-item-label">LinkedIn</div>
-                  <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/YOUR_LINKEDIN</a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item-value">Connect on LinkedIn</a>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <div class="contact-form-wrap">
+          <div class="contact-form-wrap glass">
             <form id="contact-form" novalidate aria-label="Contact form">
               <div class="form-row">
                 <div class="form-group">
@@ -765,8 +658,8 @@
                 <span class="form-error" id="message-error" role="alert"></span>
               </div>
               <button type="submit" class="btn btn-primary magnetic-btn" style="width:100%;justify-content:center">
-                <span>Send Message</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <span>Transmit Message</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </button>
             </form>
           </div>
@@ -777,8 +670,8 @@
 
   </main>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="footer" role="contentinfo">
+  <!-- ═══════════════ STUDIO FOOTER ═══════════════ -->
+  <footer class="studio-footer" role="contentinfo">
     <div class="footer-container section-container">
 
       <div class="footer-brand">
@@ -786,28 +679,26 @@
           <span class="logo-text">PDK</span><span class="logo-dot">.</span>
         </a>
         <p class="footer-tagline">Full-Stack Developer &amp; Software Builder</p>
-        <p class="footer-sub">Designing and engineering web applications from end to end.</p>
+        <p class="footer-sub">Engineering scalable software from database schemas to interactive client experiences.</p>
       </div>
 
       <div class="footer-links">
-        <h4 class="footer-links-title">Navigation</h4>
+        <h4 class="footer-links-title">Index</h4>
         <ul role="list">
           <li><a href="#home">01. Home</a></li>
-          <li><a href="#about">02. About</a></li>
-          <li><a href="#skills">03. Tech Stack</a></li>
-          <li><a href="#projects">04. Projects</a></li>
-          <li><a href="#contact">05. Contact</a></li>
+          <li><a href="#about">02. Profile &amp; CLI</a></li>
+          <li><a href="#projects">03. Exhibition</a></li>
+          <li><a href="#skills">04. Toolkit</a></li>
+          <li><a href="#journey">05. Roadmap</a></li>
+          <li><a href="#contact">06. Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-social">
-        <h4 class="footer-links-title">Connect</h4>
+        <h4 class="footer-links-title">Channels</h4>
         <div class="social-icons">
           <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
           <a href="mailto:dilipkumarprudhvi@gmail.com" class="social-icon" aria-label="Email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -818,27 +709,27 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 <strong>Prudhvi Dilip Kumar</strong>. All rights reserved.</p>
-      <p class="footer-credit">Handcrafted Full-Stack Developer Architecture</p>
+      <p>&copy; 2026 <strong>Prudhvi Dilip Kumar</strong>. Crafted with Creative Precision.</p>
+      <p class="footer-credit">Senior Full-Stack Engineering Architecture</p>
     </div>
 
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
   </footer>
 
   <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
 
-  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <!-- ═══════════════ CORE SCRIPTS ═══════════════ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 
-  <script src="js/projects.js?v=3.0" defer></script>
-  <script src="js/three-hero.js?v=3.0" defer></script>
-  <script src="js/animations.js?v=3.0" defer></script>
-  <script src="js/main.js?v=3.0" defer></script>
+  <script src="js/projects.js?v=4.0" defer></script>
+  <script src="js/three-hero.js?v=4.0" defer></script>
+  <script src="js/animations.js?v=4.0" defer></script>
+  <script src="js/main.js?v=4.0" defer></script>
 
 </body>
 </html>

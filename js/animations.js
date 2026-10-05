@@ -2,7 +2,7 @@
  * animations.js
  * Prudhvi Dilip Kumar — Senior Full-Stack Developer Portfolio
  *
- * Ultra-Smooth 120fps Animation & Motion Suite
+ * Creative Mints (Mike) "Portfolio / Animation" Motion Suite
  * Powered by GSAP 3.x + ScrollTrigger Plugin
  */
 
@@ -30,9 +30,6 @@ function initMotionSuite() {
     document.querySelectorAll('.stat-number').forEach(el => {
       el.textContent = el.dataset.target + (el.dataset.suffix || '+');
     });
-    document.querySelectorAll('.skill-bar-fill').forEach(el => {
-      el.style.width = el.dataset.level + '%';
-    });
     return;
   }
 
@@ -41,14 +38,9 @@ function initMotionSuite() {
   initTimelineProgressDraw();
   initTerminalAutoType();
 
-  // 3. Stat Counters & Skill Bars
-  initExponentialCounters();
-  initSkillBarsWithGlow();
-
-  // 4. Interactive Micro-Interactions
+  // 3. Interactive Micro-Interactions
   init3DCardSpotlight();
   initMagneticElements();
-  initSkillsFilter();
 }
 
 /* =========================================================
@@ -64,7 +56,7 @@ function initLoadingScreen(prefersReducedMotion) {
     return;
   }
 
-  const duration = prefersReducedMotion ? 0.05 : 1.2;
+  const duration = prefersReducedMotion ? 0.05 : 1.1;
 
   gsap.to(loaderBar, {
     width: '100%',
@@ -73,8 +65,8 @@ function initLoadingScreen(prefersReducedMotion) {
     onComplete: () => {
       gsap.to(loader, {
         opacity: 0,
-        y: -30,
-        duration: prefersReducedMotion ? 0 : 0.6,
+        y: -25,
+        duration: prefersReducedMotion ? 0 : 0.5,
         ease: 'power3.inOut',
         onComplete: () => {
           loader.style.display = 'none';
@@ -89,67 +81,69 @@ function initLoadingScreen(prefersReducedMotion) {
 function animateCinematicHero() {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  // Staggered blur-fade entrance
-  tl.fromTo('.availability-badge', 
-    { opacity: 0, y: 20, filter: 'blur(8px)' }, 
-    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 }
+  // Floating Nav Entrance
+  tl.fromTo('.floating-pill-nav',
+    { opacity: 0, y: -20, scale: 0.98 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.6 }
   );
 
-  tl.fromTo('.hero-pre', 
-    { opacity: 0, y: 25, filter: 'blur(6px)' }, 
-    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 }, 
+  // Status Pill
+  tl.fromTo('.hero-status-pill',
+    { opacity: 0, y: 20, filter: 'blur(8px)' },
+    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 },
     '-=0.3'
   );
 
-  tl.fromTo('.hero-name', 
-    { opacity: 0, y: 40, filter: 'blur(12px)', scale: 0.96 }, 
-    { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, duration: 0.8 }, 
+  // Kinetic Headline Lines
+  tl.fromTo('.hero-headline .headline-line',
+    { opacity: 0, y: 35, filter: 'blur(10px)' },
+    { opacity: 1, y: 0, filter: 'blur(0px)', stagger: 0.12, duration: 0.75 },
     '-=0.3'
   );
 
-  tl.fromTo('.hero-title', 
-    { opacity: 0, y: 25, filter: 'blur(6px)' }, 
-    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 }, 
-    '-=0.4'
-  );
-
-  tl.fromTo('.hero-subtitle', 
-    { opacity: 0, y: 20 }, 
-    { opacity: 1, y: 0, duration: 0.5 }, 
+  // Subtitle & Meta
+  tl.fromTo('.hero-meta-subtitle',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.5 },
     '-=0.3'
   );
 
-  tl.fromTo('.hero-description', 
-    { opacity: 0, y: 20 }, 
-    { opacity: 1, y: 0, duration: 0.5 }, 
+  // Editorial Narrative
+  tl.fromTo('.hero-editorial-desc',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.5 },
     '-=0.3'
   );
 
-  tl.fromTo('.hero-ctas .btn, .hero-ctas .copy-btn', 
-    { opacity: 0, y: 20, scale: 0.95 }, 
-    { opacity: 1, y: 0, scale: 1, stagger: 0.1, duration: 0.5 }, 
+  // Action Buttons
+  tl.fromTo('.hero-actions-bar .btn, .hero-actions-bar .copy-btn',
+    { opacity: 0, y: 20, scale: 0.95 },
+    { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.5 },
     '-=0.2'
   );
 
-  tl.fromTo('.hero-badge', 
-    { opacity: 0, y: 15, scale: 0.9 }, 
-    { opacity: 1, y: 0, scale: 1, stagger: 0.05, duration: 0.4 }, 
+  // Metrics Ribbon
+  tl.fromTo('.hero-metrics-ribbon',
+    { opacity: 0, y: 15 },
+    { opacity: 1, y: 0, duration: 0.4 },
     '-=0.2'
   );
 
-  tl.fromTo('.hero-canvas-wrap', 
-    { opacity: 0, scale: 0.85 }, 
-    { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, 
+  // 3D Canvas Burst
+  tl.fromTo('.hero-canvas-wrap',
+    { opacity: 0, scale: 0.85 },
+    { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' },
     '-=1.0'
   );
 
-  tl.fromTo('.scroll-indicator', 
-    { opacity: 0 }, 
-    { opacity: 1, duration: 0.6 }, 
+  // Scroll Explorer Indicator
+  tl.fromTo('.scroll-explore-indicator',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.6 },
     '-=0.3'
   );
 
-  // Start typewriter effect
+  // Start Typewriter
   tl.call(startTypewriter);
 }
 
@@ -183,15 +177,15 @@ function startTypewriter() {
       charIndex++;
     }
 
-    let speed = isDeleting ? 40 : 85;
+    let speed = isDeleting ? 35 : 75;
 
     if (!isDeleting && charIndex === currentWord.length) {
-      speed      = 2200; // Pause at full word
+      speed      = 2200; // Full pause
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex  = (wordIndex + 1) % words.length;
-      speed      = 400;  // Pause before next word
+      speed      = 400;
     }
 
     setTimeout(type, speed);
@@ -207,7 +201,7 @@ function initScrollReveals() {
   // Section Headers
   gsap.utils.toArray('.section-header').forEach(header => {
     gsap.fromTo(header,
-      { opacity: 0, y: 40, filter: 'blur(8px)' },
+      { opacity: 0, y: 35, filter: 'blur(8px)' },
       {
         opacity: 1, y: 0, filter: 'blur(0px)',
         duration: 0.7,
@@ -215,7 +209,6 @@ function initScrollReveals() {
         scrollTrigger: {
           trigger: header,
           start: 'top 85%',
-          toggleActions: 'play none none none',
           once: true
         }
       }
@@ -224,7 +217,7 @@ function initScrollReveals() {
 
   // About Bento Cards
   gsap.fromTo('.about-bento-grid > div',
-    { opacity: 0, y: 45, scale: 0.97 },
+    { opacity: 0, y: 40, scale: 0.98 },
     {
       opacity: 1, y: 0, scale: 1,
       duration: 0.75,
@@ -238,16 +231,32 @@ function initScrollReveals() {
     }
   );
 
-  // Skill Cards
-  gsap.fromTo('.skill-card',
-    { opacity: 0, y: 35, scale: 0.95 },
+  // Exhibition Project Cards
+  gsap.fromTo('.exhibition-card',
+    { opacity: 0, y: 45, scale: 0.97 },
     {
       opacity: 1, y: 0, scale: 1,
-      duration: 0.55,
-      stagger: 0.04,
+      duration: 0.65,
+      stagger: 0.12,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: '.skills-grid',
+        trigger: '.exhibition-grid',
+        start: 'top 85%',
+        once: true
+      }
+    }
+  );
+
+  // Toolkit Bento Cards
+  gsap.fromTo('.toolkit-card',
+    { opacity: 0, y: 35, scale: 0.96 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.6,
+      stagger: 0.08,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.toolkit-bento-grid',
         start: 'top 85%',
         once: true
       }
@@ -256,11 +265,11 @@ function initScrollReveals() {
 
   // Education Cards
   gsap.fromTo('.edu-card',
-    { opacity: 0, y: 40, scale: 0.96 },
+    { opacity: 0, y: 35, scale: 0.97 },
     {
       opacity: 1, y: 0, scale: 1,
-      duration: 0.7,
-      stagger: 0.15,
+      duration: 0.65,
+      stagger: 0.12,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: '.education-grid',
@@ -270,12 +279,12 @@ function initScrollReveals() {
     }
   );
 
-  // GitHub Bento Card
+  // GitHub Spotlight
   gsap.fromTo('.github-bento-card',
-    { opacity: 0, y: 40, scale: 0.96 },
+    { opacity: 0, y: 40, scale: 0.97 },
     {
       opacity: 1, y: 0, scale: 1,
-      duration: 0.8,
+      duration: 0.75,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: '.github-section',
@@ -287,11 +296,11 @@ function initScrollReveals() {
 
   // Contact Grid
   gsap.fromTo('.contact-grid > div',
-    { opacity: 0, y: 40 },
+    { opacity: 0, y: 35 },
     {
       opacity: 1, y: 0,
-      duration: 0.75,
-      stagger: 0.15,
+      duration: 0.7,
+      stagger: 0.12,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: '.contact-section',
@@ -311,7 +320,7 @@ function initScrollReveals() {
         trigger: document.body,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.3
+        scrub: 0.2
       }
     });
   }
@@ -322,22 +331,35 @@ function initScrollReveals() {
    ========================================================= */
 function initTimelineProgressDraw() {
   const timeline = document.querySelector('.timeline');
+  const progressBar = document.getElementById('timeline-progress-bar');
   if (!timeline) return;
 
-  const items = gsap.utils.toArray('.timeline-item');
+  if (progressBar) {
+    gsap.to(progressBar, {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: timeline,
+        start: 'top 70%',
+        end: 'bottom 85%',
+        scrub: 0.4
+      }
+    });
+  }
 
-  items.forEach((item, index) => {
+  const items = gsap.utils.toArray('.timeline-item');
+  items.forEach((item) => {
     const dot     = item.querySelector('.timeline-dot');
     const content = item.querySelector('.timeline-content');
     const side    = item.dataset.side || 'left';
-    const xOffset = side === 'left' ? -35 : 35;
+    const xOffset = side === 'left' ? -30 : 30;
 
     // Reveal item content
     gsap.fromTo(content,
-      { opacity: 0, x: xOffset, filter: 'blur(6px)' },
+      { opacity: 0, x: xOffset, filter: 'blur(5px)' },
       {
         opacity: 1, x: 0, filter: 'blur(0px)',
-        duration: 0.7,
+        duration: 0.65,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: item,
@@ -347,13 +369,12 @@ function initTimelineProgressDraw() {
       }
     );
 
-    // Pulse dot when reached
     if (dot) {
       gsap.fromTo(dot,
         { scale: 0, opacity: 0 },
         {
           scale: 1, opacity: 1,
-          duration: 0.5,
+          duration: 0.4,
           ease: 'back.out(2)',
           scrollTrigger: {
             trigger: item,
@@ -384,7 +405,6 @@ function initTerminalAutoType() {
       if (hasTyped) return;
       hasTyped = true;
 
-      // Small delay then type 'bio' command
       setTimeout(() => {
         const input = document.getElementById('terminal-input');
         if (!input) return;
@@ -402,81 +422,17 @@ function initTerminalAutoType() {
               if (typeof window.runTermCmd === 'function') {
                 window.runTermCmd('bio');
               }
-            }, 300);
+            }, 250);
           }
         }
         simulateTyping();
-      }, 600);
+      }, 500);
     }
   });
 }
 
 /* =========================================================
-   6. EXPONENTIALLY EASED NUMBER COUNTERS
-   ========================================================= */
-function initExponentialCounters() {
-  const counters = document.querySelectorAll('.stat-number');
-  if (!counters.length) return;
-
-  counters.forEach(counter => {
-    const target = parseInt(counter.dataset.target, 10) || 0;
-    const suffix = counter.dataset.suffix !== undefined ? counter.dataset.suffix : '+';
-
-    ScrollTrigger.create({
-      trigger: counter,
-      start: 'top 85%',
-      once: true,
-      onEnter: () => {
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          duration: 1.8,
-          ease: 'power3.out',
-          onUpdate: () => {
-            counter.textContent = Math.floor(obj.val) + suffix;
-          },
-          onComplete: () => {
-            counter.textContent = target + suffix;
-            gsap.fromTo(counter, 
-              { scale: 1.1 }, 
-              { scale: 1, duration: 0.3, ease: 'power1.out' }
-            );
-          }
-        });
-      }
-    });
-  });
-}
-
-/* =========================================================
-   7. SKILL BARS WITH GLOWING HEAD
-   ========================================================= */
-function initSkillBarsWithGlow() {
-  const bars = document.querySelectorAll('.skill-bar');
-  if (!bars.length) return;
-
-  bars.forEach(bar => {
-    const fill = bar.querySelector('.skill-bar-fill');
-    if (!fill) return;
-    const level = fill.dataset.level || 80;
-
-    ScrollTrigger.create({
-      trigger: bar,
-      start: 'top 90%',
-      once: true,
-      onEnter: () => {
-        gsap.to(fill, {
-          width: level + '%',
-          duration: 1.4,
-          ease: 'power2.out'
-        });
-      }
-    });
-  });
-}
-
-/* =========================================================
-   8. 3D PROXIMITY SPOTLIGHT & CARD TILT
+   6. 3D PROXIMITY SPOTLIGHT & CARD TILT
    ========================================================= */
 function init3DCardSpotlight() {
   if (window.matchMedia('(hover: none)').matches) return;
@@ -495,22 +451,15 @@ function init3DCardSpotlight() {
       const y = e.clientY - bounds.top;
       const centerX = bounds.width / 2;
       const centerY = bounds.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -9;
-      const rotateY = ((x - centerX) / centerX) *  9;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) *  6;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
-
-      const shine = card.querySelector('.card-shine');
-      if (shine) {
-        shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(245, 158, 11, 0.16) 0%, transparent 60%)`;
-      }
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
     }
 
     function onMouseLeave() {
       card.style.transform  = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-      const shine = card.querySelector('.card-shine');
-      if (shine) shine.style.background = 'transparent';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
       setTimeout(() => { card.style.transition = ''; card.style.willChange = 'auto'; }, 400);
     }
 
@@ -521,12 +470,12 @@ function init3DCardSpotlight() {
 }
 
 /* =========================================================
-   9. MAGNETIC BUTTONS (SPRING PHYSICS)
+   7. MAGNETIC BUTTONS (SPRING PHYSICS)
    ========================================================= */
 function initMagneticElements() {
   if (window.matchMedia('(hover: none)').matches) return;
 
-  document.querySelectorAll('.magnetic-btn, .term-btn, .copy-btn').forEach(btn => {
+  document.querySelectorAll('.magnetic-btn, .term-btn, .copy-btn, .btn-pill-resume').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect();
       const x = e.clientX - (rect.left + rect.width / 2);
@@ -546,51 +495,6 @@ function initMagneticElements() {
         y: 0,
         duration: 0.6,
         ease: 'elastic.out(1.2, 0.4)'
-      });
-    });
-  });
-}
-
-/* =========================================================
-   10. SKILLS FILTER INTERACTION
-   ========================================================= */
-function initSkillsFilter() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
-  if (!filterBtns.length || !skillCards.length) return;
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-
-      const filter = btn.dataset.filter;
-
-      skillCards.forEach(card => {
-        const category = card.dataset.category;
-        const matches  = filter === 'all' || category === filter;
-
-        if (matches) {
-          gsap.to(card, {
-            display: 'block',
-            opacity: 1,
-            scale: 1,
-            duration: 0.35,
-            ease: 'power2.out'
-          });
-        } else {
-          gsap.to(card, {
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.25,
-            ease: 'power2.in',
-            onComplete: () => { card.style.display = 'none'; }
-          });
-        }
       });
     });
   });
