@@ -3,42 +3,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ============================================
-  // 1. LENIS SMOOTH SCROLL (SINGLE RAF PIPELINE)
-  // ============================================
-  const lenis = new Lenis({
-    duration: 1.15,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 0.9,
-    touchMultiplier: 1.5,
-  });
-
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-  } else {
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }
-
-  // ============================================
-  // 2. NAVIGATION & BACK TO TOP
+  // 1. NATIVE SMOOTH SCROLL & NAVBAR DYNAMICS
   // ============================================
   const navbar    = document.getElementById('navbar');
   const navLinks  = document.querySelectorAll('.nav-link');
   const backToTop = document.getElementById('back-to-top');
 
-  lenis.on('scroll', (e) => {
-    const scrollY = e.scroll;
-    if (scrollY > 40) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 30) {
       navbar?.classList.add('nav-scrolled');
     } else {
       navbar?.classList.remove('nav-scrolled');
@@ -47,8 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backToTop) {
       backToTop.classList.toggle('visible', scrollY > 400);
     }
-  });
+  }, { passive: true });
 
+  // Active section indicator on scroll
   const sections = document.querySelectorAll('section[id]');
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -61,9 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, { threshold: 0.35 });
+  }, { threshold: 0.3 });
   sections.forEach(s => sectionObserver.observe(s));
 
+  // Smooth click scroll
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -71,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          lenis.scrollTo(target, { offset: -90, duration: 1.2 });
+          const navOffset = 80;
+          const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
         }
         closeMobileMenu();
       }
@@ -79,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   backToTop?.addEventListener('click', () => {
-    lenis.scrollTo(0, { duration: 1.2 });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // ============================================
-  // 3. MOBILE DRAWER MENU
+  // 2. MOBILE DRAWER MENU
   // ============================================
   const hamburger     = document.getElementById('hamburger');
   const mobileMenu    = document.getElementById('mobile-menu');
@@ -123,14 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.querySelector(href);
         closeMobileMenu();
         setTimeout(() => {
-          if (target) lenis.scrollTo(target, { offset: -70, duration: 1.2 });
-        }, 200);
+          if (target) {
+            const navOffset = 70;
+            const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        }, 150);
       }
     });
   });
 
   // ============================================
-  // 4. COPY EMAIL CLIPBOARD HELPER
+  // 3. COPY EMAIL CLIPBOARD HELPER
   // ============================================
   const copyBtn = document.getElementById('copy-email-btn');
   const copyBtnText = document.getElementById('copy-btn-text');
@@ -150,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 5. CUSTOM CURSOR TRACKING
+  // 4. CUSTOM CURSOR (SUBTLE & RESPONSIVE)
   // ============================================
   const dot  = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
@@ -166,11 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseY = e.clientY;
       dot.style.left = mouseX + 'px';
       dot.style.top  = mouseY + 'px';
-    });
+    }, { passive: true });
 
     function renderCursor() {
-      ringX += (mouseX - ringX) * 0.16;
-      ringY += (mouseY - ringY) * 0.16;
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
       ring.style.left = ringX + 'px';
       ring.style.top  = ringY + 'px';
       requestAnimationFrame(renderCursor);
@@ -190,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 6. CONTACT FORM VALIDATION
+  // 5. CONTACT FORM VALIDATION
   // ============================================
   const form = document.getElementById('contact-form');
   if (form) {
@@ -225,18 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!valid) return;
 
-      btn.innerHTML = 'Transmitting...';
+      btn.innerHTML = 'Sending...';
       btn.disabled  = true;
 
       setTimeout(() => {
-        btn.innerHTML        = '&#10003; Transmission Sent!';
+        btn.innerHTML        = '&#10003; Message Sent!';
         btn.style.background = '#22c55e';
         btn.style.color      = '#fff';
         form.reset();
-
-        form.querySelectorAll('input, textarea').forEach(el => {
-          el.classList.remove('has-value');
-        });
 
         setTimeout(() => {
           btn.innerHTML        = originalHTML;
@@ -244,21 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.style.color      = '';
           btn.disabled         = false;
         }, 3000);
-      }, 1200);
-    });
-
-    form.querySelectorAll('input, textarea').forEach(input => {
-      input.addEventListener('input', () => {
-        const errorEl = input.parentElement.querySelector('.form-error');
-        if (errorEl) errorEl.textContent = '';
-        input.classList.remove('error');
-      });
+      }, 1000);
     });
   }
 
-  // ============================================
-  // 7. KEYBOARD ACCESSIBILITY
-  // ============================================
+  // Escape closes menu
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileMenu();
   });
@@ -266,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// 8. INTERACTIVE DEVELOPER TERMINAL CLI
+// 6. INTERACTIVE DEVELOPER TERMINAL CLI
 // ============================================
 const TERMINAL_COMMANDS = {
   help: () => 'Available commands: <span class="cmd-highlight">bio</span>, <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">contact</span>, <span class="cmd-highlight">clear</span>',
@@ -287,9 +254,9 @@ const TERMINAL_COMMANDS = {
     <div><strong>Featured Projects:</strong></div>
     <div>1. <span style="color:var(--accent-light)">Fake News Detection System</span> — ML/NLP with OCR & Telugu/English detection.</div>
     <div>2. <span style="color:var(--accent-light)">Modern Interactive Calculator</span> — Responsive JS calculator with real-time math engine.</div>
-    <div>3. <span style="color:var(--accent-light)">Developer Portfolio</span> — Three.js 3D hero scene with GSAP animations.</div>
+    <div>3. <span style="color:var(--accent-light)">Developer Portfolio</span> — Modern full-stack showcase.</div>
     <div>4. <span style="color:var(--accent-light)">Full-Stack Web App</span> — React + Node + Express + MySQL.</div>
-    <div style="color:var(--text-muted);margin-top:4px">Explore the Exhibition section to test live demos!</div>
+    <div style="color:var(--text-muted);margin-top:4px">Scroll to the Exhibition section to test live demos!</div>
   `,
   contact: () => `
     <div><strong>Get In Touch:</strong></div>

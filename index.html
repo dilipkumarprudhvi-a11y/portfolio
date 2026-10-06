@@ -61,7 +61,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- ═══════════════ Stylesheet (Versioned) ═══════════════ -->
-  <link rel="stylesheet" href="css/style.css?v=4.0" />
+  <link rel="stylesheet" href="css/style.css?v=6.0" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 </head>
 <body>
@@ -69,16 +69,7 @@
   <!-- ═══════════════ PHYSICAL GRAIN OVERLAY ═══════════════ -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
-  <!-- ═══════════════ LOADING SCREEN ═══════════════ -->
-  <div id="loading-screen" role="status" aria-label="Loading portfolio">
-    <div class="loader-content">
-      <div class="loader-logo">PDK<span class="logo-dot">.</span></div>
-      <div class="loader-bar-wrap" aria-hidden="true">
-        <div class="loader-bar"></div>
-      </div>
-      <p class="loader-text">Initializing Creative Exhibition...</p>
-    </div>
-  </div>
+
 
   <!-- ═══════════════ CUSTOM INTERACTIVE CURSOR ═══════════════ -->
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
@@ -149,17 +140,15 @@
       <div class="hero-container">
 
         <div class="hero-content">
-          <!-- Availability Badge (Creative Mints Style) -->
+          <!-- Availability Badge -->
           <div class="hero-status-pill">
-            <span class="pulse-amber-dot"></span>
+            <span class="pulse-blue-dot"></span>
             <span>AVAILABLE FOR FULL-STACK ROLES &amp; PROJECTS</span>
           </div>
 
-          <!-- High-Impact Kinetic Headline -->
+          <!-- Editorial Headline -->
           <h1 class="hero-headline">
-            <span class="headline-line">ENGINEERING</span>
-            <span class="headline-line gradient-amber-text">MODERN SYSTEMS</span>
-            <span class="headline-line">&amp; WEB EXPERIENCES</span>
+            Engineering scalable web systems &amp; <span class="gradient-blue-text">digital experiences</span>.
           </h1>
 
           <!-- Typewriter Sub-Label -->
@@ -179,14 +168,14 @@
               <span>Explore Selected Works</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
-            <a href="#contact" class="btn btn-secondary magnetic-btn">Initiate Contact</a>
+            <a href="#contact" class="btn btn-secondary magnetic-btn">Get In Touch</a>
             <button id="copy-email-btn" class="btn btn-ghost copy-btn" title="Copy email address" aria-label="Copy email address">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               <span id="copy-btn-text">Copy Email</span>
             </button>
           </div>
 
-          <!-- Minimalist Telemetry Bar -->
+          <!-- Telemetry Ribbon -->
           <div class="hero-metrics-ribbon" aria-label="Key developer metrics">
             <div class="ribbon-item"><strong>06+</strong> Production Builds</div>
             <div class="ribbon-dot">•</div>
@@ -198,21 +187,71 @@
           </div>
         </div>
 
-        <!-- 3D Three.js Interactive Hero Canvas -->
-        <div class="hero-canvas-wrap" aria-hidden="true">
-          <canvas id="hero-canvas"></canvas>
-          <div class="hero-canvas-fallback">
-            <div class="fallback-mesh-sphere"></div>
+        <!-- Studio Developer Command Center (High-Fidelity Engineering Card) -->
+        <div class="hero-station-card glass" data-tilt aria-label="Developer Architecture Overview">
+          <div class="station-header">
+            <div class="station-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="station-file">prudhvi.config.ts</div>
+            <div class="station-badge">● SPRINT ONLINE</div>
+          </div>
+
+          <div class="station-body">
+            <!-- Developer Identity Block -->
+            <div class="station-profile-row">
+              <div class="profile-avatar">PDK</div>
+              <div class="profile-meta">
+                <div class="profile-name">Prudhvi Dilip Kumar</div>
+                <div class="profile-role">Full-Stack Developer &amp; Systems Builder</div>
+              </div>
+            </div>
+
+            <!-- Active Stack Pills -->
+            <div class="station-section-label">PRIMARY ARCHITECTURE STACK</div>
+            <div class="station-stack-grid">
+              <span class="stack-pill"><span class="dot-blue"></span> React.js</span>
+              <span class="stack-pill"><span class="dot-blue"></span> Node.js</span>
+              <span class="stack-pill"><span class="dot-blue"></span> Express.js</span>
+              <span class="stack-pill"><span class="dot-blue"></span> Python 3</span>
+              <span class="stack-pill"><span class="dot-blue"></span> MySQL</span>
+              <span class="stack-pill"><span class="dot-blue"></span> REST APIs</span>
+            </div>
+
+            <!-- Live Telemetry Stats -->
+            <div class="station-section-label">SYSTEM TELEMETRY</div>
+            <div class="station-telemetry-grid">
+              <div class="telemetry-stat">
+                <span class="stat-value">06+</span>
+                <span class="stat-label">Production Works</span>
+              </div>
+              <div class="telemetry-stat">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Responsive &amp; A11y</span>
+              </div>
+              <div class="telemetry-stat">
+                <span class="stat-value">&lt;50ms</span>
+                <span class="stat-label">Optimized Renders</span>
+              </div>
+              <div class="telemetry-stat">
+                <span class="stat-value">B.Tech</span>
+                <span class="stat-label">AI &amp; Data Science</span>
+              </div>
+            </div>
+
+            <!-- Live Code Preview Snippet -->
+            <div class="station-code-preview">
+              <div class="code-line"><span class="code-kw">const</span> developer = <span class="code-kw">new</span> <span class="code-fn">FullStackEngineer</span>({</div>
+              <div class="code-line indent"><span class="code-prop">name</span>: <span class="code-str">'Prudhvi Dilip Kumar'</span>,</div>
+              <div class="code-line indent"><span class="code-prop">status</span>: <span class="code-str">'Available for Full-Stack Roles'</span>,</div>
+              <div class="code-line indent"><span class="code-prop">location</span>: <span class="code-str">'Hyderabad, India'</span></div>
+              <div class="code-line">});</div>
+            </div>
           </div>
         </div>
 
-      </div>
-
-      <div class="scroll-explore-indicator" aria-hidden="true">
-        <span class="explore-text">SCROLL TO EXPLORE EXHIBITION</span>
-        <div class="explore-mouse">
-          <div class="mouse-wheel"></div>
-        </div>
       </div>
     </section>
 
