@@ -2392,3 +2392,524 @@ button, input, textarea {
     box-sizing: border-box;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   14. MOTION DESIGN SYSTEM & INTERACTIVE ARCHITECTURE
+   Premium • Smooth • Technical • GPU-Accelerated • Accessible
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Motion System CSS Variables */
+:root {
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-fast: 250ms;
+  --motion-med: 450ms;
+  --motion-slow: 750ms;
+}
+
+/* ─── TECHNICAL BACKGROUND ATMOSPHERE ─── */
+.technical-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 15%, rgba(37, 99, 235, 0.035) 0%, transparent 65%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.018) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  animation: techBgDrift 35s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes techBgDrift {
+  0% {
+    background-position: 50% 15%, 0 0, 0 0;
+  }
+  50% {
+    background-position: 54% 20%, 24px 24px, 24px 24px;
+  }
+  100% {
+    background-position: 50% 15%, 48px 48px, 48px 48px;
+  }
+}
+
+/* ─── DESKTOP CUSTOM CURSOR SYSTEM ─── */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.02);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform, width, height, border-radius, background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: width 0.25s var(--ease-smooth),
+              height 0.25s var(--ease-smooth),
+              border-radius 0.25s var(--ease-smooth),
+              border-color 0.25s var(--ease-smooth),
+              background-color 0.25s var(--ease-smooth),
+              opacity 0.3s ease;
+}
+
+.cursor-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.18s ease, transform 0.2s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.cursor-ring.has-badge {
+  width: auto;
+  min-width: 78px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 14px;
+  background: #0F172A;
+  border-color: #2563EB;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+}
+
+.cursor-ring.has-badge .cursor-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cursor-ring.is-hovering {
+  width: 48px;
+  height: 48px;
+  border-color: #2563EB;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.cursor-visible .cursor-dot,
+.cursor-visible .cursor-ring {
+  opacity: 1;
+}
+
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ─── INITIAL HERO ENTRANCE SEQUENCE (~1s TOTAL) ─── */
+@keyframes heroEntranceFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-intro-badge {
+  animation: heroEntranceFadeUp 0.65s var(--ease-smooth) 0.18s both;
+}
+
+.hero-intro-title {
+  animation: heroEntranceFadeUp 0.75s var(--ease-smooth) 0.25s both;
+}
+
+.hero-intro-desc {
+  animation: heroEntranceFadeUp 0.75s var(--ease-smooth) 0.40s both;
+}
+
+.hero-intro-ctas {
+  animation: heroEntranceFadeUp 0.75s var(--ease-smooth) 0.50s both;
+}
+
+.hero-intro-visual {
+  animation: heroEntranceFadeUp 0.85s var(--ease-smooth) 0.60s both;
+}
+
+.hero-intro-facts {
+  animation: heroEntranceFadeUp 0.75s var(--ease-smooth) 0.70s both;
+}
+
+/* ─── SCROLL-TRIGGERED PROGRESSIVE REVEALS ─── */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease-smooth),
+              transform 0.65s var(--ease-smooth);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ─── EDITORIAL & SKILL BLOCK ACCENT DRAWINGS ─── */
+.editorial-line,
+.skill-block-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #2563EB 0%, rgba(37, 99, 235, 0.25) 55%, transparent 100%);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.85s var(--ease-smooth);
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.reveal-visible .editorial-line,
+.reveal-visible .skill-block-line,
+.skill-block.reveal-visible .skill-block-line {
+  transform: scaleX(1);
+}
+
+/* Skills Cards Architectural Elevation */
+.skill-block {
+  transition: transform 0.3s var(--ease-smooth),
+              border-color 0.25s ease,
+              box-shadow 0.3s ease;
+}
+
+.skill-block:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.07);
+}
+
+.skill-item {
+  transition: transform 0.2s var(--ease-smooth), color 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+/* ─── HERO TECHNICAL INSPECTOR SCANLINE & TELEMETRY ─── */
+.hero-preview-wrap {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.inspector-scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.04) 50%, transparent 100%);
+  height: 30%;
+  width: 100%;
+  opacity: 0.75;
+  transform: translateY(-100%);
+  animation: scanlineSweep 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 2;
+}
+
+@keyframes scanlineSweep {
+  0% { transform: translateY(-100%); }
+  55% { transform: translateY(380%); }
+  100% { transform: translateY(380%); }
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+  animation: liveBeaconPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes liveBeaconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+/* ─── FAKE NEWS DETECTION PIPELINE (SIGNATURE MOTION SYSTEM) ─── */
+.pipeline-schematic,
+.pipeline-interactive {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.pipeline-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.pipe-particle-track,
+.pipeline-particle-track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  pointer-events: none;
+  z-index: 1;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.pipe-particle,
+.track-particle {
+  position: absolute;
+  left: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563EB;
+  box-shadow: 0 0 6px #2563EB;
+  opacity: 0;
+}
+
+.p-1 { animation: particleTravel 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 0s; }
+.p-2 { animation: particleTravel 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 1.1s; }
+.p-3 { animation: particleTravel 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 2.2s; }
+.p-4 { animation: particleTravel 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 3.3s; }
+
+@keyframes particleTravel {
+  0% {
+    top: 0%;
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  8% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  92% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+.pipe-node,
+.pipeline-step {
+  transition: transform 0.25s var(--ease-smooth),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background-color 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.pipe-node:hover,
+.pipe-node.pipe-active,
+.pipeline-step:hover,
+.pipeline-step.active {
+  transform: translateY(-2px);
+  border-color: #2563EB !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.16);
+  background-color: #FFFFFF !important;
+}
+
+.pipe-node:hover .node-tag,
+.pipe-node.pipe-active .node-tag {
+  color: #2563EB;
+}
+
+.pipe-connector-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 2px 0;
+}
+
+.pipe-signal-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  animation: liveBeaconPulse 1.8s infinite;
+}
+
+/* ─── CASE STUDY 02 & 03 MICRO-INTERACTIONS ─── */
+.calc-key {
+  transition: transform 0.12s var(--ease-smooth),
+              background-color 0.15s ease,
+              box-shadow 0.15s ease;
+  will-change: transform;
+}
+
+.calc-key:active {
+  transform: scale(0.94);
+}
+
+.calc-screen.calc-flash {
+  animation: screenComputeFlash 0.3s var(--ease-smooth);
+}
+
+@keyframes screenComputeFlash {
+  0% { background-color: rgba(37, 99, 235, 0.12); }
+  100% { background-color: transparent; }
+}
+
+/* ─── TIER 2 SYSTEM PROJECT CARDS HOVER SYSTEM ─── */
+.system-project-card {
+  transition: transform 0.3s var(--ease-smooth),
+              border-color 0.25s ease,
+              box-shadow 0.3s ease;
+}
+
+.system-project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+}
+
+/* ─── TIMELINE PROGRESSIVE VERTICAL DRAW ─── */
+.timeline-container {
+  position: relative;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 140px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #2563EB 0%, rgba(37, 99, 235, 0.25) 85%, transparent 100%);
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.2s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.timeline-container.timeline-drawn::before {
+  transform: scaleY(1);
+}
+
+@media (max-width: 900px) {
+  .timeline-container::before {
+    display: none;
+  }
+}
+
+.timeline-row {
+  transition: transform 0.3s var(--ease-smooth),
+              border-color 0.25s ease,
+              box-shadow 0.3s ease;
+}
+
+.timeline-row:hover {
+  transform: translateX(6px);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* ─── CREDENTIALS & ACHIEVEMENTS HOVER ─── */
+.credential-item {
+  transition: transform 0.25s var(--ease-smooth),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.credential-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+/* ─── BUTTON MICRO-INTERACTIONS & MAGNETIC FEEL ─── */
+.btn-magnetic {
+  transition: transform 0.2s var(--ease-smooth),
+              box-shadow 0.2s ease,
+              background-color 0.2s ease;
+  will-change: transform;
+}
+
+.btn-arrow {
+  transition: transform 0.25s var(--ease-smooth);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn:hover .btn-arrow,
+.channel-link:hover .btn-arrow,
+.system-link:hover .btn-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ─── ACCESSIBILITY: PREFERS-REDUCED-MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .technical-bg {
+    animation: none !important;
+  }
+
+  .inspector-scanline,
+  .track-particle,
+  .pulse-dot {
+    animation: none !important;
+  }
+
+  .timeline-container::before {
+    transform: scaleY(1) !important;
+    transition: none !important;
+  }
+}

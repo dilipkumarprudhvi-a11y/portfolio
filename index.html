@@ -66,6 +66,9 @@
 </head>
 <body>
 
+  <!-- ═══════════════ TECHNICAL BACKGROUND ATMOSPHERE ═══════════════ -->
+  <div class="technical-bg" aria-hidden="true"></div>
+
   <!-- ═══════════════ SCROLL PROGRESS ═══════════════ -->
   <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
 
@@ -88,11 +91,11 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="assets/resume.pdf" download class="btn btn-sm btn-secondary nav-resume-btn" aria-label="Download Resume PDF">
+        <a href="assets/resume.pdf" download class="btn btn-sm btn-secondary nav-resume-btn" data-cursor="open" aria-label="Download Resume PDF">
           <span>Resume</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
-        <a href="#contact" class="btn btn-sm btn-primary nav-talk-btn">
+        <a href="#contact" class="btn btn-sm btn-primary nav-talk-btn btn-magnetic" data-magnetic="true" data-cursor="view">
           <span>Let's Talk</span>
         </a>
         <button id="hamburger" class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -139,39 +142,39 @@
       <div class="section-container hero-container">
         
         <div class="hero-content">
-          <!-- Availability Tag -->
-          <div class="status-badge" role="status">
+          <!-- Availability Tag (Entrance Sequence: 180ms) -->
+          <div class="status-badge hero-intro-badge" role="status">
             <span class="status-dot"></span>
             <span>AVAILABLE FOR FULL-STACK ROLES &amp; PROJECTS</span>
           </div>
 
-          <!-- Primary Name & Authority Title -->
-          <h1 class="hero-title">
-            I am <span class="hero-name">Prudhvi Dilip Kumar</span>.<br />
-            Full-Stack Developer &amp; <span class="text-accent">Software Builder</span>.
+          <!-- Primary Name & Authority Title (Entrance Sequence: 250ms) -->
+          <h1 class="hero-title hero-intro-title">
+            <span class="title-line">I am <span class="hero-name">Prudhvi Dilip Kumar</span>.</span><br />
+            <span class="title-line">Full-Stack Developer &amp; <span class="text-accent">Software Builder</span>.</span>
           </h1>
 
-          <!-- Value Proposition Description -->
-          <p class="hero-desc">
+          <!-- Value Proposition Description (Entrance Sequence: 400ms) -->
+          <p class="hero-desc hero-intro-desc">
             I build scalable web applications, robust backend microservices, and interactive digital products. 
             Pursuing a <strong>B.Tech in Artificial Intelligence &amp; Data Science</strong>, I combine modern web architecture with data modeling to ship clean, performant software.
           </p>
 
-          <!-- Primary Call To Action Buttons -->
-          <div class="hero-cta-group" role="group" aria-label="Hero actions">
-            <a href="#projects" class="btn btn-lg btn-primary">
+          <!-- Primary Call To Action Buttons (Entrance Sequence: 500ms) -->
+          <div class="hero-cta-group hero-intro-ctas" role="group" aria-label="Hero actions">
+            <a href="#projects" class="btn btn-lg btn-primary btn-magnetic" data-magnetic="true" data-cursor="view">
               <span>View Selected Projects</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
-            <a href="#contact" class="btn btn-lg btn-secondary">Get In Touch</a>
-            <button id="copy-email-btn" class="btn btn-lg btn-ghost copy-email-btn" title="Copy email address" aria-label="Copy email address">
+            <a href="#contact" class="btn btn-lg btn-secondary" data-cursor="view">Get In Touch</a>
+            <button id="copy-email-btn" class="btn btn-lg btn-ghost copy-email-btn" data-cursor="mail" title="Copy email address" aria-label="Copy email address">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               <span id="copy-btn-text">Copy Email</span>
             </button>
           </div>
 
-          <!-- Direct Key Facts Ribbon -->
-          <div class="hero-highlights" aria-label="Key developer highlights">
+          <!-- Direct Key Facts Ribbon (Entrance Sequence: 700ms) -->
+          <div class="hero-highlights hero-intro-facts" aria-label="Key developer highlights">
             <div class="highlight-item">
               <span class="highlight-val">06+</span>
               <span class="highlight-lbl">Production Builds</span>
@@ -194,9 +197,10 @@
           </div>
         </div>
 
-        <!-- Professional System Architecture Inspector (Intentional Visual Element) -->
-        <div class="hero-preview-wrap">
-          <div class="system-inspector-card" aria-label="System Architecture &amp; Developer Specification">
+        <!-- Professional System Architecture Inspector (Entrance Sequence: 600ms + Depth Parallax) -->
+        <div class="hero-preview-wrap hero-intro-visual" id="hero-visual-wrap">
+          <div class="system-inspector-card" id="hero-inspector-card" aria-label="System Architecture &amp; Developer Specification">
+            <div class="inspector-scanline" aria-hidden="true"></div>
             <div class="inspector-header">
               <div class="inspector-dots">
                 <span class="dot dot-red"></span>
@@ -204,24 +208,24 @@
                 <span class="dot dot-green"></span>
               </div>
               <div class="inspector-title">architecture-manifest.ts</div>
-              <span class="inspector-status">ACTIVE COMPILER</span>
+              <span class="inspector-status"><span class="pulse-beacon"></span>ACTIVE COMPILER</span>
             </div>
 
             <div class="inspector-body">
               <div class="inspector-section-label">PRIMARY PRODUCTION STACK</div>
               
-              <div class="architecture-flow-row">
-                <div class="flow-step">
+              <div class="architecture-flow-row" id="hero-arch-flow">
+                <div class="flow-step" data-step="1">
                   <span class="flow-tag">CLIENT</span>
                   <span class="flow-name">React.js / Modern DOM</span>
                 </div>
-                <div class="flow-arrow">&rarr;</div>
-                <div class="flow-step">
+                <div class="flow-arrow" data-arrow="1">&rarr;</div>
+                <div class="flow-step" data-step="2">
                   <span class="flow-tag">BACKEND</span>
                   <span class="flow-name">Node.js / Express API</span>
                 </div>
-                <div class="flow-arrow">&rarr;</div>
-                <div class="flow-step">
+                <div class="flow-arrow" data-arrow="2">&rarr;</div>
+                <div class="flow-step" data-step="3">
                   <span class="flow-tag">DATABASE</span>
                   <span class="flow-name">MySQL Relational DB</span>
                 </div>
@@ -253,16 +257,17 @@
     <section id="about" class="section about-section" aria-labelledby="about-heading">
       <div class="section-container">
         
-        <div class="section-header">
+        <div class="section-header" data-reveal="true">
           <span class="section-tag">[ 01 / BACKGROUND &amp; PHILOSOPHY ]</span>
           <h2 id="about-heading" class="section-title">Engineering Digital Products from Core to Edge</h2>
           <p class="section-subtitle">Bridging algorithmic computing, relational data modeling, and accessible client interfaces.</p>
         </div>
+        <div class="editorial-line" aria-hidden="true"></div>
 
         <div class="about-grid">
           
           <!-- Narrative Biography Column -->
-          <div class="about-narrative">
+          <div class="about-narrative" data-reveal="true">
             <h3 class="about-lead">
               I believe great software is defined by clarity, reliability, and respect for user time.
             </h3>
@@ -393,7 +398,8 @@
         <div class="skills-categories-grid">
 
           <!-- 1. Programming Languages -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">01</span>
               <h3 class="cat-title">Programming Languages</h3>
@@ -408,7 +414,8 @@
           </div>
 
           <!-- 2. Web Development -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">02</span>
               <h3 class="cat-title">Frontend Architecture</h3>
@@ -424,7 +431,8 @@
           </div>
 
           <!-- 3. Backend & APIs -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">03</span>
               <h3 class="cat-title">Backend &amp; REST APIs</h3>
@@ -440,7 +448,8 @@
           </div>
 
           <!-- 4. Databases & Storage -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">04</span>
               <h3 class="cat-title">Relational Databases</h3>
@@ -456,7 +465,8 @@
           </div>
 
           <!-- 5. AI / Machine Learning -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">05</span>
               <h3 class="cat-title">AI &amp; Machine Learning</h3>
@@ -472,7 +482,8 @@
           </div>
 
           <!-- 6. Developer Tooling -->
-          <div class="skill-category-block">
+          <div class="skill-category-block" data-skill-block="true" data-reveal="true">
+            <div class="skill-block-line" aria-hidden="true"></div>
             <div class="skill-cat-header">
               <span class="cat-num">06</span>
               <h3 class="cat-title">Tools &amp; Workflows</h3>
@@ -514,7 +525,7 @@
         <div class="featured-projects-wrap" id="featured-projects-list">
 
           <!-- Case Study 01: Fake News Detection System -->
-          <article class="featured-project-card" data-category="ml" aria-labelledby="p1-title">
+          <article class="featured-project-card" data-category="ml" data-cursor="explore" data-reveal="true" aria-labelledby="p1-title">
             <div class="featured-project-grid">
               
               <div class="featured-project-info">
@@ -549,38 +560,75 @@
                 </div>
 
                 <div class="project-action-links">
-                  <a href="https://github.com/dilipkumarprudhvi-a11y/fake-news-detection" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of Fake News Detection System">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/fake-news-detection" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-cursor="view" aria-label="View source repository of Fake News Detection System">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>View Repository</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                   </a>
                 </div>
               </div>
 
-              <!-- Interactive / Visual Showcase Panel -->
+              <!-- Interactive / Visual Showcase Panel: 6-Step Animated Architecture -->
               <div class="featured-project-preview">
                 <div class="preview-chrome">
                   <div class="chrome-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                  <span class="chrome-label">ml-pipeline-schematic.py</span>
-                  <span class="chrome-status">ACCURACY: 98.4%</span>
+                  <span class="chrome-label">nlp-pipeline-schematic.py</span>
+                  <span class="chrome-status"><span class="pulse-beacon"></span>ACTIVE PIPELINE</span>
                 </div>
                 <div class="preview-body ml-flow-body">
-                  <div class="flow-chart">
-                    <div class="flow-node">
-                      <span class="node-tag">RAW INPUT</span>
-                      <span class="node-title">Telugu / English Text &amp; Scans</span>
+                  <div class="pipeline-schematic" id="fake-news-pipeline" aria-label="NLP &amp; OCR Architecture Pipeline">
+                    <!-- Subtle technical signal particles (4 particles) -->
+                    <div class="pipe-particle-track" aria-hidden="true">
+                      <span class="pipe-particle p-1"></span>
+                      <span class="pipe-particle p-2"></span>
+                      <span class="pipe-particle p-3"></span>
+                      <span class="pipe-particle p-4"></span>
                     </div>
-                    <div class="flow-connect">&darr;</div>
-                    <div class="flow-node">
-                      <span class="node-tag">OCR &amp; NLP</span>
-                      <span class="node-title">Tesseract OCR &amp; TF-IDF Vectorizer</span>
-                    </div>
-                    <div class="flow-connect">&darr;</div>
-                    <div class="flow-node flow-active">
-                      <span class="node-tag">CLASSIFIER</span>
-                      <span class="node-title">Logistic Regression / Naive Bayes</span>
+
+                    <div class="pipeline-flow-steps">
+                      <!-- Step 1: RAW INPUT -->
+                      <div class="flow-node pipe-node" data-pipe-step="1">
+                        <span class="node-tag">01. RAW INPUT</span>
+                        <span class="node-title">Bilingual Text &amp; Paper Scans</span>
+                      </div>
+                      <div class="pipe-connector-line" data-pipe-conn="1"><span class="pipe-signal-dot"></span>&darr;</div>
+
+                      <!-- Step 2: OCR -->
+                      <div class="flow-node pipe-node" data-pipe-step="2">
+                        <span class="node-tag">02. OCR EXTRACTION</span>
+                        <span class="node-title">Tesseract Optical Character Engine</span>
+                      </div>
+                      <div class="pipe-connector-line" data-pipe-conn="2"><span class="pipe-signal-dot"></span>&darr;</div>
+
+                      <!-- Step 3: NLP -->
+                      <div class="flow-node pipe-node" data-pipe-step="3">
+                        <span class="node-tag">03. NLP PREPROCESSING</span>
+                        <span class="node-title">Telugu &amp; English Tokenization</span>
+                      </div>
+                      <div class="pipe-connector-line" data-pipe-conn="3"><span class="pipe-signal-dot"></span>&darr;</div>
+
+                      <!-- Step 4: TF-IDF -->
+                      <div class="flow-node pipe-node" data-pipe-step="4">
+                        <span class="node-tag">04. TF-IDF VECTORIZER</span>
+                        <span class="node-title">Weighted N-gram Feature Matrix</span>
+                      </div>
+                      <div class="pipe-connector-line" data-pipe-conn="4"><span class="pipe-signal-dot"></span>&darr;</div>
+
+                      <!-- Step 5: CLASSIFIER -->
+                      <div class="flow-node pipe-node" data-pipe-step="5">
+                        <span class="node-tag">05. CLASSIFIER</span>
+                        <span class="node-title">Multinomial Model &amp; Softmax</span>
+                      </div>
+                      <div class="pipe-connector-line" data-pipe-conn="5"><span class="pipe-signal-dot"></span>&darr;</div>
+
+                      <!-- Step 6: RESULT -->
+                      <div class="flow-node pipe-node flow-node-result" data-pipe-step="6">
+                        <span class="node-tag tag-verified">06. VERIFIED RESULT</span>
+                        <span class="node-title"><strong>98.4% Confidence</strong> / Authentic vs Fake</span>
+                      </div>
                     </div>
                   </div>
+
                   <div class="flow-telemetry-row">
                     <div class="tele-item"><strong>98.4%</strong> Precision</div>
                     <div class="tele-item"><strong>Bilingual</strong> Telugu &amp; EN</div>
@@ -593,7 +641,7 @@
           </article>
 
           <!-- Case Study 02: Modern Interactive Calculator (Live Working Application) -->
-          <article class="featured-project-card" data-category="web" aria-labelledby="p2-title">
+          <article class="featured-project-card" data-category="web" data-cursor="explore" data-reveal="true" aria-labelledby="p2-title">
             <div class="featured-project-grid reverse-grid">
               
               <div class="featured-project-info">
@@ -625,10 +673,10 @@
                 </div>
 
                 <div class="project-action-links">
-                  <a href="https://github.com/dilipkumarprudhvi-a11y/interactive-calculator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of Modern Interactive Calculator">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/interactive-calculator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-cursor="view" aria-label="View source repository of Modern Interactive Calculator">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>View Repository</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                   </a>
                 </div>
               </div>
@@ -638,7 +686,7 @@
                 <div class="preview-chrome">
                   <div class="chrome-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
                   <span class="chrome-label">interactive-calculator.widget</span>
-                  <span class="chrome-status">TEST IT LIVE</span>
+                  <span class="chrome-status"><span class="pulse-beacon"></span>TEST IT LIVE</span>
                 </div>
                 <div class="preview-body calc-interactive-body">
                   <div class="embedded-calculator">
@@ -674,7 +722,7 @@
           </article>
 
           <!-- Case Study 03: Senior Developer Portfolio -->
-          <article class="featured-project-card" data-category="web" aria-labelledby="p3-title">
+          <article class="featured-project-card" data-category="web" data-cursor="explore" data-reveal="true" aria-labelledby="p3-title">
             <div class="featured-project-grid">
               
               <div class="featured-project-info">
@@ -706,14 +754,14 @@
                 </div>
 
                 <div class="project-action-links">
-                  <a href="https://github.com/dilipkumarprudhvi-a11y/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of portfolio">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-cursor="view" aria-label="View source repository of portfolio">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>Repository</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                   </a>
-                  <a href="https://dilipkumarprudhvi-a11y.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="View live production deployment">
+                  <a href="https://dilipkumarprudhvi-a11y.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-cursor="view" aria-label="View live production deployment">
                     <span>Live Production</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
                   </a>
                 </div>
               </div>
@@ -745,7 +793,7 @@
         </div>
 
         <!-- Tier 2: Additional Systems & Architecture Grid (Varied Density Grid) -->
-        <div class="additional-projects-header">
+        <div class="additional-projects-header" data-reveal="true">
           <h3 class="additional-title">Additional Systems &amp; Database Applications</h3>
           <p class="additional-desc">Backend systems, relational database applications, and productivity workflows.</p>
         </div>
@@ -753,7 +801,7 @@
         <div class="additional-projects-grid" id="additional-projects-list">
 
           <!-- Project 04: Full-Stack Web Application -->
-          <div class="system-project-card" data-category="fullstack" aria-labelledby="p4-title">
+          <div class="system-project-card" data-category="fullstack" data-reveal="true" data-cursor="explore" aria-labelledby="p4-title">
             <div class="system-card-header">
               <span class="system-index">04</span>
               <span class="system-badge badge-wip">In Active Development</span>
@@ -778,7 +826,7 @@
           </div>
 
           <!-- Project 05: Student Management System -->
-          <div class="system-project-card" data-category="fullstack" aria-labelledby="p5-title">
+          <div class="system-project-card" data-category="fullstack" data-reveal="true" data-cursor="explore" aria-labelledby="p5-title">
             <div class="system-card-header">
               <span class="system-index">05</span>
               <span class="system-badge">Java + SQL System</span>
@@ -798,14 +846,15 @@
               <span>CRUD</span>
             </div>
             <div class="system-footer">
-              <a href="https://github.com/dilipkumarprudhvi-a11y/student-management" target="_blank" rel="noopener noreferrer" class="system-link">
-                <span>View Repository</span> &rarr;
+              <a href="https://github.com/dilipkumarprudhvi-a11y/student-management" target="_blank" rel="noopener noreferrer" class="system-link" data-cursor="open">
+                <span>View Repository</span>
+                <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
             </div>
           </div>
 
           <!-- Project 06: Task & Workflow Platform -->
-          <div class="system-project-card" data-category="web" aria-labelledby="p6-title">
+          <div class="system-project-card" data-category="web" data-reveal="true" data-cursor="explore" aria-labelledby="p6-title">
             <div class="system-card-header">
               <span class="system-index">06</span>
               <span class="system-badge">Productivity App</span>
@@ -825,8 +874,9 @@
               <span>ARIA</span>
             </div>
             <div class="system-footer">
-              <a href="https://github.com/dilipkumarprudhvi-a11y/task-manager" target="_blank" rel="noopener noreferrer" class="system-link">
-                <span>View Repository</span> &rarr;
+              <a href="https://github.com/dilipkumarprudhvi-a11y/task-manager" target="_blank" rel="noopener noreferrer" class="system-link" data-cursor="open">
+                <span>View Repository</span>
+                <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
             </div>
           </div>
@@ -840,16 +890,16 @@
     <section id="experience" class="section experience-section" aria-labelledby="exp-heading">
       <div class="section-container">
         
-        <div class="section-header">
+        <div class="section-header" data-reveal="true">
           <span class="section-tag">[ 04 / CHRONOLOGY &amp; MILESTONES ]</span>
           <h2 id="exp-heading" class="section-title">Education &amp; Experience Journey</h2>
           <p class="section-subtitle">Academic degrees, technical milestones, and continuous software engineering cadence.</p>
         </div>
 
-        <div class="timeline-container">
+        <div class="timeline-container" id="experience-timeline">
           
           <!-- Item 1: B.Tech Degree -->
-          <div class="timeline-row">
+          <div class="timeline-row" data-reveal="true" data-timeline-item="true">
             <div class="timeline-period">
               <span class="time-year">2024 – Present</span>
               <span class="time-badge badge-active">CURRENTLY PURSUING</span>
@@ -871,7 +921,7 @@
           </div>
 
           <!-- Item 2: Full-Stack Web Development -->
-          <div class="timeline-row">
+          <div class="timeline-row" data-reveal="true" data-timeline-item="true">
             <div class="timeline-period">
               <span class="time-year">2024 – Present</span>
               <span class="time-badge badge-active">PRODUCTION BUILDS</span>
@@ -893,7 +943,7 @@
           </div>
 
           <!-- Item 3: Diploma in Engineering -->
-          <div class="timeline-row">
+          <div class="timeline-row" data-reveal="true" data-timeline-item="true">
             <div class="timeline-period">
               <span class="time-year">2021 – 2024</span>
               <span class="time-badge badge-done">COMPLETED</span>
@@ -914,7 +964,7 @@
           </div>
 
           <!-- Item 4: Career Objective -->
-          <div class="timeline-row timeline-future">
+          <div class="timeline-row timeline-future" data-reveal="true" data-timeline-item="true">
             <div class="timeline-period">
               <span class="time-year">Future Horizon</span>
               <span class="time-badge badge-target">CAREER GOAL</span>
@@ -936,13 +986,13 @@
         </div>
 
         <!-- Professional Achievements & Verified Credentials -->
-        <div class="credentials-block">
+        <div class="credentials-block" data-reveal="true">
           <div class="credentials-header">
             <h3 class="credentials-title">Verified Achievements &amp; Competencies</h3>
           </div>
           
           <div class="credentials-grid">
-            <div class="credential-item">
+            <div class="credential-item" data-reveal="true">
               <div class="cred-num">01</div>
               <div>
                 <h4 class="cred-title">B.Tech Academic Standing</h4>
@@ -950,7 +1000,7 @@
               </div>
             </div>
 
-            <div class="credential-item">
+            <div class="credential-item" data-reveal="true">
               <div class="cred-num">02</div>
               <div>
                 <h4 class="cred-title">Diploma in Engineering Graduate</h4>
@@ -958,7 +1008,7 @@
               </div>
             </div>
 
-            <div class="credential-item">
+            <div class="credential-item" data-reveal="true">
               <div class="cred-num">03</div>
               <div>
                 <h4 class="cred-title">6+ Public GitHub Repositories</h4>
@@ -966,7 +1016,7 @@
               </div>
             </div>
 
-            <div class="credential-item">
+            <div class="credential-item" data-reveal="true">
               <div class="cred-num">04</div>
               <div>
                 <h4 class="cred-title">Multilingual ML &amp; OCR Engine</h4>
@@ -983,7 +1033,7 @@
     <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
       <div class="section-container">
         
-        <div class="section-header">
+        <div class="section-header" data-reveal="true">
           <span class="section-tag">[ 05 / INITIATE CONTACT ]</span>
           <h2 id="contact-heading" class="section-title">Let's Build Something Exceptional</h2>
           <p class="section-subtitle">Open to full-stack software engineering opportunities, product collaborations, and technical challenges.</p>
@@ -992,7 +1042,7 @@
         <div class="contact-layout">
 
           <!-- Left Column: Direct Transmission Info -->
-          <div class="contact-info-panel">
+          <div class="contact-info-panel" data-reveal="true">
             <h3 class="contact-panel-title">Direct Communication</h3>
             <p class="contact-panel-desc">
               Whether you are discussing a full-time software engineering role, an internship, a freelance build, or an open-source collaboration, I am always ready to talk.
@@ -1001,29 +1051,35 @@
             <div class="contact-channel-list">
               
               <!-- Email Item -->
-              <div class="contact-channel-item">
+              <div class="contact-channel-item" data-reveal="true">
                 <div class="channel-icon-wrap" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
                 <div class="channel-content">
                   <span class="channel-label">DIRECT EMAIL</span>
-                  <a href="mailto:dilipkumarprudhvi@gmail.com" class="channel-link">dilipkumarprudhvi@gmail.com</a>
+                  <a href="mailto:dilipkumarprudhvi@gmail.com" class="channel-link" data-cursor="mail">
+                    <span>dilipkumarprudhvi@gmail.com</span>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
                 </div>
               </div>
 
               <!-- GitHub Item -->
-              <div class="contact-channel-item">
+              <div class="contact-channel-item" data-reveal="true">
                 <div class="channel-icon-wrap" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 </div>
                 <div class="channel-content">
                   <span class="channel-label">GITHUB PROFILE</span>
-                  <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="channel-link">github.com/dilipkumarprudhvi-a11y</a>
+                  <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="channel-link" data-cursor="open">
+                    <span>github.com/dilipkumarprudhvi-a11y</span>
+                    <svg class="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
                 </div>
               </div>
 
               <!-- Location Item -->
-              <div class="contact-channel-item">
+              <div class="contact-channel-item" data-reveal="true">
                 <div class="channel-icon-wrap" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
@@ -1038,14 +1094,14 @@
             <!-- Quick Copy Callout -->
             <div class="contact-copy-callout">
               <span class="callout-lead">Prefer quick email?</span>
-              <button id="copy-email-btn-2" class="btn btn-sm btn-secondary" title="Copy email address" aria-label="Copy email address">
+              <button id="copy-email-btn-2" class="btn btn-sm btn-secondary btn-magnetic" data-cursor="copy" title="Copy email address" aria-label="Copy email address">
                 <span>Copy dilipkumarprudhvi@gmail.com</span>
               </button>
             </div>
           </div>
 
           <!-- Right Column: Refined Contact Form (Zero Field Errors) -->
-          <div class="contact-form-card">
+          <div class="contact-form-card" data-reveal="true">
             <h3 class="form-card-title">Send a Direct Message</h3>
             
             <form id="contact-form" novalidate aria-label="Direct message form">
@@ -1078,9 +1134,9 @@
 
               <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
 
-              <button type="submit" class="btn btn-lg btn-primary submit-btn">
+              <button type="submit" class="btn btn-lg btn-primary submit-btn btn-magnetic" data-cursor="send">
                 <span>Transmit Message</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                <svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </button>
 
             </form>
@@ -1095,7 +1151,7 @@
 
   <!-- ═══════════════ EDITORIAL FOOTER ═══════════════ -->
   <footer class="site-footer" role="contentinfo">
-    <div class="section-container footer-container">
+    <div class="section-container footer-container" data-reveal="true">
       
       <div class="footer-brand-col">
         <a href="#home" class="footer-logo">
@@ -1120,9 +1176,9 @@
       <div class="footer-channels-col">
         <h4 class="footer-col-title">Public Channels</h4>
         <ul class="footer-links-list" role="list">
-          <li><a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer">GitHub / dilipkumarprudhvi-a11y</a></li>
-          <li><a href="mailto:dilipkumarprudhvi@gmail.com">Direct Email / dilipkumarprudhvi@gmail.com</a></li>
-          <li><a href="assets/resume.pdf" download>Download Curriculum Vitae (PDF)</a></li>
+          <li><a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" data-cursor="open">GitHub / dilipkumarprudhvi-a11y</a></li>
+          <li><a href="mailto:dilipkumarprudhvi@gmail.com" data-cursor="mail">Direct Email / dilipkumarprudhvi@gmail.com</a></li>
+          <li><a href="assets/resume.pdf" download data-cursor="open">Download Curriculum Vitae (PDF)</a></li>
         </ul>
       </div>
 
@@ -1135,14 +1191,21 @@
       </div>
     </div>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <button id="back-to-top" class="back-to-top btn-magnetic" data-cursor="top" aria-label="Back to top">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
   </footer>
 
+  <!-- ═══════════════ DESKTOP CUSTOM CURSOR SYSTEM ═══════════════ -->
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true">
+    <span id="cursor-badge" class="cursor-badge"></span>
+  </div>
+
   <!-- ═══════════════ CORE LIGHTWEIGHT SCRIPTS ═══════════════ -->
   <script src="js/projects.js?v=8.0" defer></script>
   <script src="js/main.js?v=8.0" defer></script>
+  <script src="js/animations.js?v=8.0" defer></script>
 
 </body>
 </html>

@@ -4,12 +4,13 @@
  * projects.js
  * Project filtering and interactive mini-calculator engine.
  * Author: Prudhvi Dilip Kumar
+ * Enhanced with smooth motion transitions & tactile haptic micro-interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // ===============================================================
-  // 1. PROJECT CATEGORY FILTER ENGINE
+  // 1. PROJECT CATEGORY FILTER ENGINE WITH SMOOTH TRANSITIONS
   // ===============================================================
   const filterBtns = document.querySelectorAll('.filter-btn');
   const featuredCards = document.querySelectorAll('.featured-project-card');
@@ -27,25 +28,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.dataset.filter || 'all';
 
-      // Filter featured case studies
+      // Filter featured case studies with smooth fade
       featuredCards.forEach(card => {
         const cat = card.dataset.category;
-        if (filter === 'all' || cat === filter) {
+        const matches = (filter === 'all' || cat === filter);
+
+        if (matches) {
           card.style.display = 'block';
-          card.style.opacity = '1';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
         } else {
-          card.style.display = 'none';
+          card.style.transition = 'opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            if (card.style.opacity === '0') {
+              card.style.display = 'none';
+            }
+          }, 200);
         }
       });
 
-      // Filter system cards
+      // Filter system cards with smooth fade
       systemCards.forEach(card => {
         const cat = card.dataset.category;
-        if (filter === 'all' || cat === filter) {
+        const matches = (filter === 'all' || cat === filter);
+
+        if (matches) {
           card.style.display = 'flex';
-          card.style.opacity = '1';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
         } else {
-          card.style.display = 'none';
+          card.style.transition = 'opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            if (card.style.opacity === '0') {
+              card.style.display = 'none';
+            }
+          }, 200);
         }
       });
     });
