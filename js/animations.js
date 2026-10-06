@@ -117,16 +117,18 @@ function initTerminalQuickPreview() {
         observer.disconnect();
         const input = document.getElementById('terminal-input');
         if (!input) return;
+        if (input.value.trim() !== '' || document.activeElement === input) return;
         const cmd = 'bio';
         let i = 0;
         function typeChar() {
+          if (document.activeElement === input && input.value !== cmd.substring(0, i)) return;
           if (i < cmd.length) {
             input.value += cmd[i];
             i++;
             setTimeout(typeChar, 100);
           } else {
             setTimeout(() => {
-              if (typeof window.runTermCmd === 'function') {
+              if (typeof window.runTermCmd === 'function' && input.value === cmd) {
                 window.runTermCmd('bio');
               }
             }, 300);

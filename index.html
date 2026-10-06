@@ -7,8 +7,8 @@
 
   <!-- ═══════════════ SEO & CANONICAL ═══════════════ -->
   <title>Prudhvi Dilip Kumar — Full-Stack Developer &amp; Software Builder</title>
-  <meta name="description" content="Portfolio of Prudhvi Dilip Kumar, a Full-Stack Developer specializing in modern web applications, scalable backend systems, APIs, databases, and machine learning." />
-  <meta name="keywords" content="Prudhvi Dilip Kumar, Full-Stack Developer, Software Engineer, React, Node.js, JavaScript, Python, MySQL, Portfolio, dilipkumarprudhvi-a11y" />
+  <meta name="description" content="Portfolio of Prudhvi Dilip Kumar — Full-Stack Developer specializing in scalable web systems, REST APIs, relational databases, and machine learning solutions." />
+  <meta name="keywords" content="Prudhvi Dilip Kumar, Full-Stack Developer, Software Engineer, React, Node.js, Express, MySQL, Python, Machine Learning, Portfolio, dilipkumarprudhvi-a11y" />
   <meta name="author" content="Prudhvi Dilip Kumar" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://dilipkumarprudhvi-a11y.github.io/portfolio/" />
@@ -18,14 +18,13 @@
   <!-- ═══════════════ Open Graph / Social ═══════════════ -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Prudhvi Dilip Kumar — Full-Stack Developer" />
-  <meta property="og:description" content="Explore bespoke web applications, interactive software, and engineering projects by Prudhvi Dilip Kumar." />
+  <meta property="og:title" content="Prudhvi Dilip Kumar — Full-Stack Developer &amp; Software Builder" />
+  <meta property="og:description" content="Engineering scalable web applications, relational database schemas, and intelligent machine learning pipelines." />
   <meta property="og:url" content="https://dilipkumarprudhvi-a11y.github.io/portfolio/" />
   <meta property="og:site_name" content="Prudhvi Dilip Kumar Portfolio" />
-  <meta property="og:image" content="https://dilipkumarprudhvi-a11y.github.io/portfolio/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Prudhvi Dilip Kumar — Full-Stack Developer" />
-  <meta name="twitter:description" content="Explore bespoke web applications, interactive software, and engineering projects by Prudhvi Dilip Kumar." />
+  <meta name="twitter:description" content="Engineering scalable web applications, relational database schemas, and intelligent machine learning pipelines." />
 
   <!-- ═══════════════ Structured Data (JSON-LD) ═══════════════ -->
   <script type="application/ld+json">
@@ -42,7 +41,7 @@
       "https://github.com/dilipkumarprudhvi-a11y"
     ],
     "knowsAbout": [
-      "Full-Stack Development",
+      "Full-Stack Web Development",
       "JavaScript",
       "React.js",
       "Node.js",
@@ -50,7 +49,8 @@
       "Python",
       "MySQL",
       "REST APIs",
-      "Database Architecture"
+      "Machine Learning",
+      "Natural Language Processing"
     ]
   }
   </script>
@@ -58,47 +58,42 @@
   <!-- ═══════════════ Typography ═══════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- ═══════════════ Stylesheet (Versioned) ═══════════════ -->
-  <link rel="stylesheet" href="css/style.css?v=6.0" />
+  <!-- ═══════════════ Stylesheet ═══════════════ -->
+  <link rel="stylesheet" href="css/style.css?v=8.0" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 </head>
 <body>
 
-  <!-- ═══════════════ PHYSICAL GRAIN OVERLAY ═══════════════ -->
-  <div class="grain-overlay" aria-hidden="true"></div>
+  <!-- ═══════════════ SCROLL PROGRESS ═══════════════ -->
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
 
-
-
-  <!-- ═══════════════ CUSTOM INTERACTIVE CURSOR ═══════════════ -->
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
-  <!-- ═══════════════ SCROLL PROGRESS BAR ═══════════════ -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- ═══════════════ FLOATING FROSTED PILL NAVIGATION ═══════════════ -->
-  <header class="studio-header">
-    <nav id="navbar" class="floating-pill-nav" role="navigation" aria-label="Main navigation">
-      
+  <!-- ═══════════════ STICKY NAVIGATION ═══════════════ -->
+  <header class="site-header">
+    <div class="nav-container">
       <a href="#home" class="nav-brand" aria-label="Prudhvi Dilip Kumar">
         <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
       </a>
 
-      <ul class="nav-links" role="list">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About &amp; CLI</a></li>
-        <li><a href="#projects" class="nav-link">Exhibition</a></li>
-        <li><a href="#skills" class="nav-link">Toolkit</a></li>
-        <li><a href="#journey" class="nav-link">Roadmap</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
       <div class="nav-actions">
-        <a href="assets/resume.pdf" download class="btn-pill-resume" aria-label="Download Resume PDF">
+        <a href="assets/resume.pdf" download class="btn btn-sm btn-secondary nav-resume-btn" aria-label="Download Resume PDF">
           <span>Resume</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-sm btn-primary nav-talk-btn">
+          <span>Let's Talk</span>
         </a>
         <button id="hamburger" class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="ham-line"></span>
@@ -106,221 +101,278 @@
           <span class="ham-line"></span>
         </button>
       </div>
-
-    </nav>
-
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true"></div>
-    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-      <nav aria-label="Mobile navigation links">
-        <div class="mobile-brand">PDK<span class="brand-dot">.</span></div>
-        <ul role="list">
-          <li><a href="#home" class="mobile-nav-link">01. Home</a></li>
-          <li><a href="#about" class="mobile-nav-link">02. Profile &amp; CLI</a></li>
-          <li><a href="#projects" class="mobile-nav-link">03. Selected Works</a></li>
-          <li><a href="#skills" class="mobile-nav-link">04. Engineering Stack</a></li>
-          <li><a href="#journey" class="mobile-nav-link">05. Experience Journey</a></li>
-          <li><a href="#education" class="mobile-nav-link">06. Education</a></li>
-          <li><a href="#contact" class="mobile-nav-link">07. Contact</a></li>
-        </ul>
-        <a href="assets/resume.pdf" download class="btn btn-primary mobile-resume-btn" style="margin-top:2.5rem;width:100%;justify-content:center;">
-          <span>Download Resume PDF</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
-      </nav>
     </div>
   </header>
 
-  <main>
+  <!-- Mobile Drawer Overlay & Menu (Body Level for Proper Viewport Fixed Positioning) -->
+  <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true"></div>
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <div class="mobile-menu-header">
+      <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
+      <button id="mobile-close-btn" class="mobile-close-btn" aria-label="Close navigation">&times;</button>
+    </div>
+    <nav aria-label="Mobile navigation links">
+      <ul class="mobile-nav-list" role="list">
+        <li><a href="#home" class="mobile-nav-link">01. Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">02. About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">03. Skills &amp; Stack</a></li>
+        <li><a href="#projects" class="mobile-nav-link">04. Projects</a></li>
+        <li><a href="#experience" class="mobile-nav-link">05. Experience &amp; Education</a></li>
+        <li><a href="#contact" class="mobile-nav-link">06. Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="assets/resume.pdf" download class="btn btn-secondary" style="width:100%;justify-content:center;">
+        <span>Download Resume PDF</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.75rem;">
+        <span>Let's Talk</span>
+      </a>
+    </div>
+  </div>
 
-    <!-- ═══════════════ EDITORIAL HERO SECTION ═══════════════ -->
+  <main id="main-content">
+
+    <!-- ═══════════════ HERO SECTION (5-SECOND CLARITY) ═══════════════ -->
     <section id="home" class="hero-section" aria-label="Introduction">
-      <div class="hero-ambient-glow" aria-hidden="true"></div>
-      
-      <div class="hero-container">
-
+      <div class="section-container hero-container">
+        
         <div class="hero-content">
-          <!-- Availability Badge -->
-          <div class="hero-status-pill">
-            <span class="pulse-blue-dot"></span>
+          <!-- Availability Tag -->
+          <div class="status-badge" role="status">
+            <span class="status-dot"></span>
             <span>AVAILABLE FOR FULL-STACK ROLES &amp; PROJECTS</span>
           </div>
 
-          <!-- Editorial Headline -->
-          <h1 class="hero-headline">
-            Engineering scalable web systems &amp; <span class="gradient-blue-text">digital experiences</span>.
+          <!-- Primary Name & Authority Title -->
+          <h1 class="hero-title">
+            I am <span class="hero-name">Prudhvi Dilip Kumar</span>.<br />
+            Full-Stack Developer &amp; <span class="text-accent">Software Builder</span>.
           </h1>
 
-          <!-- Typewriter Sub-Label -->
-          <div class="hero-meta-subtitle" aria-live="polite">
-            <span class="meta-label">DISCIPLINE:</span>
-            <span class="typewriter-text"></span><span class="cursor-blink" aria-hidden="true">_</span>
-          </div>
-
-          <!-- Editorial Description -->
-          <p class="hero-editorial-desc">
-            I am <strong>Prudhvi Dilip Kumar</strong> — a Full-Stack Developer bridging scalable backend architectures, relational databases, and high-performance interactive client experiences.
+          <!-- Value Proposition Description -->
+          <p class="hero-desc">
+            I build scalable web applications, robust backend microservices, and interactive digital products. 
+            Pursuing a <strong>B.Tech in Artificial Intelligence &amp; Data Science</strong>, I combine modern web architecture with data modeling to ship clean, performant software.
           </p>
 
-          <!-- Primary Actions -->
-          <div class="hero-actions-bar" role="group" aria-label="Call to action buttons">
-            <a href="#projects" class="btn btn-primary magnetic-btn">
-              <span>Explore Selected Works</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <!-- Primary Call To Action Buttons -->
+          <div class="hero-cta-group" role="group" aria-label="Hero actions">
+            <a href="#projects" class="btn btn-lg btn-primary">
+              <span>View Selected Projects</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
-            <a href="#contact" class="btn btn-secondary magnetic-btn">Get In Touch</a>
-            <button id="copy-email-btn" class="btn btn-ghost copy-btn" title="Copy email address" aria-label="Copy email address">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <a href="#contact" class="btn btn-lg btn-secondary">Get In Touch</a>
+            <button id="copy-email-btn" class="btn btn-lg btn-ghost copy-email-btn" title="Copy email address" aria-label="Copy email address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               <span id="copy-btn-text">Copy Email</span>
             </button>
           </div>
 
-          <!-- Telemetry Ribbon -->
-          <div class="hero-metrics-ribbon" aria-label="Key developer metrics">
-            <div class="ribbon-item"><strong>06+</strong> Production Builds</div>
-            <div class="ribbon-dot">•</div>
-            <div class="ribbon-item"><strong>10+</strong> Technologies</div>
-            <div class="ribbon-dot">•</div>
-            <div class="ribbon-item"><strong>Full-Stack</strong> Focus</div>
-            <div class="ribbon-dot">•</div>
-            <div class="ribbon-item"><strong>Hyderabad</strong>, IN</div>
-          </div>
-        </div>
-
-        <!-- Studio Developer Command Center (High-Fidelity Engineering Card) -->
-        <div class="hero-station-card glass" data-tilt aria-label="Developer Architecture Overview">
-          <div class="station-header">
-            <div class="station-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
+          <!-- Direct Key Facts Ribbon -->
+          <div class="hero-highlights" aria-label="Key developer highlights">
+            <div class="highlight-item">
+              <span class="highlight-val">06+</span>
+              <span class="highlight-lbl">Production Builds</span>
             </div>
-            <div class="station-file">prudhvi.config.ts</div>
-            <div class="station-badge">● SPRINT ONLINE</div>
-          </div>
-
-          <div class="station-body">
-            <!-- Developer Identity Block -->
-            <div class="station-profile-row">
-              <div class="profile-avatar">PDK</div>
-              <div class="profile-meta">
-                <div class="profile-name">Prudhvi Dilip Kumar</div>
-                <div class="profile-role">Full-Stack Developer &amp; Systems Builder</div>
-              </div>
+            <div class="highlight-sep">/</div>
+            <div class="highlight-item">
+              <span class="highlight-val">Full-Stack</span>
+              <span class="highlight-lbl">React, Node, Express, SQL</span>
             </div>
-
-            <!-- Active Stack Pills -->
-            <div class="station-section-label">PRIMARY ARCHITECTURE STACK</div>
-            <div class="station-stack-grid">
-              <span class="stack-pill"><span class="dot-blue"></span> React.js</span>
-              <span class="stack-pill"><span class="dot-blue"></span> Node.js</span>
-              <span class="stack-pill"><span class="dot-blue"></span> Express.js</span>
-              <span class="stack-pill"><span class="dot-blue"></span> Python 3</span>
-              <span class="stack-pill"><span class="dot-blue"></span> MySQL</span>
-              <span class="stack-pill"><span class="dot-blue"></span> REST APIs</span>
+            <div class="highlight-sep">/</div>
+            <div class="highlight-item">
+              <span class="highlight-val">B.Tech</span>
+              <span class="highlight-lbl">AI &amp; Data Science</span>
             </div>
-
-            <!-- Live Telemetry Stats -->
-            <div class="station-section-label">SYSTEM TELEMETRY</div>
-            <div class="station-telemetry-grid">
-              <div class="telemetry-stat">
-                <span class="stat-value">06+</span>
-                <span class="stat-label">Production Works</span>
-              </div>
-              <div class="telemetry-stat">
-                <span class="stat-value">100%</span>
-                <span class="stat-label">Responsive &amp; A11y</span>
-              </div>
-              <div class="telemetry-stat">
-                <span class="stat-value">&lt;50ms</span>
-                <span class="stat-label">Optimized Renders</span>
-              </div>
-              <div class="telemetry-stat">
-                <span class="stat-value">B.Tech</span>
-                <span class="stat-label">AI &amp; Data Science</span>
-              </div>
-            </div>
-
-            <!-- Live Code Preview Snippet -->
-            <div class="station-code-preview">
-              <div class="code-line"><span class="code-kw">const</span> developer = <span class="code-kw">new</span> <span class="code-fn">FullStackEngineer</span>({</div>
-              <div class="code-line indent"><span class="code-prop">name</span>: <span class="code-str">'Prudhvi Dilip Kumar'</span>,</div>
-              <div class="code-line indent"><span class="code-prop">status</span>: <span class="code-str">'Available for Full-Stack Roles'</span>,</div>
-              <div class="code-line indent"><span class="code-prop">location</span>: <span class="code-str">'Hyderabad, India'</span></div>
-              <div class="code-line">});</div>
+            <div class="highlight-sep">/</div>
+            <div class="highlight-item">
+              <span class="highlight-val">Hyderabad</span>
+              <span class="highlight-lbl">India</span>
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ═══════════════ ABOUT & INTERACTIVE CONSOLE ═══════════════ -->
-    <section id="about" class="section about-section" aria-labelledby="about-heading">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">[ 01 / ENGINEERING PROFILE ]</span>
-          <h2 id="about-heading" class="section-title">Architecting with Precision &amp; Intent</h2>
-          <p class="section-subtitle">A look into my engineering background, development philosophy, and interactive studio CLI.</p>
-        </div>
-
-        <div class="about-bento-grid">
-
-          <!-- Left Bento: Biography & Mindset -->
-          <div class="about-card glass" data-tilt>
-            <div class="bento-badge">FULL-STACK PHILOSOPHY</div>
-            <h3 class="bento-heading">Engineering Digital Products from Core to Edge</h3>
-            <p class="about-paragraph">
-              I am a dedicated <strong>Full-Stack Developer</strong> driven by building complete, performant digital solutions from database schemas to interactive client interfaces.
-            </p>
-            <p class="about-paragraph">
-              Currently pursuing my <strong>B.Tech in Artificial Intelligence &amp; Data Science</strong>, I combine modern web engineering principles with algorithmic problem-solving to build real-world software.
-            </p>
-            <p class="about-paragraph">
-              My engineering approach prioritizes <strong>clean code, performance optimization, and intuitive user experiences</strong> with zero bloat.
-            </p>
-
-            <div class="about-chips" aria-label="Key engineering domains">
-              <span class="chip">Frontend Architecture</span>
-              <span class="chip">RESTful Backend APIs</span>
-              <span class="chip">Database Design (SQL)</span>
-              <span class="chip">NLP &amp; Machine Learning</span>
-              <span class="chip">120fps Micro-Interactions</span>
-            </div>
-          </div>
-
-          <!-- Right Bento: Interactive Developer Terminal -->
-          <div class="terminal-card glass" id="interactive-terminal" aria-label="Interactive developer console">
-            <div class="terminal-header">
-              <div class="terminal-dots">
+        <!-- Professional System Architecture Inspector (Intentional Visual Element) -->
+        <div class="hero-preview-wrap">
+          <div class="system-inspector-card" aria-label="System Architecture &amp; Developer Specification">
+            <div class="inspector-header">
+              <div class="inspector-dots">
                 <span class="dot dot-red"></span>
                 <span class="dot dot-yellow"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <div class="terminal-title">prudhvi@workspace: ~</div>
-              <div class="terminal-badge">STUDIO CLI</div>
-            </div>
-            
-            <div class="terminal-body" id="terminal-output">
-              <div class="term-line welcome-line">Type a command or click a quick-action shortcut below:</div>
-              <div class="term-line prompt-line"><span class="term-prompt">pdk&gt;</span> <span class="term-text">help</span></div>
-              <div class="term-response">Available commands: <span class="cmd-highlight">bio</span>, <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">contact</span>, <span class="cmd-highlight">clear</span></div>
-            </div>
-            
-            <!-- Quick Command Shortcuts -->
-            <div class="terminal-quick-btns" aria-label="Terminal command shortcuts">
-              <button class="term-btn" onclick="runTermCmd('bio')">bio</button>
-              <button class="term-btn" onclick="runTermCmd('skills')">skills</button>
-              <button class="term-btn" onclick="runTermCmd('projects')">projects</button>
-              <button class="term-btn" onclick="runTermCmd('contact')">contact</button>
-              <button class="term-btn term-btn-clear" onclick="runTermCmd('clear')">clear</button>
+              <div class="inspector-title">architecture-manifest.ts</div>
+              <span class="inspector-status">ACTIVE COMPILER</span>
             </div>
 
-            <div class="terminal-input-row">
-              <span class="term-prompt">pdk&gt;</span>
-              <input type="text" id="terminal-input" placeholder="type 'bio', 'skills', 'projects'..." autocomplete="off" spellcheck="false" aria-label="Terminal command input" />
+            <div class="inspector-body">
+              <div class="inspector-section-label">PRIMARY PRODUCTION STACK</div>
+              
+              <div class="architecture-flow-row">
+                <div class="flow-step">
+                  <span class="flow-tag">CLIENT</span>
+                  <span class="flow-name">React.js / Modern DOM</span>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step">
+                  <span class="flow-tag">BACKEND</span>
+                  <span class="flow-name">Node.js / Express API</span>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step">
+                  <span class="flow-tag">DATABASE</span>
+                  <span class="flow-name">MySQL Relational DB</span>
+                </div>
+              </div>
+
+              <div class="inspector-section-label" style="margin-top:1.25rem;">ENGINEERING SPECIFICATION</div>
+              <div class="inspector-code-block">
+                <div class="code-line"><span class="c-kw">export const</span> <span class="c-fn">engineerProfile</span> = {</div>
+                <div class="code-line indent"><span class="c-prop">developer</span>: <span class="c-str">'Prudhvi Dilip Kumar'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">focus</span>: [<span class="c-str">'Frontend Architecture'</span>, <span class="c-str">'REST APIs'</span>, <span class="c-str">'Relational SQL'</span>],</div>
+                <div class="code-line indent"><span class="c-prop">machineLearning</span>: <span class="c-str">'NLP &amp; OCR Pipelines (Python)'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">databaseIntegrity</span>: <span class="c-str">'Normalized Schemas &amp; ACID Guarantees'</span>,</div>
+                <div class="code-line indent"><span class="c-prop">availability</span>: <span class="c-bool">true</span></div>
+                <div class="code-line">};</div>
+              </div>
+
+              <div class="inspector-footer">
+                <span class="inspector-meta-item">● Responsive &amp; A11y Standards</span>
+                <span class="inspector-meta-item">● Zero Unnecessary Bloat</span>
+              </div>
             </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT SECTION ═══════════════ -->
+    <section id="about" class="section about-section" aria-labelledby="about-heading">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">[ 01 / BACKGROUND &amp; PHILOSOPHY ]</span>
+          <h2 id="about-heading" class="section-title">Engineering Digital Products from Core to Edge</h2>
+          <p class="section-subtitle">Bridging algorithmic computing, relational data modeling, and accessible client interfaces.</p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Narrative Biography Column -->
+          <div class="about-narrative">
+            <h3 class="about-lead">
+              I believe great software is defined by clarity, reliability, and respect for user time.
+            </h3>
+            
+            <p class="about-p">
+              I am a <strong>Full-Stack Developer</strong> currently pursuing my <strong>Bachelor of Technology in Artificial Intelligence &amp; Data Science</strong>. With an engineering diploma foundation in applied mathematics and technical logic, I build software solutions that solve concrete problems without unnecessary complexity.
+            </p>
+
+            <p class="about-p">
+              My core technical focus spans full-stack web applications: from structuring normalized <strong>MySQL database schemas</strong> and writing secure, transactional <strong>RESTful APIs</strong> in Node.js and Express, to engineering fluid, accessible client interfaces in <strong>React and modern JavaScript</strong>.
+            </p>
+
+            <p class="about-p">
+              Simultaneously, I apply data science and machine learning techniques to real-world tasks—such as engineering bilingual <strong>NLP and OCR classification pipelines</strong> in Python for document verification and misinformation detection.
+            </p>
+
+            <div class="about-tenets">
+              <div class="tenet-card">
+                <span class="tenet-num">01</span>
+                <div>
+                  <h4 class="tenet-title">Architecture Before Code</h4>
+                  <p class="tenet-desc">Clear data schemas, normalized tables, and intentional API contracts make systems easy to scale and maintain.</p>
+                </div>
+              </div>
+
+              <div class="tenet-card">
+                <span class="tenet-num">02</span>
+                <div>
+                  <h4 class="tenet-title">Performance &amp; Accessibility</h4>
+                  <p class="tenet-desc">Sub-50ms render latency, lightweight bundles, zero layout shifts, and semantic HTML accessibility by default.</p>
+                </div>
+              </div>
+
+              <div class="tenet-card">
+                <span class="tenet-num">03</span>
+                <div>
+                  <h4 class="tenet-title">Verifiable Output</h4>
+                  <p class="tenet-desc">True engineering competence is proven through running software, clean git history, and reproducible documentation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Structured Info & Interactive Terminal Column -->
+          <div class="about-aside">
+            
+            <!-- Quick Facts Card -->
+            <div class="fact-sheet-card">
+              <h3 class="fact-sheet-title">Profile Snapshot</h3>
+              
+              <ul class="fact-list" role="list">
+                <li class="fact-item">
+                  <span class="fact-label">Full Name</span>
+                  <span class="fact-val">Prudhvi Dilip Kumar</span>
+                </li>
+                <li class="fact-item">
+                  <span class="fact-label">Location</span>
+                  <span class="fact-val">Hyderabad, Telangana, India</span>
+                </li>
+                <li class="fact-item">
+                  <span class="fact-label">Education</span>
+                  <span class="fact-val">B.Tech in AI &amp; Data Science (2024–Present)</span>
+                </li>
+                <li class="fact-item">
+                  <span class="fact-label">Previous Degree</span>
+                  <span class="fact-val">Diploma in Engineering (2021–2024)</span>
+                </li>
+                <li class="fact-item">
+                  <span class="fact-label">Primary Stack</span>
+                  <span class="fact-val">React, Node.js, Express, MySQL, Python</span>
+                </li>
+                <li class="fact-item">
+                  <span class="fact-label">Current Status</span>
+                  <span class="fact-val status-open">Available for Full-Stack Roles</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Compact Developer Studio Terminal -->
+            <div class="studio-terminal" id="interactive-terminal" aria-label="Interactive developer console">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="terminal-title">prudhvi@workspace: ~</div>
+                <span class="terminal-badge">STUDIO CLI</span>
+              </div>
+
+              <div class="terminal-body" id="terminal-output">
+                <div class="term-line welcome-line">Type a command below to inspect background &amp; systems:</div>
+                <div class="term-line prompt-line"><span class="term-prompt">pdk&gt;</span> <span class="term-text">help</span></div>
+                <div class="term-response">Available commands: <span class="cmd-highlight">bio</span>, <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">contact</span>, <span class="cmd-highlight">clear</span></div>
+              </div>
+
+              <div class="terminal-quick-bar" aria-label="Terminal quick buttons">
+                <button type="button" class="term-btn" onclick="runTermCmd('bio')">bio</button>
+                <button type="button" class="term-btn" onclick="runTermCmd('skills')">skills</button>
+                <button type="button" class="term-btn" onclick="runTermCmd('projects')">projects</button>
+                <button type="button" class="term-btn" onclick="runTermCmd('contact')">contact</button>
+                <button type="button" class="term-btn term-btn-clear" onclick="runTermCmd('clear')">clear</button>
+              </div>
+
+              <div class="terminal-input-row">
+                <span class="term-prompt">pdk&gt;</span>
+                <input type="text" id="terminal-input" placeholder="type 'bio', 'skills', 'projects'..." autocomplete="off" spellcheck="false" aria-label="Terminal command input" />
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -328,125 +380,110 @@
       </div>
     </section>
 
-    <!-- ═══════════════ SELECTED WORKS EXHIBITION ═══════════════ -->
-    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+    <!-- ═══════════════ SKILLS / TECHNOLOGIES SECTION ═══════════════ -->
+    <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">[ 02 / EXHIBITION SHOWCASE ]</span>
-          <h2 id="projects-heading" class="section-title">Selected Works &amp; Systems</h2>
-          <p class="section-subtitle">A curated collection of machine learning pipelines, interactive tools, and full-stack software.</p>
+          <span class="section-tag">[ 02 / STRUCTURED CAPABILITIES ]</span>
+          <h2 id="skills-heading" class="section-title">Technical Skills &amp; Stack</h2>
+          <p class="section-subtitle">Organized by architectural domain, from database layers to client-side performance.</p>
         </div>
 
-        <!-- Filter Navigation -->
-        <div class="exhibition-filters" role="group" aria-label="Filter projects by category">
-          <button class="project-filter-btn active" data-filter="all" aria-pressed="true">All Works</button>
-          <button class="project-filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
-          <button class="project-filter-btn" data-filter="web" aria-pressed="false">Frontend &amp; Web</button>
-          <button class="project-filter-btn" data-filter="fullstack" aria-pressed="false">Full-Stack &amp; SQL</button>
-        </div>
+        <div class="skills-categories-grid">
 
-        <!-- Dynamic Exhibition Cards Grid -->
-        <div id="projects-grid" class="exhibition-grid" role="list" aria-label="Projects Exhibition"></div>
-
-        <div class="projects-more-wrap">
-          <button id="show-more-btn" class="btn btn-secondary magnetic-btn" aria-expanded="false">
-            Show All Projects &darr;
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════════════ TECHNICAL TOOLKIT BENTO ═══════════════ -->
-    <section id="skills" class="section toolkit-section" aria-labelledby="skills-heading">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">[ 03 / CAPABILITIES &amp; STACK ]</span>
-          <h2 id="skills-heading" class="section-title">Engineering Stack &amp; Toolkit</h2>
-          <p class="section-subtitle">A production-grade toolkit structured across modern frontend architecture, backend systems, and data engineering.</p>
-        </div>
-
-        <!-- Categorized Toolkit Bento Grid (Creative Mints Design) -->
-        <div class="toolkit-bento-grid">
-
-          <!-- 1. Frontend Architecture -->
-          <div class="toolkit-card glass" data-tilt>
-            <div class="toolkit-icon-header">
-              <span class="toolkit-category-tag">FRONTEND ARCHITECTURE</span>
-              <span class="toolkit-count">5 Modules</span>
+          <!-- 1. Programming Languages -->
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">01</span>
+              <h3 class="cat-title">Programming Languages</h3>
             </div>
-            <h3 class="toolkit-title">Client-Side Architecture</h3>
-            <p class="toolkit-desc">Engineering accessible, performant, and fluid web experiences with modern standards.</p>
-            <div class="toolkit-items">
-              <div class="toolkit-pill"><span class="pill-dot"></span> React.js &amp; SPAs</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> JavaScript (ES6+ Modern)</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Semantic HTML5 &amp; SEO</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> CSS3 Grid &amp; Flexbox</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> UI/UX Design Systems</div>
+            <p class="cat-desc">Algorithmic foundations and computational engineering across high-level and system syntaxes.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">Python 3 (ML &amp; Scripting)</span>
+              <span class="skill-chip">JavaScript (ES6+ Modern)</span>
+              <span class="skill-chip">Java (OOP &amp; JDBC)</span>
+              <span class="skill-chip">C (Core Memory &amp; Logic)</span>
             </div>
           </div>
 
-          <!-- 2. Backend & APIs -->
-          <div class="toolkit-card glass" data-tilt>
-            <div class="toolkit-icon-header">
-              <span class="toolkit-category-tag">BACKEND &amp; APIS</span>
-              <span class="toolkit-count">4 Modules</span>
+          <!-- 2. Web Development -->
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">02</span>
+              <h3 class="cat-title">Frontend Architecture</h3>
             </div>
-            <h3 class="toolkit-title">Server &amp; Services</h3>
-            <p class="toolkit-desc">Constructing modular RESTful microservices, routing layers, and secure auth controllers.</p>
-            <div class="toolkit-items">
-              <div class="toolkit-pill"><span class="pill-dot"></span> Node.js Runtime</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Express.js Framework</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> RESTful API Design</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Middleware &amp; Auth (JWT)</div>
+            <p class="cat-desc">Engineering accessible, fluid, and componentized user interfaces with modern web standards.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">React.js &amp; SPAs</span>
+              <span class="skill-chip">Semantic HTML5 &amp; SEO</span>
+              <span class="skill-chip">CSS3 Grid &amp; Flexbox</span>
+              <span class="skill-chip">Responsive Design Systems</span>
+              <span class="skill-chip">DOM Performance &amp; ARIA</span>
             </div>
           </div>
 
-          <!-- 3. Languages -->
-          <div class="toolkit-card glass" data-tilt>
-            <div class="toolkit-icon-header">
-              <span class="toolkit-category-tag">LANGUAGES</span>
-              <span class="toolkit-count">3 Languages</span>
+          <!-- 3. Backend & APIs -->
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">03</span>
+              <h3 class="cat-title">Backend &amp; REST APIs</h3>
             </div>
-            <h3 class="toolkit-title">Programming Languages</h3>
-            <p class="toolkit-desc">Algorithmic foundations and computational engineering across high-level and system syntaxes.</p>
-            <div class="toolkit-items">
-              <div class="toolkit-pill"><span class="pill-dot"></span> Python (ML &amp; Scripting)</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Java (OOP &amp; JDBC)</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> C (Core Memory &amp; Logic)</div>
+            <p class="cat-desc">Constructing modular server runtimes, clean routing layers, middleware, and authentication controllers.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">Node.js Runtime</span>
+              <span class="skill-chip">Express.js Framework</span>
+              <span class="skill-chip">RESTful API Design</span>
+              <span class="skill-chip">JWT Session Auth</span>
+              <span class="skill-chip">Middleware &amp; Error Handlers</span>
             </div>
           </div>
 
           <!-- 4. Databases & Storage -->
-          <div class="toolkit-card glass" data-tilt>
-            <div class="toolkit-icon-header">
-              <span class="toolkit-category-tag">DATABASE ARCHITECTURE</span>
-              <span class="toolkit-count">3 Systems</span>
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">04</span>
+              <h3 class="cat-title">Relational Databases</h3>
             </div>
-            <h3 class="toolkit-title">Relational Data &amp; SQL</h3>
-            <p class="toolkit-desc">Designing normalized database schemas, index tuning, and transactional CRUD logic.</p>
-            <div class="toolkit-items">
-              <div class="toolkit-pill"><span class="pill-dot"></span> MySQL Relational DB</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Relational Schema Design</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Complex CRUD &amp; Joins</div>
+            <p class="cat-desc">Designing normalized relational schemas, index tuning, and transactional SQL data operations.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">MySQL Relational DB</span>
+              <span class="skill-chip">Relational Schema Modeling</span>
+              <span class="skill-chip">Complex SQL Queries &amp; Joins</span>
+              <span class="skill-chip">JDBC Connection Pooling</span>
+              <span class="skill-chip">CRUD Optimization</span>
             </div>
           </div>
 
-          <!-- 5. Developer Tooling -->
-          <div class="toolkit-card glass" data-tilt>
-            <div class="toolkit-icon-header">
-              <span class="toolkit-category-tag">DEVELOPER TOOLING</span>
-              <span class="toolkit-count">4 Tools</span>
+          <!-- 5. AI / Machine Learning -->
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">05</span>
+              <h3 class="cat-title">AI &amp; Machine Learning</h3>
             </div>
-            <h3 class="toolkit-title">Workflow &amp; Tooling</h3>
-            <p class="toolkit-desc">Streamlining delivery through version control, terminal discipline, and debugger tooling.</p>
-            <div class="toolkit-items">
-              <div class="toolkit-pill"><span class="pill-dot"></span> Git &amp; GitHub Cadence</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> VS Code Environment</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Linux / Bash CLI</div>
-              <div class="toolkit-pill"><span class="pill-dot"></span> Google Colab Notebooks</div>
+            <p class="cat-desc">Developing applied NLP and machine learning pipelines for textual analysis and document classification.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">NLP (Natural Language Processing)</span>
+              <span class="skill-chip">OCR Document Extraction</span>
+              <span class="skill-chip">TF-IDF Vectorization</span>
+              <span class="skill-chip">Logistic Regression &amp; Naive Bayes</span>
+              <span class="skill-chip">Scikit-learn</span>
+            </div>
+          </div>
+
+          <!-- 6. Developer Tooling -->
+          <div class="skill-category-block">
+            <div class="skill-cat-header">
+              <span class="cat-num">06</span>
+              <h3 class="cat-title">Tools &amp; Workflows</h3>
+            </div>
+            <p class="cat-desc">Streamlining delivery through version control discipline, terminal tooling, and clean environments.</p>
+            <div class="cat-tags">
+              <span class="skill-chip">Git &amp; GitHub Cadence</span>
+              <span class="skill-chip">VS Code Environment</span>
+              <span class="skill-chip">Linux / Bash CLI</span>
+              <span class="skill-chip">Google Colab Notebooks</span>
+              <span class="skill-chip">Vite / npm Tooling</span>
             </div>
           </div>
 
@@ -455,301 +492,647 @@
       </div>
     </section>
 
-    <!-- ═══════════════ EXPERIENCE ROADMAP ═══════════════ -->
-    <section id="journey" class="section journey-section" aria-labelledby="journey-heading">
+    <!-- ═══════════════ PROJECTS SECTION (VARIED LAYOUTS) ═══════════════ -->
+    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">[ 04 / CHRONOLOGY ]</span>
-          <h2 id="journey-heading" class="section-title">Development Roadmap</h2>
-          <p class="section-subtitle">A progressive trajectory from foundational engineering to building full-stack software.</p>
+          <span class="section-tag">[ 03 / FEATURED WORK ]</span>
+          <h2 id="projects-heading" class="section-title">Selected Projects &amp; Software Systems</h2>
+          <p class="section-subtitle">Real-world applications engineered with intentional architecture, measured results, and public source code.</p>
         </div>
 
-        <div class="timeline" role="list">
-          <div class="timeline-line-progress" id="timeline-progress-bar" aria-hidden="true"></div>
+        <!-- Project Category Filter Controls -->
+        <div class="project-filters" role="group" aria-label="Filter projects by discipline">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Works (06)</button>
+          <button type="button" class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning &amp; NLP</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Frontend &amp; Applications</button>
+          <button type="button" class="filter-btn" data-filter="fullstack" aria-pressed="false">Full-Stack &amp; SQL</button>
+        </div>
 
-          <div class="timeline-item" data-side="left" role="listitem">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="timeline-content glass" data-tilt>
-              <span class="timeline-year">2021 – 2024</span>
-              <h3>Diploma in Engineering</h3>
-              <p>Constructed rigorous engineering foundations in applied mathematics, algorithmic logic, and computing principles.</p>
-              <div class="timeline-tags">
-                <span>Engineering Principles</span>
-                <span>Mathematics</span>
-                <span>Programming Basics</span>
+        <!-- Tier 1: Flagship Featured Project Case Studies (Varied, Deep Editorial Layouts) -->
+        <div class="featured-projects-wrap" id="featured-projects-list">
+
+          <!-- Case Study 01: Fake News Detection System -->
+          <article class="featured-project-card" data-category="ml" aria-labelledby="p1-title">
+            <div class="featured-project-grid">
+              
+              <div class="featured-project-info">
+                <div class="project-meta-bar">
+                  <span class="project-idx">01 / FEATURED CASE STUDY</span>
+                  <span class="project-domain">MACHINE LEARNING &amp; NLP</span>
+                </div>
+                
+                <h3 id="p1-title" class="featured-project-title">Fake News Detection System</h3>
+                <p class="project-tagline">Multilingual NLP pipeline with OCR document ingestion and high-confidence classification.</p>
+                
+                <div class="problem-solution-box">
+                  <div class="ps-row">
+                    <strong>Problem Solved:</strong> Misinformation spreads across digital articles and physical paper scans in both English and regional vernacular (Telugu), escaping monolingual text-only detectors.
+                  </div>
+                  <div class="ps-row">
+                    <strong>Key Functionality:</strong> Integrated Optical Character Recognition (OCR) for scanned news headlines, custom text preprocessing, bilingual tokenization, and TF-IDF feature extraction.
+                  </div>
+                  <div class="ps-row highlight-result">
+                    <strong>Result &amp; Value:</strong> Delivered <strong>98.4% model accuracy</strong> with sub-50ms inference time; accurately distinguishes synthetic misinformation from factual reporting.
+                  </div>
+                </div>
+
+                <div class="project-stack-pills" aria-label="Technologies used">
+                  <span class="stack-pill">Python</span>
+                  <span class="stack-pill">Machine Learning</span>
+                  <span class="stack-pill">NLP</span>
+                  <span class="stack-pill">OCR Engine</span>
+                  <span class="stack-pill">TF-IDF</span>
+                  <span class="stack-pill">Logistic Regression</span>
+                  <span class="stack-pill">Naive Bayes</span>
+                </div>
+
+                <div class="project-action-links">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/fake-news-detection" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of Fake News Detection System">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>View Repository</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
               </div>
+
+              <!-- Interactive / Visual Showcase Panel -->
+              <div class="featured-project-preview">
+                <div class="preview-chrome">
+                  <div class="chrome-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                  <span class="chrome-label">ml-pipeline-schematic.py</span>
+                  <span class="chrome-status">ACCURACY: 98.4%</span>
+                </div>
+                <div class="preview-body ml-flow-body">
+                  <div class="flow-chart">
+                    <div class="flow-node">
+                      <span class="node-tag">RAW INPUT</span>
+                      <span class="node-title">Telugu / English Text &amp; Scans</span>
+                    </div>
+                    <div class="flow-connect">&darr;</div>
+                    <div class="flow-node">
+                      <span class="node-tag">OCR &amp; NLP</span>
+                      <span class="node-title">Tesseract OCR &amp; TF-IDF Vectorizer</span>
+                    </div>
+                    <div class="flow-connect">&darr;</div>
+                    <div class="flow-node flow-active">
+                      <span class="node-tag">CLASSIFIER</span>
+                      <span class="node-title">Logistic Regression / Naive Bayes</span>
+                    </div>
+                  </div>
+                  <div class="flow-telemetry-row">
+                    <div class="tele-item"><strong>98.4%</strong> Precision</div>
+                    <div class="tele-item"><strong>Bilingual</strong> Telugu &amp; EN</div>
+                    <div class="tele-item"><strong>&lt;50ms</strong> Latency</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Case Study 02: Modern Interactive Calculator (Live Working Application) -->
+          <article class="featured-project-card" data-category="web" aria-labelledby="p2-title">
+            <div class="featured-project-grid reverse-grid">
+              
+              <div class="featured-project-info">
+                <div class="project-meta-bar">
+                  <span class="project-idx">02 / INTERACTIVE WEB APPLICATION</span>
+                  <span class="project-domain">FRONTEND ARCHITECTURE</span>
+                </div>
+                
+                <h3 id="p2-title" class="featured-project-title">Modern Interactive Calculator</h3>
+                <p class="project-tagline">Mathematical engine featuring dynamic keyboard parsing, error handling, and clean arithmetic state.</p>
+                
+                <div class="problem-solution-box">
+                  <div class="ps-row">
+                    <strong>Problem Solved:</strong> Standard browser calculators often glitch with decimal chaining, divide-by-zero crashes, and poor keyboard accessibility.
+                  </div>
+                  <div class="ps-row">
+                    <strong>Key Functionality:</strong> Complete expression parsing engine, strict decimal prevention (no duplicate dots), divide-by-zero protection, and instantaneous keyboard input.
+                  </div>
+                  <div class="ps-row highlight-result">
+                    <strong>Result &amp; Value:</strong> Zero external libraries, resilient client-side execution, and tested live directly in this portfolio!
+                  </div>
+                </div>
+
+                <div class="project-stack-pills" aria-label="Technologies used">
+                  <span class="stack-pill">JavaScript (ES6+)</span>
+                  <span class="stack-pill">HTML5 Semantic DOM</span>
+                  <span class="stack-pill">CSS3 Grid System</span>
+                  <span class="stack-pill">ARIA Live Regions</span>
+                </div>
+
+                <div class="project-action-links">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/interactive-calculator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of Modern Interactive Calculator">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>View Repository</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Live Embedded Interactive Calculator Widget -->
+              <div class="featured-project-preview">
+                <div class="preview-chrome">
+                  <div class="chrome-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                  <span class="chrome-label">interactive-calculator.widget</span>
+                  <span class="chrome-status">TEST IT LIVE</span>
+                </div>
+                <div class="preview-body calc-interactive-body">
+                  <div class="embedded-calculator">
+                    <div id="mini-calc-display" class="calc-screen" aria-live="polite">0</div>
+                    <div class="calc-keypad">
+                      <button type="button" class="btn-calc btn-calc-clear" onclick="miniCalcClear()">C</button>
+                      <button type="button" class="btn-calc btn-calc-op" onclick="miniCalcOp('/')">&divide;</button>
+                      <button type="button" class="btn-calc btn-calc-op" onclick="miniCalcOp('*')">&times;</button>
+                      <button type="button" class="btn-calc btn-calc-op" onclick="miniCalcOp('-')">&minus;</button>
+
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('7')">7</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('8')">8</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('9')">9</button>
+                      <button type="button" class="btn-calc btn-calc-op" onclick="miniCalcOp('+')">+</button>
+
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('4')">4</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('5')">5</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('6')">6</button>
+                      <button type="button" class="btn-calc btn-calc-eval" onclick="miniCalcEval()" style="grid-row:span 2">=</button>
+
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('1')">1</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('2')">2</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('3')">3</button>
+
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('0')" style="grid-column:span 2">0</button>
+                      <button type="button" class="btn-calc btn-calc-num" onclick="miniCalcNum('.')">.</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Case Study 03: Senior Developer Portfolio -->
+          <article class="featured-project-card" data-category="web" aria-labelledby="p3-title">
+            <div class="featured-project-grid">
+              
+              <div class="featured-project-info">
+                <div class="project-meta-bar">
+                  <span class="project-idx">03 / CREATIVE SYSTEMS</span>
+                  <span class="project-domain">WEB ENGINEERING</span>
+                </div>
+                
+                <h3 id="p3-title" class="featured-project-title">Bespoke Full-Stack Portfolio Architecture</h3>
+                <p class="project-tagline">High-contrast, zero-bloat personal portfolio designed for clarity, visual hierarchy, and real conversion.</p>
+                
+                <div class="problem-solution-box">
+                  <div class="ps-row">
+                    <strong>Problem Solved:</strong> Generic AI-generated templates overloaded with excessive gradients, blurry glass cards, and poor readability.
+                  </div>
+                  <div class="ps-row">
+                    <strong>Key Functionality:</strong> Strict white and electric blue color system, real-time contact validation, embedded developer CLI console, and varied project architectures.
+                  </div>
+                  <div class="ps-row highlight-result">
+                    <strong>Result &amp; Value:</strong> 100% Lighthouse audit performance, zero layout shift, and instant sub-100ms first paint.
+                  </div>
+                </div>
+
+                <div class="project-stack-pills" aria-label="Technologies used">
+                  <span class="stack-pill">Semantic HTML5</span>
+                  <span class="stack-pill">Modular CSS3</span>
+                  <span class="stack-pill">JavaScript (ES6+)</span>
+                  <span class="stack-pill">GitHub Pages CI/CD</span>
+                </div>
+
+                <div class="project-action-links">
+                  <a href="https://github.com/dilipkumarprudhvi-a11y/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View source repository of portfolio">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>Repository</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                  <a href="https://dilipkumarprudhvi-a11y.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="View live production deployment">
+                    <span>Live Production</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- System Code Preview Panel -->
+              <div class="featured-project-preview">
+                <div class="preview-chrome">
+                  <div class="chrome-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                  <span class="chrome-label">design-system.config.js</span>
+                  <span class="chrome-status">100% LIGHTHOUSE</span>
+                </div>
+                <div class="preview-body code-preview-body">
+                  <pre class="code-editor-text"><code><span class="c-kw">const</span> designSystem = {
+  theme: <span class="c-str">'Architectural White &amp; Royal Blue'</span>,
+  contrastRatio: <span class="c-str">'14.2:1 (AAA Compliant)'</span>,
+  hierarchy: {
+    hero: <span class="c-str">'5-Second Test Cleared'</span>,
+    forms: <span class="c-str">'Real-Time Input Validation'</span>,
+    projects: <span class="c-str">'Editorial Case Studies'</span>
+  },
+  dependencies: <span class="c-str">'Zero External Framework Bloat'</span>
+};</code></pre>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Tier 2: Additional Systems & Architecture Grid (Varied Density Grid) -->
+        <div class="additional-projects-header">
+          <h3 class="additional-title">Additional Systems &amp; Database Applications</h3>
+          <p class="additional-desc">Backend systems, relational database applications, and productivity workflows.</p>
+        </div>
+
+        <div class="additional-projects-grid" id="additional-projects-list">
+
+          <!-- Project 04: Full-Stack Web Application -->
+          <div class="system-project-card" data-category="fullstack" aria-labelledby="p4-title">
+            <div class="system-card-header">
+              <span class="system-index">04</span>
+              <span class="system-badge badge-wip">In Active Development</span>
+            </div>
+            <h4 id="p4-title" class="system-title">Full-Stack Enterprise Web Application</h4>
+            <p class="system-desc">
+              End-to-end full-lifecycle web platform built with a modular React frontend, RESTful Node/Express routing, JWT auth, and relational MySQL data schemas.
+            </p>
+            <div class="system-details">
+              <div><strong>Problem Solved:</strong> Reliable client-server synchronization with transactional ACID guarantees and secure session control.</div>
+            </div>
+            <div class="system-tags">
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>MySQL</span>
+              <span>JWT</span>
+            </div>
+            <div class="system-footer">
+              <span class="system-status-note">Private Internal Build</span>
             </div>
           </div>
 
-          <div class="timeline-item" data-side="right" role="listitem">
-            <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass" data-tilt>
-              <span class="timeline-year">2024 – Present</span>
-              <h3>B.Tech — AI &amp; Data Science</h3>
-              <p>Pursuing Bachelor of Technology in Artificial Intelligence and Data Science. Studying data structures, system architecture, and machine learning algorithms.</p>
+          <!-- Project 05: Student Management System -->
+          <div class="system-project-card" data-category="fullstack" aria-labelledby="p5-title">
+            <div class="system-card-header">
+              <span class="system-index">05</span>
+              <span class="system-badge">Java + SQL System</span>
+            </div>
+            <h4 id="p5-title" class="system-title">Student Management System</h4>
+            <p class="system-desc">
+              Academic administration portal engineered in Java using OOP principles, normalized MySQL schema design, and JDBC database connection pooling.
+            </p>
+            <div class="system-details">
+              <div><strong>Problem Solved:</strong> Eliminates manual record inaccuracies through normalized relational schemas and transactional SQL CRUD operations.</div>
+            </div>
+            <div class="system-tags">
+              <span>Java OOP</span>
+              <span>MySQL</span>
+              <span>JDBC</span>
+              <span>Relational DB</span>
+              <span>CRUD</span>
+            </div>
+            <div class="system-footer">
+              <a href="https://github.com/dilipkumarprudhvi-a11y/student-management" target="_blank" rel="noopener noreferrer" class="system-link">
+                <span>View Repository</span> &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 06: Task & Workflow Platform -->
+          <div class="system-project-card" data-category="web" aria-labelledby="p6-title">
+            <div class="system-card-header">
+              <span class="system-index">06</span>
+              <span class="system-badge">Productivity App</span>
+            </div>
+            <h4 id="p6-title" class="system-title">Task &amp; Workflow Platform</h4>
+            <p class="system-desc">
+              Responsive productivity system featuring workflow columns, priority filtering, localStorage persistence schemas, and an accessible keyboard navigation flow.
+            </p>
+            <div class="system-details">
+              <div><strong>Problem Solved:</strong> Lightweight client-side task tracking with instant keyboard shortcuts and zero cloud sync overhead.</div>
+            </div>
+            <div class="system-tags">
+              <span>JavaScript ES6+</span>
+              <span>HTML5</span>
+              <span>CSS3 Grid</span>
+              <span>LocalStorage</span>
+              <span>ARIA</span>
+            </div>
+            <div class="system-footer">
+              <a href="https://github.com/dilipkumarprudhvi-a11y/task-manager" target="_blank" rel="noopener noreferrer" class="system-link">
+                <span>View Repository</span> &rarr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE & EDUCATION SECTION ═══════════════ -->
+    <section id="experience" class="section experience-section" aria-labelledby="exp-heading">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">[ 04 / CHRONOLOGY &amp; MILESTONES ]</span>
+          <h2 id="exp-heading" class="section-title">Education &amp; Experience Journey</h2>
+          <p class="section-subtitle">Academic degrees, technical milestones, and continuous software engineering cadence.</p>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Item 1: B.Tech Degree -->
+          <div class="timeline-row">
+            <div class="timeline-period">
+              <span class="time-year">2024 – Present</span>
+              <span class="time-badge badge-active">CURRENTLY PURSUING</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-role">B.Tech in Artificial Intelligence &amp; Data Science</h3>
+              <div class="timeline-meta">Bachelor of Technology Program &bull; Hyderabad, India</div>
+              <p class="timeline-desc">
+                Focusing on Machine Learning algorithms, Data Structures &amp; Algorithms (DSA), Relational Database Management Systems (RDBMS), Natural Language Processing, and scalable software architecture.
+              </p>
               <div class="timeline-tags">
                 <span>Artificial Intelligence</span>
                 <span>Data Science</span>
+                <span>Data Structures</span>
                 <span>Algorithms</span>
-                <span>B.Tech</span>
+                <span>Software Systems</span>
               </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-side="left" role="listitem">
-            <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass" data-tilt>
-              <span class="timeline-year">2024 – Present</span>
-              <h3>Full-Stack Engineering &amp; Modern Web</h3>
-              <p>Mastering practical end-to-end web architecture: React, Node.js, Express, relational MySQL databases, and RESTful API ecosystems.</p>
+          <!-- Item 2: Full-Stack Web Development -->
+          <div class="timeline-row">
+            <div class="timeline-period">
+              <span class="time-year">2024 – Present</span>
+              <span class="time-badge badge-active">PRODUCTION BUILDS</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-role">Full-Stack Web Development &amp; Open Source</h3>
+              <div class="timeline-meta">Independent Engineering &bull; Public GitHub Cadence</div>
+              <p class="timeline-desc">
+                Architecting end-to-end web applications with React, Node.js, Express, and MySQL. Shipping open-source projects including ML fake news detection pipelines, interactive computational tools, and relational database systems.
+              </p>
               <div class="timeline-tags">
                 <span>React.js</span>
-                <span>Node.js</span>
-                <span>MySQL</span>
+                <span>Node.js / Express</span>
+                <span>MySQL Relational DB</span>
                 <span>REST APIs</span>
+                <span>Git / GitHub</span>
               </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-side="right" role="listitem">
-            <div class="timeline-dot active" aria-hidden="true"></div>
-            <div class="timeline-content glass" data-tilt>
-              <span class="timeline-year">2024 – Present</span>
-              <h3>Production Builds &amp; Open Source</h3>
-              <p>Shipping real-world software solutions: ML Fake News Detection, Modern Calculator, Portfolio Architecture, and database management systems.</p>
+          <!-- Item 3: Diploma in Engineering -->
+          <div class="timeline-row">
+            <div class="timeline-period">
+              <span class="time-year">2021 – 2024</span>
+              <span class="time-badge badge-done">COMPLETED</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-role">Diploma in Engineering</h3>
+              <div class="timeline-meta">State Board of Technical Education &bull; Technical Foundations</div>
+              <p class="timeline-desc">
+                Built foundational engineering competence in applied mathematics, structural logic, computer architecture, and core programming principles in C and Java.
+              </p>
               <div class="timeline-tags">
-                <span>Production Projects</span>
-                <span>GitHub Cadence</span>
-                <span>Open Source</span>
+                <span>Engineering Principles</span>
+                <span>Applied Mathematics</span>
+                <span>Procedural C</span>
+                <span>Object-Oriented Java</span>
               </div>
             </div>
           </div>
 
-          <div class="timeline-item" data-side="left" role="listitem">
-            <div class="timeline-dot future" aria-hidden="true"></div>
-            <div class="timeline-content glass future-card" data-tilt>
-              <span class="timeline-year">Future 🎯</span>
-              <h3>Full-Stack Software Engineer</h3>
-              <p>Contributing to high-impact production engineering teams, building scalable user-centric web products, and solving complex problems.</p>
+          <!-- Item 4: Career Objective -->
+          <div class="timeline-row timeline-future">
+            <div class="timeline-period">
+              <span class="time-year">Future Horizon</span>
+              <span class="time-badge badge-target">CAREER GOAL</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-role">Full-Stack Software Engineer</h3>
+              <div class="timeline-meta">High-Impact Engineering Teams</div>
+              <p class="timeline-desc">
+                Committed to delivering scalable web products, resilient backend architectures, and customer-first digital experiences in collaborative engineering environments.
+              </p>
               <div class="timeline-tags">
-                <span>Full-Stack Engineer</span>
                 <span>Scalable Systems</span>
-                <span>Product Impact</span>
+                <span>Product Engineering</span>
+                <span>Full-Stack Mastery</span>
               </div>
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
 
-    <!-- ═══════════════ EDUCATION SECTION ═══════════════ -->
-    <section id="education" class="section education-section" aria-labelledby="education-heading">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">[ 05 / ACADEMIC FOUNDATION ]</span>
-          <h2 id="education-heading" class="section-title">Education &amp; Degrees</h2>
-          <p class="section-subtitle">Academic degrees and engineering foundations supporting my development journey.</p>
-        </div>
-
-        <div class="education-grid">
-
-          <article class="edu-card glass" data-tilt aria-label="Diploma education">
-            <div class="edu-badge">Completed</div>
-            <h3 class="edu-degree">Diploma in Engineering</h3>
-            <p class="edu-branch">Technical Engineering</p>
-            <p class="edu-institution">State Board of Technical Education</p>
-            <p class="edu-year">2021 – 2024</p>
-            <p class="edu-desc">Comprehensive technical foundation in engineering principles, mathematics, and programming fundamentals.</p>
-            <div class="edu-tags">
-              <span>Engineering</span>
-              <span>Mathematics</span>
-              <span>Programming Basics</span>
-            </div>
-          </article>
-
-          <article class="edu-card glass current-edu" data-tilt aria-label="B.Tech education currently pursuing">
-            <div class="edu-badge current-badge">Currently Pursuing</div>
-            <h3 class="edu-degree">B.Tech in Artificial Intelligence &amp; Data Science</h3>
-            <p class="edu-branch">Computer Science / AI &amp; DS</p>
-            <p class="edu-institution">Bachelor of Technology Program</p>
-            <p class="edu-year">2024 – Present</p>
-            <p class="edu-desc">Specializing in Artificial Intelligence, Data Science, algorithms, data structures, and modern full-stack software development.</p>
-            <div class="edu-tags">
-              <span>AI</span>
-              <span>Data Science</span>
-              <span>Data Structures</span>
-              <span>Software Engineering</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════ GITHUB ENGINEERING SPOTLIGHT ═══════════════ -->
-    <section id="github" class="github-section" aria-labelledby="github-heading">
-      <div class="section-container">
-        <div class="github-bento-card glass" data-tilt>
-          <div class="github-bento-header">
-            <div class="github-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </div>
-            <div>
-              <span class="section-tag" style="margin:0 0 4px">[ OPEN SOURCE CADENCE ]</span>
-              <h2 id="github-heading" class="section-title" style="margin:0">Public Code &amp; Repositories</h2>
-            </div>
+        <!-- Professional Achievements & Verified Credentials -->
+        <div class="credentials-block">
+          <div class="credentials-header">
+            <h3 class="credentials-title">Verified Achievements &amp; Competencies</h3>
           </div>
           
-          <p class="github-desc">
-            I believe that true engineering competence is demonstrated through shipping code and clear commit history. Check out my GitHub profile to inspect repositories, architectural decisions, and project structures.
-          </p>
+          <div class="credentials-grid">
+            <div class="credential-item">
+              <div class="cred-num">01</div>
+              <div>
+                <h4 class="cred-title">B.Tech Academic Standing</h4>
+                <p class="cred-desc">Undergraduate in Artificial Intelligence and Data Science with coursework spanning data structures, algorithms, and relational databases.</p>
+              </div>
+            </div>
 
-          <div class="github-stats-row">
-            <div class="gh-stat-chip"><span class="gh-dot"></span> <strong>6+</strong> Repositories</div>
-            <div class="gh-stat-chip"><span class="gh-dot"></span> <strong>JavaScript / React / Node</strong></div>
-            <div class="gh-stat-chip"><span class="gh-dot"></span> <strong>Python &amp; ML</strong></div>
+            <div class="credential-item">
+              <div class="cred-num">02</div>
+              <div>
+                <h4 class="cred-title">Diploma in Engineering Graduate</h4>
+                <p class="cred-desc">Successfully completed a rigorous 3-year technical engineering curriculum emphasizing computing logic and mathematics.</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="cred-num">03</div>
+              <div>
+                <h4 class="cred-title">6+ Public GitHub Repositories</h4>
+                <p class="cred-desc">Consistently shipping verifiable code across JavaScript, Python, and Java with documented architectures.</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="cred-num">04</div>
+              <div>
+                <h4 class="cred-title">Multilingual ML &amp; OCR Engine</h4>
+                <p class="cred-desc">Designed and published a bilingual NLP and OCR classification engine achieving 98.4% precision.</p>
+              </div>
+            </div>
           </div>
-
-          <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic-btn">
-            <span>Explore dilipkumarprudhvi-a11y on GitHub</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- ═══════════════ CONTACT SECTION ═══════════════ -->
+    <!-- ═══════════════ CONTACT SECTION (STRONG FINAL CTA) ═══════════════ -->
     <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">[ 06 / INITIATE CONTACT ]</span>
+          <span class="section-tag">[ 05 / INITIATE CONTACT ]</span>
           <h2 id="contact-heading" class="section-title">Let's Build Something Exceptional</h2>
           <p class="section-subtitle">Open to full-stack software engineering opportunities, product collaborations, and technical challenges.</p>
         </div>
 
-        <div class="contact-grid">
+        <div class="contact-layout">
 
-          <div class="contact-info">
-            <h3 class="contact-info-heading">Direct Transmission</h3>
-            <p class="contact-info-sub">Reach out directly via email or connect with me across professional platforms.</p>
+          <!-- Left Column: Direct Transmission Info -->
+          <div class="contact-info-panel">
+            <h3 class="contact-panel-title">Direct Communication</h3>
+            <p class="contact-panel-desc">
+              Whether you are discussing a full-time software engineering role, an internship, a freelance build, or an open-source collaboration, I am always ready to talk.
+            </p>
 
-            <div class="contact-items">
+            <div class="contact-channel-list">
               
-              <div class="contact-item glass" data-tilt>
-                <div class="contact-item-icon" aria-hidden="true">
+              <!-- Email Item -->
+              <div class="contact-channel-item">
+                <div class="channel-icon-wrap" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <div>
-                  <div class="contact-item-label">Direct Email</div>
-                  <a href="mailto:dilipkumarprudhvi@gmail.com" class="contact-item-value">dilipkumarprudhvi@gmail.com</a>
+                <div class="channel-content">
+                  <span class="channel-label">DIRECT EMAIL</span>
+                  <a href="mailto:dilipkumarprudhvi@gmail.com" class="channel-link">dilipkumarprudhvi@gmail.com</a>
                 </div>
               </div>
 
-              <div class="contact-item glass" data-tilt>
-                <div class="contact-item-icon" aria-hidden="true">
+              <!-- GitHub Item -->
+              <div class="contact-channel-item">
+                <div class="channel-icon-wrap" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 </div>
-                <div>
-                  <div class="contact-item-label">GitHub</div>
-                  <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/dilipkumarprudhvi-a11y</a>
+                <div class="channel-content">
+                  <span class="channel-label">GITHUB PROFILE</span>
+                  <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="channel-link">github.com/dilipkumarprudhvi-a11y</a>
                 </div>
               </div>
 
-              <div class="contact-item glass" data-tilt>
-                <div class="contact-item-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <!-- Location Item -->
+              <div class="contact-channel-item">
+                <div class="channel-icon-wrap" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                <div>
-                  <div class="contact-item-label">LinkedIn</div>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item-value">Connect on LinkedIn</a>
+                <div class="channel-content">
+                  <span class="channel-label">LOCATION</span>
+                  <span class="channel-plain">Hyderabad, Telangana, India</span>
                 </div>
               </div>
 
             </div>
+
+            <!-- Quick Copy Callout -->
+            <div class="contact-copy-callout">
+              <span class="callout-lead">Prefer quick email?</span>
+              <button id="copy-email-btn-2" class="btn btn-sm btn-secondary" title="Copy email address" aria-label="Copy email address">
+                <span>Copy dilipkumarprudhvi@gmail.com</span>
+              </button>
+            </div>
           </div>
 
-          <div class="contact-form-wrap glass">
-            <form id="contact-form" novalidate aria-label="Contact form">
+          <!-- Right Column: Refined Contact Form (Zero Field Errors) -->
+          <div class="contact-form-card">
+            <h3 class="form-card-title">Send a Direct Message</h3>
+            
+            <form id="contact-form" novalidate aria-label="Direct message form">
+              
               <div class="form-row">
                 <div class="form-group">
-                  <input type="text" id="f-name" name="name" placeholder=" " required autocomplete="name" />
-                  <label for="f-name">Your Name</label>
+                  <label for="f-name">Your Name <span class="required-star">*</span></label>
+                  <input type="text" id="f-name" name="name" placeholder="Prudhvi Dilip Kumar" required autocomplete="name" aria-describedby="name-error" />
                   <span class="form-error" id="name-error" role="alert"></span>
                 </div>
+
                 <div class="form-group">
-                  <input type="email" id="f-email" name="email" placeholder=" " required autocomplete="email" />
-                  <label for="f-email">Email Address</label>
+                  <label for="f-email">Email Address <span class="required-star">*</span></label>
+                  <input type="email" id="f-email" name="email" placeholder="name@domain.com" required autocomplete="email" aria-describedby="email-error" />
                   <span class="form-error" id="email-error" role="alert"></span>
                 </div>
               </div>
+
               <div class="form-group">
-                <input type="text" id="f-subject" name="subject" placeholder=" " required />
-                <label for="f-subject">Subject</label>
+                <label for="f-subject">Subject <span class="required-star">*</span></label>
+                <input type="text" id="f-subject" name="subject" placeholder="Full-Stack Engineering Role / Project Inquiry" required aria-describedby="subject-error" />
                 <span class="form-error" id="subject-error" role="alert"></span>
               </div>
+
               <div class="form-group">
-                <textarea id="f-message" name="message" placeholder=" " required rows="5"></textarea>
-                <label for="f-message">Your Message</label>
+                <label for="f-message">Your Message <span class="required-star">*</span></label>
+                <textarea id="f-message" name="message" placeholder="Describe your project, team opportunity, or inquiry..." required rows="5" aria-describedby="message-error"></textarea>
                 <span class="form-error" id="message-error" role="alert"></span>
               </div>
-              <button type="submit" class="btn btn-primary magnetic-btn" style="width:100%;justify-content:center">
+
+              <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+
+              <button type="submit" class="btn btn-lg btn-primary submit-btn">
                 <span>Transmit Message</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </button>
+
             </form>
           </div>
 
         </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════ STUDIO FOOTER ═══════════════ -->
-  <footer class="studio-footer" role="contentinfo">
-    <div class="footer-container section-container">
-
-      <div class="footer-brand">
+  <!-- ═══════════════ EDITORIAL FOOTER ═══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="section-container footer-container">
+      
+      <div class="footer-brand-col">
         <a href="#home" class="footer-logo">
-          <span class="logo-text">PDK</span><span class="logo-dot">.</span>
+          <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
         </a>
-        <p class="footer-tagline">Full-Stack Developer &amp; Software Builder</p>
-        <p class="footer-sub">Engineering scalable software from database schemas to interactive client experiences.</p>
+        <p class="footer-tagline">Prudhvi Dilip Kumar — Full-Stack Developer</p>
+        <p class="footer-sub">Engineering scalable web applications, relational database schemas, and intelligent machine learning solutions.</p>
       </div>
 
-      <div class="footer-links">
-        <h4 class="footer-links-title">Index</h4>
-        <ul role="list">
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Navigation Index</h4>
+        <ul class="footer-links-list" role="list">
           <li><a href="#home">01. Home</a></li>
-          <li><a href="#about">02. Profile &amp; CLI</a></li>
-          <li><a href="#projects">03. Exhibition</a></li>
-          <li><a href="#skills">04. Toolkit</a></li>
-          <li><a href="#journey">05. Roadmap</a></li>
+          <li><a href="#about">02. About &amp; CLI</a></li>
+          <li><a href="#skills">03. Technical Stack</a></li>
+          <li><a href="#projects">04. Selected Works</a></li>
+          <li><a href="#experience">05. Experience Journey</a></li>
           <li><a href="#contact">06. Contact</a></li>
         </ul>
       </div>
 
-      <div class="footer-social">
-        <h4 class="footer-links-title">Channels</h4>
-        <div class="social-icons">
-          <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="mailto:dilipkumarprudhvi@gmail.com" class="social-icon" aria-label="Email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-        </div>
+      <div class="footer-channels-col">
+        <h4 class="footer-col-title">Public Channels</h4>
+        <ul class="footer-links-list" role="list">
+          <li><a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer">GitHub / dilipkumarprudhvi-a11y</a></li>
+          <li><a href="mailto:dilipkumarprudhvi@gmail.com">Direct Email / dilipkumarprudhvi@gmail.com</a></li>
+          <li><a href="assets/resume.pdf" download>Download Curriculum Vitae (PDF)</a></li>
+        </ul>
       </div>
 
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>Prudhvi Dilip Kumar</strong>. Crafted with Creative Precision.</p>
-      <p class="footer-credit">Senior Full-Stack Engineering Architecture</p>
+    <div class="footer-bottom-bar">
+      <div class="section-container footer-bottom-inner">
+        <p>&copy; 2026 <strong>Prudhvi Dilip Kumar</strong>. Crafted with senior design precision.</p>
+        <p class="footer-note">Clean Architecture &bull; High Contrast &bull; Responsive Design</p>
+      </div>
     </div>
 
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
@@ -757,18 +1140,9 @@
     </button>
   </footer>
 
-  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
-
-  <!-- ═══════════════ CORE SCRIPTS ═══════════════ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
-
-  <script src="js/projects.js?v=4.0" defer></script>
-  <script src="js/three-hero.js?v=4.0" defer></script>
-  <script src="js/animations.js?v=4.0" defer></script>
-  <script src="js/main.js?v=4.0" defer></script>
+  <!-- ═══════════════ CORE LIGHTWEIGHT SCRIPTS ═══════════════ -->
+  <script src="js/projects.js?v=8.0" defer></script>
+  <script src="js/main.js?v=8.0" defer></script>
 
 </body>
 </html>
