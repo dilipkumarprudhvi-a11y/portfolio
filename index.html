@@ -76,6 +76,10 @@
   <header class="site-header">
     <div class="nav-container">
       <a href="#home" class="nav-brand" aria-label="Prudhvi Dilip Kumar">
+        <div class="brand-avatar-wrap" aria-hidden="true">
+          <img src="assets/images/dilip-portrait.jpg" alt="Prudhvi Dilip Kumar" class="brand-avatar-img" />
+          <span class="avatar-status-dot" title="Available for work"></span>
+        </div>
         <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
       </a>
 
@@ -111,7 +115,10 @@
   <div id="mobile-overlay" class="mobile-overlay" aria-hidden="true"></div>
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <div class="mobile-menu-header">
-      <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
+      <div class="mobile-brand-wrap">
+        <img src="assets/images/dilip-portrait.jpg" alt="Prudhvi Dilip Kumar" class="brand-avatar-img" />
+        <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
+      </div>
       <button id="mobile-close-btn" class="mobile-close-btn" aria-label="Close navigation">&times;</button>
     </div>
     <nav aria-label="Mobile navigation links">
@@ -197,8 +204,24 @@
           </div>
         </div>
 
-        <!-- Professional System Architecture Inspector (Entrance Sequence: 600ms + Depth Parallax) -->
+        <!-- Professional System Architecture Inspector & Developer Portrait -->
         <div class="hero-preview-wrap hero-intro-visual" id="hero-visual-wrap">
+          
+          <!-- Editorial Developer Portrait Card -->
+          <div class="hero-portrait-card" data-reveal="true" data-cursor="view" aria-label="Prudhvi Dilip Kumar Portrait">
+            <div class="hero-portrait-media">
+              <img src="assets/images/dilip-portrait.jpg" alt="Prudhvi Dilip Kumar standing on campus" class="hero-portrait-img" loading="eager" />
+              <div class="hero-portrait-overlay">
+                <div class="portrait-tag-row">
+                  <span class="portrait-status-tag"><span class="pulse-beacon"></span>ACTIVE DEVELOPER</span>
+                  <span class="portrait-location-tag">📍 Hyderabad, India</span>
+                </div>
+                <div class="portrait-title-overlay">Prudhvi Dilip Kumar</div>
+                <div class="portrait-sub-overlay">Full-Stack Engineer &bull; B.Tech in AI &amp; Data Science</div>
+              </div>
+            </div>
+          </div>
+
           <div class="system-inspector-card" id="hero-inspector-card" aria-label="System Architecture &amp; Developer Specification">
             <div class="inspector-scanline" aria-hidden="true"></div>
             <div class="inspector-header">
@@ -314,8 +337,22 @@
           <!-- Structured Info & Interactive Terminal Column -->
           <div class="about-aside">
             
+            <!-- Academic & Engineering Focus Card -->
+            <div class="about-focus-card" data-reveal="true" aria-label="Engineering Education at QISCET">
+              <div class="about-focus-header">
+                <span class="about-focus-badge"><span class="pulse-dot"></span>CAMPUS &bull; APPLIED AI</span>
+                <span class="about-focus-degree">QISCET Autonomous</span>
+              </div>
+              <div class="about-focus-media">
+                <img src="assets/images/dilip-engineer-focus.jpg" alt="Prudhvi Dilip Kumar studying on campus grass" class="about-focus-img" loading="lazy" />
+              </div>
+              <div class="about-focus-caption">
+                <strong>Applied Engineering in Action:</strong> Pursuing B.Tech coursework in Machine Learning, RDBMS, and Data Structures while building full-stack web applications.
+              </div>
+            </div>
+
             <!-- Quick Facts Card -->
-            <div class="fact-sheet-card">
+            <div class="fact-sheet-card" data-reveal="true">
               <h3 class="fact-sheet-title">Profile Snapshot</h3>
               
               <ul class="fact-list" role="list">
@@ -1155,6 +1192,9 @@
       
       <div class="footer-brand-col">
         <a href="#home" class="footer-logo">
+          <div class="brand-avatar-wrap footer-avatar-wrap" aria-hidden="true">
+            <img src="assets/images/dilip-portrait.jpg" alt="Prudhvi Dilip Kumar" class="brand-avatar-img" />
+          </div>
           <span class="brand-monogram">PDK</span><span class="brand-dot">.</span>
         </a>
         <p class="footer-tagline">Prudhvi Dilip Kumar — Full-Stack Developer</p>

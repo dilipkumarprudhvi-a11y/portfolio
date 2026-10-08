@@ -284,6 +284,52 @@ button, input, textarea {
   color: var(--accent);
 }
 
+.brand-avatar-wrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  margin-right: 0.65rem;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.brand-avatar-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+  transition: transform 0.25s var(--ease-smooth);
+}
+
+.nav-brand:hover .brand-avatar-img {
+  transform: scale(1.08);
+}
+
+.avatar-status-dot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 9px;
+  height: 9px;
+  background: #10B981;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(16, 185, 129, 0.5);
+}
+
+.mobile-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-avatar-wrap {
+  margin-right: 0.6rem;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -553,12 +599,110 @@ button, input, textarea {
   font-size: 1rem;
 }
 
-/* System Architecture Inspector (Hero Visual Element) */
+/* System Architecture Inspector & Developer Portrait */
 .hero-preview-wrap {
   width: 100%;
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
+}
+
+/* Hero Developer Portrait Card */
+.hero-portrait-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.25rem;
+  transition: transform 0.35s var(--ease-smooth),
+              box-shadow 0.35s var(--ease-smooth),
+              border-color 0.3s ease;
+  width: 100%;
+}
+
+.hero-portrait-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-portrait-media {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #0B1120;
+}
+
+.hero-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.6s var(--ease-smooth);
+  display: block;
+}
+
+.hero-portrait-card:hover .hero-portrait-img {
+  transform: scale(1.035);
+}
+
+.hero-portrait-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.72) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem;
+  color: #FFFFFF;
+}
+
+.portrait-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.portrait-status-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #38BDF8;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portrait-location-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.portrait-title-overlay {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.portrait-sub-overlay {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  line-height: 1.35;
 }
 
 .system-inspector-card {
@@ -781,6 +925,85 @@ button, input, textarea {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+/* About Academic & Engineering Focus Photo Card */
+.about-focus-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease-smooth),
+              box-shadow 0.35s var(--ease-smooth),
+              border-color 0.3s ease;
+}
+
+.about-focus-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.about-focus-header {
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-focus-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.about-focus-degree {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.about-focus-media {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #0B1120;
+}
+
+.about-focus-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.6s var(--ease-smooth);
+  display: block;
+}
+
+.about-focus-card:hover .about-focus-img {
+  transform: scale(1.04);
+}
+
+.about-focus-caption {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  border-top: 1px solid var(--border-light);
+  background: #FFFFFF;
+}
+
+.about-focus-caption strong {
+  color: var(--text-primary);
 }
 
 .fact-sheet-card {
@@ -2324,10 +2547,20 @@ button, input, textarea {
   .studio-terminal,
   .calc-card,
   .tenet-card,
-  .fact-sheet-card {
+  .fact-sheet-card,
+  .hero-portrait-card,
+  .about-focus-card {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .hero-portrait-media {
+    height: 220px;
+  }
+
+  .about-focus-media {
+    height: 220px;
   }
 }
 

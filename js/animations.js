@@ -18,6 +18,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveals();
     initHeroParallax();
+    initPhotoCardHoverTilt();
     initCustomCursor();
     initMagneticElements();
     initFakeNewsPipeline();
@@ -206,6 +207,31 @@
       requestAnimationFrame(renderParallax);
     }
     requestAnimationFrame(renderParallax);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     3b. PHOTO CARDS 3D PERSPECTIVE TILT (DESKTOP ONLY)
+     ══════════════════════════════════════════════════════════════════ */
+  function initPhotoCardHoverTilt() {
+    if (isReducedMotion || !isFinePointer || window.innerWidth <= 768) return;
+
+    const cards = document.querySelectorAll('.hero-portrait-card, .about-focus-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        const tiltX = (y / (rect.height / 2)) * -4;
+        const tiltY = (x / (rect.width / 2)) * 4;
+
+        card.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-3px)`;
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
   }
 
   /* ══════════════════════════════════════════════════════════════════
