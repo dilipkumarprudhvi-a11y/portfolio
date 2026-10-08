@@ -319,7 +319,7 @@ const TERMINAL_COMMANDS = {
     <div><strong>Direct Contact Channels:</strong></div>
     <div>• Email: <a href="mailto:dilipkumarprudhvi@gmail.com" style="color:#38BDF8;text-decoration:underline">dilipkumarprudhvi@gmail.com</a></div>
     <div>• GitHub: <a href="https://github.com/dilipkumarprudhvi-a11y" target="_blank" rel="noopener noreferrer" style="color:#38BDF8;text-decoration:underline">github.com/dilipkumarprudhvi-a11y</a></div>
-    <div>• Location: Hyderabad, India</div>
+    <div>• Location: Chirala, Andhra Pradesh, India</div>
     <div>• Status: Available for Full-Stack Roles &amp; Collaborations</div>
   `,
   hi: () => `<div>Hello! 👋 Welcome to Prudhvi Dilip Kumar's developer console. Type <span class="cmd-highlight">help</span> to explore commands.</div>`,
